@@ -1,0 +1,6 @@
+# Introducción a JavaScript
+
+## ¿Qué es JavaScript?
+
+_JavaScript es un lenguaje de programación interpretado, dinamicamente tipado, que agrega interactivdad a sitios web, que se usa para el desarrollo web, aplicaciones web, para el desarrollo web de videojuegos  y mucho más. Este lenguaje es utilizado principalmente para ejecutar acciones del lado del cliente, tambien se puede utilizar del lado del servidor mediante NodeJS._
+
