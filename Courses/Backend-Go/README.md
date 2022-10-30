@@ -4,6 +4,8 @@
 
 + Es compilado y estaticamente tipado, eso quiere decir que tienes que compilar el codigo para poder ejecutarlo en tu maquina y estaticamente tipado indica que tienes que especificarle el tipo de variable o tipo de constante para poder guardar un valor en el.
 
++ Es concurrente.
+
 + Fue Creado en Google por Robert Griesemer. Rob Pike y Ken Thompson.
 
 + Fue anunciado en Noviembre del 2009 sin embargo su primera versión salío en Marzo del 2012.
