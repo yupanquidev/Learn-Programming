@@ -28,18 +28,18 @@
 
 + Obliga a implemetar buenas prácticasde programación.
 
-+ La comunidad en muy receptiva, contribuye y aporta codígo.
++ La comunidad en muy receptiva, contribuye y aporta código.
 
 ## ¿Quiénes usan Go?
 
-Go es utilizado en múltiples enmpresas:
+### _Go es utilizado en múltiples enmpresas:_
 
-+ MercadoLibre: Ellos utilizan para procesar 70.000 REQUEST en máquinas solamente de 20 MB RAM.
++ **MercadoLibre:** Ellos utilizan para procesar 70.000 REQUEST en máquinas solamente de 20 MB RAM.
 
-+ Twitch: Utilzan para usuarios de forma concurrente con sus conexiones.
++ **Twitch:** Utilzan para usuarios de forma concurrente con sus conexiones.
 
-+ Twitter: Utiliza Go para procesar analítica de la App.
++ **Twitter:** Utiliza Go para procesar analítica de la App.
 
-+ Uber: Utiliza Go para mantener en posición en tiempo real tanto conductores o como pasajeros.
++ **Uber:** Utiliza Go para mantener en posición en tiempo real tanto conductores o como pasajeros.
 
-+ Docker y Kubernetes: Para despliegue de Apps.
++ **Docker** y **Kubernetes:** Para despliegue de Apps.

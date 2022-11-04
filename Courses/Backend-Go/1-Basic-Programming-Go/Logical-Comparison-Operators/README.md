@@ -1,7 +1,6 @@
 # Operadores lógicos y de comparación
-Son operadores que nos permiten hacer una comparación de condiciones y en caso de cumplirse como sino ejecutarán un código determinado. Si se cumple es VERDADERO/TRUE y si no se cumple son FALSO/FALSE.
 
-Empecemos con los operadores de comparación:
+Son operadores que nos permiten hacer una comparación de condiciones y en caso de cumplirse como sino ejecutarán un código determinado. Si se cumple es VERDADERO/TRUE y si no se cumple son FALSO/FALSE.
 
 ## Operadores de comparación
 
@@ -30,4 +29,4 @@ Este operador indica que al menos una de las condiciones debe cumplirse para mar
 Ejemplo: 2<0 || 1 > 0 Esto retornará TRUE porque la segunda condición se cumple, a pesar que la primera no.
 
 Operador NOT:
-Este operador retornará el opuesto al boleano que está dentro de la variable. Ejemplo:
+Este operador retornará el opuesto al boleano que está dentro de la variable.
