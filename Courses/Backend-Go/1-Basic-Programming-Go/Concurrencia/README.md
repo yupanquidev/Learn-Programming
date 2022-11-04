@@ -1,6 +1,6 @@
 # Concurrencia
 
-## ¿Qué es la concurrencia?
+### __¿Qué es la concurrencia?__
 
 La concurrencia está tratando múltiples
 cosas a la vez mientras
