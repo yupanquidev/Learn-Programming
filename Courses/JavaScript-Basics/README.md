@@ -1,4 +1,4 @@
-# Introducción a JavaScript
+# Lenguaje de Programación JavaScript
 
 ## ¿Qué es JavaScript?
 
