@@ -11,7 +11,7 @@ func main() {
 	myCar := car{brand: "Ford", year: 2022}
 	fmt.Println(myCar)
 
-	// Otra manera
+	// Otra manera 
 	var otherCar car
 	otherCar.brand = "Ferrari"
 	fmt.Println(otherCar)
