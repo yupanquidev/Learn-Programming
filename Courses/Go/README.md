@@ -2,7 +2,7 @@
 
 ## Historia
 
-+ Creado en Google en 2007 por Robert Griesemer. Rob Pike y Ken Thompson.
++ Creado en Google en 2007 por Robert Griesemer. Rob Pike y Ken Thompson. Creado con intención de que en Google necesitaban un lenguaje que le pudiera ayudar a crear o manejar procesos extremadamente pesados, entonces necesitaban un lenguaje con la potencia de C, pero con una sintaxis más amigable con la de Python.
 
 + Anunciado en Noviembre del 2009 sin embargo su primera versión salío en Marzo del 2012.
 
@@ -22,16 +22,23 @@
 
 ## ¿Qué es Go?
 
-+ Es compilado y estáticamente tipado, eso quiere decir que tienes que compilar el código para poder ejecutarlo en tu máquina y estáticamente tipado indica que tienes que especificarle el tipo de variable o tipo de constante para poder guardar un valor en el.
++ Es compilado (Cross-compiling y rápido) y estáticamente tipado, eso quiere decir que tienes que compilar el código para poder ejecutarlo en tu máquina y estáticamente tipado indica que tienes que especificarle el tipo de variable o tipo de constante para poder guardar un valor en el.
 
-+ Es concurrente.
-
-
-+ Fue creado con intención de que en Google necesitaban un lenguaje que le pudiera ayudar a crear o manejar procesos extremadamente pesados, entonces necesitaban un lenguaje con la potencia de C, pero con una sintaxis más amigable con la de Python.
++ Es concurrente de forma nativa.
 
 + Su nombre oficial es Go, sin embargo desde la comunidad, para evitar confusiones con la palabra en ingles, se utilizó el término Golang.
 
 + Los programadores de este lenguaje se hacen llamar "Gophers".
+
+## Características
+
++ Multiparadigma.
+
++ Guía de estilos.
+
++ No tienen excepciones.
+
++ No implementa la POO clasíca.
 
 ## ¿Por qué deberías aprender Go?
 
