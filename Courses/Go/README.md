@@ -14,11 +14,11 @@
 
 + Influencia de lenguajes:
   
-  + C (se tomó su sintaxis).
+  + De C (se tomó su sintaxis).
   
-  + Pascal y derivados (se tomó importación de paquetes y declaraciones).
+  + De Pascal y derivados (se tomó importación de paquetes y declaraciones).
   
-  + CSP y descendientes (se tomó el concepto de concurrencia).
+  + De CSP y descendientes (se tomó el concepto de concurrencia).
 
 ## ¿Qué es Go?
 
