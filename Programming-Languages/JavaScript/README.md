@@ -2,11 +2,32 @@
 
 ## Historia
 
-## ¿Que es javascrit?
++ JavaScript nace a partir de un navegador que actualmente, que ya no existe llamada "NetScape".
+
++ 1995, Netscape se dio cuenta de que un documento HTML, no podía interactuar con el usuario. 
+
++ Creado como un lenguaje de Scripting.
+
++ Creado por Brendan Eich que trabajaba en NetScape, en tan solo una semana, pero no era perfecto.
+
++ No se llamaba JavaScript, se llamaba Nocha, luego LiveScript, porque eran scripts vivos en navegador.
+
 ## ¿Qué es JavaScript?
 
-- _JavaScript es un lenguaje de programación interpretado, dinamicamente tipado, agrega interactivdad a sitios web, que se usa para el desarrollo web, aplicaciones web, para el desarrollo web de videojuegos  y mucho más. Este lenguaje es utilizado principalmente para ejecutar acciones del lado del cliente, tambien se puede utilizar del lado del servidor mediante NodeJS._
-## Caracteristicas
-## ¿Por qué deberias aprender javascript
-## ¿Quienes usan javascript?
++ Es usado en: 
 
+  + Crear sitios web interactivos.
+
+  + Crear servidores web, aplicaciones móviles, aplicaciones de escritorios y se utiliza en bases de datos.
+
++ Se ejecuta directamente en el navegador.
+
++ Interpretado.
+
++ Imperativo.
+
++ Dinámicamente tipado o Débilmente tipado.
+
++ Multiparadigma (Estructurada, Orientada a objetos, Reactiva, etc.).
+
++ De propósito general.

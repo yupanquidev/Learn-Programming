@@ -26,11 +26,11 @@
 
 ## ¿Qué es Go?
 
-+ Es compilado (Cross-compiling y rápido) y estáticamente tipado, eso quiere decir que tienes que compilar el código para poder ejecutarlo en tu máquina y estáticamente tipado indica que tienes que especificarle el tipo de variable o tipo de constante para poder guardar un valor en el.
++ Es compilado (Cross-compiling y rápido) y estáticamente tipado o fuertemente tipado, eso quiere decir que tienes que compilar el código para poder ejecutarlo en tu máquina y estáticamente tipado indica que tienes que especificarle el tipo de variable o tipo de constante para poder guardar un valor en el.
 
 + Concurrencia de forma nativa.
 
-+ Multiparadigma.
++ Multiparadigma (Estructurada, Orientada a objetos, Reactiva, etc.).
 
 + Guía de estilos.
 
@@ -46,7 +46,7 @@
 
 ## ¿Quiénes usan Go?
 
-**_Go es utilizado en múltiples enmpresas:_**
+**_Go es utilizado en múltiples en mpresas:_**
 
 + **MercadoLibre:** Ellos utilizan para procesar 70.000 REQUEST en máquinas solamente de 20 MB RAM.
 

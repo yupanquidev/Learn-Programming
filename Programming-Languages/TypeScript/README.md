@@ -16,13 +16,13 @@
 
 + TypeScript es un superset, tiene una sintaxis muy intuitiva y que nos recuerda a otros lenguajes orientados a objetos. 
 
++ Estáticamente tipado o fuertemente tipado
+
 + Agrega funciones a JavaScript, tales cómo Types y Decorators.
 
 + Transpilado o (Transpila/compila a JavaScript) y estáticamente tipado.
 
-+ Programación orientada a objetos (POO).
-
-+ Multiparadigma.
++ Multiparadigma (Estructurada, Orientada a objetos, Reactiva, etc.).
 
 + Permite encontrar errores en el código en desarrollo y no en tiempo de ejecución.
 
