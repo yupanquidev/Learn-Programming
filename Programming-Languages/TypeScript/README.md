@@ -20,7 +20,7 @@
 
 + Agrega funciones a JavaScript, tales cómo Types y Decorators.
 
-+ Transpilado o (Transpila/compila a JavaScript) y estáticamente tipado.
++ Transpilado o (Transpila/compila a JavaScript).
 
 + Multiparadigma (Estructurada, Orientada a objetos, Reactiva, etc.).
 
