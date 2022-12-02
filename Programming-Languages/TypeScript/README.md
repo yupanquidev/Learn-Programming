@@ -2,7 +2,7 @@
 
 ## Historia
 
-+ 2012, apareción de TypeScript de manera publica, Luego de que Microsoft termino de desarrolllarlo durante 2 años. 
++ 2012, apareción de TypeScript de manera pública, Luego de que Microsoft término de desarrolllarlo durante 2 años. 
 
 + Versión 0.9, lanzado en 2013, en esta versión se agregó soporte para genéricos. 
 
