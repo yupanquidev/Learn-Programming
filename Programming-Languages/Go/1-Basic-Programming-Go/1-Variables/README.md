@@ -1,3 +1,5 @@
+# Variables
+
 ## Tener en cuenta:
 
 + Todo archivo de GO tiene como extensión: `<nombre-archivo>.go`

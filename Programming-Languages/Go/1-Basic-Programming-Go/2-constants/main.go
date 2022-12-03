@@ -4,6 +4,7 @@ import "fmt"
 
 func main() {
 	// Declaración de constantes
+
 	// Una constante, a diferencia  de una variable es una valor que nunca va ha cambiar en el tiempo.
 
 	// Forma 1 de declarar constantes
