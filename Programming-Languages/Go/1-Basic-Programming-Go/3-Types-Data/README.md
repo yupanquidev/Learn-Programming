@@ -12,24 +12,23 @@
 
   + Tipos de datos numéricos:
 
-+ Números enteros positivos:
+	+ `uint`, `int` -> almacenan números enteros.
 
-| Tipo | Rango | Almacenamiento |
-| -- | -- | -- |
-| uint | Depende del OS | 32 o 64 bits |
-| uint8 | 0 a 127 | 8bits |
-| uint16 | 0 a 2^15-1 | 16bits |
-| uint32 | 0 a 2^31-1 | 32bits |
-| uint64 | 0 a 2^63-1 | 64bits |
+		+ `uint` (unsigned integer): Almacena solo números positivos (No negativos).
 
-+ `uint`, `int` -> almacenan números enteros.
-
-+ `uint` (unsigned integer): Almacena solo números positivos (No negativos).
-
-			```go 
-			var a uint = 64
+		+ ```go 
+				var a uint = 64		
 			```
 
+		+ Números enteros positivos `uint`:
+
+			| Tipo | Rango | Almacenamiento |
+			| -- | -- | -- |
+			| uint | Depende del OS | 32 o 64 bits |
+			| uint8 | 0 a 127 | 8bits |
+			| uint16 | 0 a 2^15-1 | 16bits |
+			| uint32 | 0 a 2^31-1 | 32bits |
+			| uint64 | 0 a 2^63-1 | 64bits |
 
 // Zero value => es un valor uqe va tener por defecto al momento de crear una variable cuando no le asignamos un valor.
 	// Valores por defecto
