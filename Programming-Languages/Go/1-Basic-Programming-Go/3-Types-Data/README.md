@@ -93,7 +93,7 @@ Permite cambiar temporalmente el tipo de dato de una variable para realizar una 
 ### **Zero value:** 
 Es un valor que va tener por defecto al momento de crear una variable cuando no le asignamos un valor.
 	
-+ Valores por defecto
++ Valores por defecto:
 
 	```go
 		var a int     // Valor por defecto es = 0
