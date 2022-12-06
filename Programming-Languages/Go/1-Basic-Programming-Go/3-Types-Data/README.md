@@ -47,7 +47,6 @@
 				| int64 | -2^63 a 2^63-1 | 64 bits |
 				| uintptr | Representación entera de una dirección de memoria. |
 
-
 	+ `float`: Almacenan números decimales.
 
 		+ ```go
@@ -60,7 +59,6 @@
 			| -- | -- | -- |
 			| float32 | +/- 1.18e^-38 +/- -3.4e^38 | 32 bits |
 			| float64 | +/- 2.23e^-308 +/- -1.8e^308 | 64 bits |
-
 
 	+ `complex64`: Datos complejos.
 
@@ -81,8 +79,6 @@
 	+ `byte` alias para `uint8`.
 
 	+ `rune` alias para `int32`, También representa un punto de código Unicode.
-
-
 
 ### **Casting:**
 
