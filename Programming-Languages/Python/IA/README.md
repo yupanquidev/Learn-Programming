@@ -1,0 +1,3 @@
+# La Inteligencia Artificial (IA)
+
+La inteligencia artificial (IA) es un campo de la informática que se enfoca en la creación de sistemas y algoritmos que puedan simular el comportamiento inteligente de los seres humanos. Esto incluye tareas como el razonamiento, el aprendizaje, la resolución de problemas y la capacidad de adaptarse a nuevas situaciones. La IA se utiliza en una amplia variedad de aplicaciones, como el reconocimiento de voz y de imagen, el procesamiento del lenguaje natural y la toma de decisiones autónomas. A medida que la tecnología avanza, la IA se está convirtiendo en una herramienta cada vez más importante en diferentes campos, desde la ciencia de datos hasta la robótica y la salud.
