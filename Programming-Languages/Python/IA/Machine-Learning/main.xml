@@ -1,0 +1,38 @@
+<table aling=left>
+  <tr>
+    <th>fiebre</th>
+    <th>tos seca</th>
+    <th>Congestion nasal</th>
+    <th>Dicultad, respirar</th>
+  </tr>
+  <tr>
+    <th>frecuente=0</th>
+    <th>frecuente=0</th>
+    <th>frecuente=0</th>
+    <th>frecuente=0</th>
+  </tr>
+  <tr>
+    <th>frecuente=0</th>
+    <th>frecuente=0</th>
+    <th>frecuente=0</th>
+    <th>frecuente=1</th>
+  </tr>
+  <tr>
+    <th>frecuente=0</th>
+    <th>frecuente=0</th>
+    <th>frecuente=1</th>
+    <th>frecuente=1</th>
+  </tr>
+  <tr>
+    <th>frecuente=0</th>
+    <th>frecuente=1</th>
+    <th>frecuente=1</th>
+    <th>frecuente=1</th>
+  </tr>
+    <tr>
+    <th>frecuente=1</th>
+    <th>frecuente=1</th>
+    <th>frecuente=1</th>
+    <th>frecuente=1</th>
+  </tr>
+</table>

@@ -1,0 +1,27 @@
+<table aling=left>
+  <tr>
+    <th>Peso</th>
+    <th>¿Ladra?</th>
+    <th>Etiqueta</th>
+  </tr>
+  <tr>
+    <th>3 Kg</th>
+    <th>Ladra=0</th>
+    <th>Perro=0</th>
+  </tr>
+  <tr>
+    <th>5 Kg</th>
+    <th>Ladra=0</th>
+    <th>Perro=0</th>
+  </tr>
+  <tr>
+    <th>10 Kg</th>
+    <th>Ladra=1</th>
+    <th>Perro=1</th>
+  </tr>
+  <tr>
+    <th>12 Kg</th>
+    <th>Ladra=1</th>
+    <th>Perro=1</th>
+  </tr>
+</table>
