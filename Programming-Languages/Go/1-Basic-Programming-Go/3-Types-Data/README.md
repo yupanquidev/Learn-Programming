@@ -84,7 +84,7 @@
 
 Permite cambiar temporalmente el tipo de dato de una variable para realizar una operación.
 
-+ El casting no modifica el tipo de dato, el tipo de dato de la variable no cambia.
+> El casting no modifica el tipo de dato, el tipo de dato de la variable no cambia.
 
 ### **Zero value:** 
 Es un valor que va tener por defecto al momento de crear una variable cuando no le asignamos un valor.

@@ -18,9 +18,9 @@ func main() {
 	result = y * x
 	fmt.Println("Multiplicación:", result)
 
-	// Divición
+	// División
 	result = y / x
-	fmt.Println("Divición:", result)
+	fmt.Println("División:", result)
 
 	// Modulo
 	result = y % x
@@ -33,9 +33,4 @@ func main() {
 	// Decremental
 	x-- // x - 1
 	fmt.Println("Decremental:", x)
-
-	// Ejercicio: hallar el area de RECTÁNGULO, TRAPECIO y CIRCULO
-	// base := 4
-	// altura := 5
-
 }

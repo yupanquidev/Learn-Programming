@@ -1,6 +1,6 @@
 ## Constantes
 
-Para crear una constante, se usa la palabra clave `const`:
+> Para crear una constante, se usa la palabra clave `const`:
 
 ```go
 const pi = 3.14
