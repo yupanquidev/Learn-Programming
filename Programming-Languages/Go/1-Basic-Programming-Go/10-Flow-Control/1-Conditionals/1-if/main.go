@@ -7,13 +7,19 @@ import (
 )
 
 func main() {
+	// Estructura de condicion if
+	icon := "🦙"
+
+	if icon == "🦙" {
+		fmt.Println("Es una llama")
+	} else if icon == "🐑" {
+		fmt.Println("Es una oveja")
+	} else {
+		fmt.Printf("El icon es: %s", icon)
+	}
+
 	valor1 := 1
 	valor2 := 2
-	if valor1 == 1 {
-		fmt.Println("Es 1")
-	} else {
-		fmt.Println("No es 1")
-	}
 	// With AND
 	if valor1 == 1 && valor2 == 3 {
 		fmt.Println("Es verdad")
