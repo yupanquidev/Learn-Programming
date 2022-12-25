@@ -28,5 +28,3 @@ func main() {
 	value1, _ := doubleReturn(2)
 	fmt.Println("Value1 :", value1)
 }
-
-// Ejercicio hallar las areas, pero mediante functions
