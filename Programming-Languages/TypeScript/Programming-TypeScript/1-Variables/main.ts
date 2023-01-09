@@ -8,7 +8,7 @@ function christmasTree() {
     }
     console.log("*");
     for (let k = 0; k <= i - 1; k++) {
-      console.log("|");
+      console.log("| ");
     }
     for (let j = 1; j < i; j++) {
       console.log("|");

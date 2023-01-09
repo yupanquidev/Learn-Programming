@@ -1,6 +1,6 @@
 ## Programación orientado a objetos con Go (Golang)
 
-### ¿Qué es la POO?
+### ¿Qué es la Programación Orientada a Objetos (POO)?
 
 > La programación orientada a objetos (POO) es un enfoque para la programación de software que se basa en el concepto de "objeto". Un objeto es una entidad que combina datos (llamados atributos) y comportamientos (llamados métodos).
 
