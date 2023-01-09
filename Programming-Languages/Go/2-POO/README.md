@@ -22,4 +22,4 @@
 
 + En Go, la abstracción se plasma a través de estructuras, en lugar de clases como otros lenguajes de programación.
 
-> En Go, los métodos no son exclusivos de las estructuras, se puede implementar métodos a cualquier tipo definido del lenguaje (a mapas, funciones, arrays, slices, strings, int, etc),
+> En Go, los métodos no son exclusivos de las estructuras, se puede implementar métodos a cualquier tipo definido del lenguaje (a mapas, funciones, arrays, slices, strings, int, etc).
