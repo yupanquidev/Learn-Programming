@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background: #222;
+  background: #000;
   font-family: system-ui;
   display: grid;
   place-content: center;
@@ -8,7 +8,10 @@ body {
 }
 
 .App {
+  background-color: #16181c;
+  padding: 20px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 20px;
 }
