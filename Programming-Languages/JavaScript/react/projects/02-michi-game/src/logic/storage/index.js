@@ -1,4 +1,4 @@
-export const saveGameToStorage = ({board, turn}) => {
+export const saveGameToStorage = ({ board, turn }) => {
   // Guardar aqui la partida
   window.localStorage.setItem('board', JSON.stringify(board))
   window.localStorage.setItem('turn', turn)
