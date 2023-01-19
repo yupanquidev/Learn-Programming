@@ -4,8 +4,8 @@ import { TwitterFollowCard } from './TwitterFollowCard.jsx'
 const users = [
   {
     userName: 'hyupanqui',
-    name: 'Humberto Yupanqui', 
-    isFollowing: true,
+    name: 'Humberto Yupanqui',
+    isFollowing: true
   },
   {
     userName: 'renemeloquispe',
@@ -19,9 +19,9 @@ const users = [
   }
 ]
 
-export function App() {
+export function App () {
   return (
-    <section className="App">
+    <section className='App'>
       {
         users.map(({ userName, name, isFollowing }) => (
           <TwitterFollowCard
