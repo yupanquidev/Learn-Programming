@@ -83,7 +83,7 @@ body {
 
 .square.is-selected {
   color: #fff;
-  background: #09f;
+  background: #74c7ff;
 }
 
 .winner {
@@ -120,8 +120,8 @@ body {
 }
 
 .square {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   border: 2px solid #eee;
   border-radius: 5px;
   display: grid;

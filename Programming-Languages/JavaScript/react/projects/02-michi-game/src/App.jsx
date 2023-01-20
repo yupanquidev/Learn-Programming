@@ -60,12 +60,8 @@ function App () {
 
   return (
     <main className='board'>
-      <h1>Michi</h1>
       <button onClick={resetGame}>Reset del Juego</button>
       <section className='game'>
-        {
-        // Tarea combir a un componente
-        }
         {
           board.map((square, index) => {
             return (
