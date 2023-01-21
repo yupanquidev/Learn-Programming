@@ -28,6 +28,6 @@ func main() {
 		},
 	}
 
-	// Acceder a los campos d
+	// Acceder a los campos
 	fmt.Println(GO.Name)
 }
