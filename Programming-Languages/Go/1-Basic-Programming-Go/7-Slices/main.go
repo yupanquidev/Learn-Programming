@@ -7,7 +7,7 @@ func main() {
 	set := [7]string{"🦁", "🐎", "🐄", "🐇", "🐦", "🛩️", "🛬"}
 	animals := set[0:4] // Apuntamos
 	fly := set[4:7]
-	fly[0] = "🦜" // Indice cero de voladores, se modifican .
+	fly[0] = "🦜" // Indice cero de voladores, se modifican.
 
 	fmt.Println("Array: ", set)
 	fmt.Println("Animale: ", animals)
