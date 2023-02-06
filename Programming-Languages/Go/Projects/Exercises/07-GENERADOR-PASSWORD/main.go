@@ -12,19 +12,50 @@ import (
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
-	fmt.Println(passwordGenerator(10))
+	fmt.Println(passwordGenerator(10, true, true, true))
 }
 
-func passwordGenerator(length int) string {
-
-	var letters = []rune("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")
-	var characters = []rune("1234567890@(){}[]-_.;,:*¿¡?=/&%$#!\\")
-
-	charSet := append(letters, characters...)
-
-	password := make([]rune, length)
-	for i := range password {
-		password[i] = charSet[rand.Intn(len(charSet))]
+func passwordGenerator(length int, capital, numbers, symbols bool) string {
+	characters := make([]int, 26)
+	
+	for i := 0; i < 26; i++ {
+		characters[i] = 97 + i
 	}
-	return string(password)
+
+	if capital {
+		for i := 0; i < 26; i++ {
+			characters = append(characters, 65+i)
+		}
+	}
+
+	if numbers {
+		for i := 0; i < 10; i++ {
+			characters = append(characters, 48+i)
+		}
+	}
+
+	if symbols {
+		for i := 33; i < 97; i++ {
+			switch i {
+			case 48, 65, 91:
+				continue
+			default:
+				characters = append(characters, i)
+			}
+		}
+	}
+
+	password := ""
+	finalLength := 8
+	if length >= 8 && length <= 16 {
+		finalLength = length
+	} else if length > 16 {
+		finalLength = 16
+	}
+
+	for len(password) < finalLength {
+		password += string(rune(characters[rand.Intn(len(characters))]))
+	}
+
+	return password
 }
