@@ -5,8 +5,8 @@
 #### **_API a usar:_**
 
 > + https://www.omdbapi.com/
-> + API_KEY: 4287ad07
-> + https://www.omdbapi.com/?apikey=4287ad07&s=Avengers
+> + API_KEY: f76a9f7b
+> + https://www.omdbapi.com/?i=tt3896198&apikey=f76a9f7b&s=Avengers
 
 #### **_Requerimientos:_**
 
@@ -27,3 +27,11 @@
 + ✅ Haz que la búsqueda se haga automáticamente al escribir.
 
 + ✅ Evita que se haga la búsqueda continuamente al escribir (debounce)
+
+
+### **Hooks aprendidos en este proyecto:**
+
++ ✏️ **_useRef:_** Permite crear una referencia mutable que persite durante todo el ciclo de vida de un componente.
+
+  + Útil para guardar cualquier valor que puedas mutar, como un identificador, un elemento del DOM, un contador, etc. Y que cada vez que cambia no vuelva a renderizar el componente.
+
