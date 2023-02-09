@@ -14,7 +14,7 @@
 
 + ✅ Lista las películas y muestra el título, año y poster.
 
-+ ✅ Que el formulario funcione
++ ✅ Que el formulario funcione.
 
 + ✅ Haz que las películas se muestren en un grid responsive.
 
@@ -33,5 +33,7 @@
 
 + ✏️ **_useRef:_** Permite crear una referencia mutable que persite durante todo el ciclo de vida de un componente.
 
+  + Valor que persiste entre renders.
+  
   + Útil para guardar cualquier valor que puedas mutar, como un identificador, un elemento del DOM, un contador, etc. Y que cada vez que cambia no vuelva a renderizar el componente.
 
