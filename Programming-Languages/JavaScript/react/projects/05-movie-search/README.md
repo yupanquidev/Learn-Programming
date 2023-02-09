@@ -29,11 +29,20 @@
 + ✅ Evita que se haga la búsqueda continuamente al escribir (debounce)
 
 
-### **Hooks aprendidos en este proyecto:**
+### **Custom Hooks aprendidos en este proyecto:**
 
 + ✏️ **_useRef:_** Permite crear una referencia mutable que persite durante todo el ciclo de vida de un componente.
 
   + Valor que persiste entre renders.
-  
+
   + Útil para guardar cualquier valor que puedas mutar, como un identificador, un elemento del DOM, un contador, etc. Y que cada vez que cambia no vuelva a renderizar el componente.
 
++ ✏️ **_useMemo:_** Memoriza un valor para no tener que devolverlo a calcular dependiendo de unas dependencias o sea una lista de dependencias.
+
+  + Es para poder memorizar computaciones que hemos hecho, que queremos evitar que se hagan, a no ser que cambien las dependencias, que nosotros les estemos indicando.
+
++ ✏️ **_useCallback:_** Es lo mismo que `useMemo` pero pensado para funciones.
+
+  + Te permite simplificar la sintaxis.
+
+  + `useCallback` usa por debajo `useMemo`.

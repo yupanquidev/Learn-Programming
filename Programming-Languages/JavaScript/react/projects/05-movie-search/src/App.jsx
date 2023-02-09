@@ -1,7 +1,8 @@
 import './App.css'
 import { Movies } from './components/Movies.jsx'
 import { useMovies } from './hooks/useMovies.js'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
+import debounce from 'just-debounce-it'
 
 function UseSearch () {
   const [search, updateSearch] = useState('')
@@ -36,16 +37,28 @@ function UseSearch () {
 }
 
 function App() {
+  const [sort, setSort] = useState(false)
   const { search, updateSearch, error } = UseSearch()
-  const { movies,loading, getMovies } = useMovies({ search })
+  const { movies,loading, getMovies } = useMovies({ search, sort })
+
+  const debouncedGetMovies = useCallback( debounce( search => {
+    getMovies({ search })
+  }, 300)
+  , [])
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    getMovies()
+    getMovies({ search })
   } 
 
+  const handleSort = () => {
+    setSort(!sort)
+  }
+
   const handleChange = (event) => {
-    updateSearch(event.target.value)
+    const newSearch = event.target.value
+    updateSearch(newSearch)
+    debouncedGetMovies(newSearch)
   }
 
   return (
@@ -59,6 +72,7 @@ function App() {
               borderColor: error ? 'red' : 'transparent'
             }}
             onChange={handleChange} value={search} placeholder='Avengers, Star Wars, The Matrix..' />
+          <input type='checkbox' onChange={handleSort} checked={sort} />
           <button type='submit'>Search</button>
         </form>
         {error && <p style={{color: 'red'}} className='error'>{error}</p>}
@@ -73,4 +87,3 @@ function App() {
 }
 
 export default App
-
