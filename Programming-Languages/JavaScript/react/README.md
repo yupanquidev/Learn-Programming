@@ -1,6 +1,6 @@
 # <center> **React** </center>
 
-## **_Historia_**
+## Historia
 
 + React es de Meta, de código abierto, mantenido por Meta y una comunidad de desarrolladores.
 
