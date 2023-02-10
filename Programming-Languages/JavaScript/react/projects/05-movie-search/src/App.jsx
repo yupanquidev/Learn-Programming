@@ -36,12 +36,12 @@ function UseSearch () {
   return { search, updateSearch, error }
 }
 
-function App() {
+function App () {
   const [sort, setSort] = useState(false)
   const { search, updateSearch, error } = UseSearch()
-  const { movies,loading, getMovies } = useMovies({ search, sort })
+  const { movies, loading, getMovies } = useMovies({ search, sort })
 
-  const debouncedGetMovies = useCallback( debounce( search => {
+  const debouncedGetMovies = useCallback(debounce(search => {
     getMovies({ search })
   }, 300)
   , [])
@@ -49,7 +49,7 @@ function App() {
   const handleSubmit = (event) => {
     event.preventDefault()
     getMovies({ search })
-  } 
+  }
 
   const handleSort = () => {
     setSort(!sort)
@@ -71,11 +71,12 @@ function App() {
               border: '1px solid transparent',
               borderColor: error ? 'red' : 'transparent'
             }}
-            onChange={handleChange} value={search} placeholder='Avengers, Star Wars, The Matrix..' />
+            onChange={handleChange} value={search} placeholder='Avengers, Star Wars, The Matrix..'
+          />
           <input type='checkbox' onChange={handleSort} checked={sort} />
           <button type='submit'>Search</button>
         </form>
-        {error && <p style={{color: 'red'}} className='error'>{error}</p>}
+        {error && <p style={{ color: 'red' }} className='error'>{error}</p>}
       </header>
       <main>
         {
