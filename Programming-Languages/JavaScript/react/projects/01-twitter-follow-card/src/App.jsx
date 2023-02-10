@@ -3,18 +3,18 @@ import { TwitterFollowCard } from './TwitterFollowCard.jsx'
 
 const users = [
   {
-    userName: 'hyupanqui',
+    userName: 'ypnqh',
     name: 'Humberto Yupanqui',
     isFollowing: true
   },
   {
-    userName: 'renemeloquispe',
-    name: 'Pedro Zuares',
+    userName: 'satyanadella',
+    name: 'Satya Nadella',
     isFollowing: true
   },
   {
-    userName: 'Rene',
-    name: 'Rene Hernadez',
+    userName: 'HustavoJhon',
+    name: 'Hustavo Jhon',
     isFollowing: false
   }
 ]
@@ -22,6 +22,7 @@ const users = [
 export function App () {
   return (
     <section className='App'>
+      <h2>A quién seguir</h2>
       {
         users.map(({ userName, name, isFollowing }) => (
           <TwitterFollowCard
@@ -33,6 +34,7 @@ export function App () {
           </TwitterFollowCard>
         ))
       }
+      <span className='show-more'>Mostrar más</span>
     </section>
   )
 }

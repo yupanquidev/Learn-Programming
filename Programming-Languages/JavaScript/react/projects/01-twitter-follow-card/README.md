@@ -1,16 +1,12 @@
-## **_Introducción a React_**
+## **Introducción a React**
 
-### **_Custom Hooks aprendidos en este proyecto_**
-
-+ **useState:** 
-
-### **_PnPm:_**
+### **PnPm:**
 
 La documentación oficial se encuentra en: https://pnpm.io/
 
 > + Un manejador de paquetes, rápido y eficiente ahorrando espacio en tu disco duro.
 
-### **_Administrador de nodos rápidos (FNM):_** 
+### **Administrador de nodos rápidos (FNM):** 
 
 La documentación se encuentra en: https://github.com/Schniz/fnm#shell-setup
 
@@ -38,7 +34,7 @@ La documentación se encuentra en: https://github.com/Schniz/fnm#shell-setup
 
 **Nota:**
 
-### **_La convención de nombres:_** 
+### **La convención de nombres:** 
 
 Un conjunto de reglas y estándares que se utilizan para nombrar variables, funciones, clases y otros componentes de un programa.
     
@@ -53,8 +49,10 @@ Un conjunto de reglas y estándares que se utilizan para nombrar variables, func
 
   + Los nombres de los componentes tienen que ser en _`PascalCase`_ porque React los interpreta como componentes.
 
+### **Custom Hooks aprendidos en este proyecto**
 
-```go
-package main
++ **useState:** Guarda el estado de un componente.
 
-```
+#### Recursos:
+
++ **Avatar:** https://unavatar.io/

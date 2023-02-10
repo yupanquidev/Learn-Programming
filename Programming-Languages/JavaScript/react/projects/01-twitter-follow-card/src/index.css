@@ -1,17 +1,23 @@
 body {
   margin: 0;
+  color: #c4c4c4;
   background: #000;
-  font-family: system-ui;
+  font-family: 'Segoe UI', sans-serif;
   display: grid;
   place-content: center;
   min-height: 100vh;
 }
 
-.App {
-  background-color: #16181c;
-  padding: 20px;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+h2 {
+  color: #e7e9ea;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: bold;
+  font-size: 1.28rem;
+  padding: 13px;
+}
+
+section {
+  width: 100%;
 }
