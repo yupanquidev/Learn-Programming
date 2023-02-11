@@ -7,6 +7,6 @@ export const getRandomFact = () => {
       const { fact } = data
       return fact
     })
-} 
+}
 
 // crtl + . -> transformar codigo a await.
