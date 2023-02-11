@@ -3,27 +3,20 @@
 ### **PnPm:**
 
 La documentación oficial se encuentra en: https://pnpm.io/
-
 > + Un manejador de paquetes, rápido y eficiente ahorrando espacio en tu disco duro.
 
 ### **Administrador de nodos rápidos (FNM):** 
 
 La documentación se encuentra en: https://github.com/Schniz/fnm#shell-setup
-
 > + Administrador de versiones rápido y simple de Node.js, construido en Rust.
 
 + #### **Características:**
-
   + 🌎 Soporte multiplataforma (macOS, Windows, Linux).
-
   + ✨ Archivo único, fácil instalación, inicio instantáneo.
-
   + 🚀 Construido pensando en la velocidad.
-
   + 📂 Funciona con archivos .node-version y .nvmrc
 
 + #### **Instalación:**
-
   + **Usando Scoop (Windows 🪟):**
 
     `scoop install fnm`
@@ -55,4 +48,4 @@ Un conjunto de reglas y estándares que se utilizan para nombrar variables, func
 
 #### Recursos:
 
-+ **Avatar:** https://unavatar.io/
++ **Avatar Users:** https://unavatar.io/
