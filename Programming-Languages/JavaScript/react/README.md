@@ -19,6 +19,24 @@
 + Es universal, es decir, se puede ejecutar en el cliente y en el servidor.
 + Evita los ataques Cross-Site Scripting (XSS).
 
+<div align=center >
+
+# Aprendiendo React ⚛️
+
+**_Curso para aprender React. Todos los miércoles a las 12PM 🇵🇪  en [Twitch - Midudev](https://www.twitch.tv/midudev)_**
+
+</div>
+
+## 📹 Videos con las clases
+
++ 01: [Introducción a React](https://www.twitch.tv/videos/1704282150?filter=archives&sort=time)
++ 02: [React Hooks: useState y useEffect](https://www.twitch.tv/videos/1711159530?filter=archives&sort=time)
++ 03: [Fetching de datos y Custom Hooks](https://www.twitch.tv/videos/1718103492?filter=archives&sort=time)  
++ 04: [Prueba técnica para Trainee](https://www.twitch.tv/videos/1718103492)
++ 05: [React Hooks: useRef, useMemo, useCallback](https://www.twitch.tv/videos/1732102325?filter=archives&sort=time)
++ 06: [React Hooks: useContext, useReducer, useId](https://www.twitch.tv/videos/1738955695)
++ 07: Próximamente en https://twitch.tv/midudev
+
 ## ⌨️ Proyectos
 
 + 01: [Twitter Follow Card](projects/01-twitter-follow-card/)
@@ -26,3 +44,4 @@
 + 03: [Mouse Follower](projects/03-mouse-follower)
 + 04: [Technical Test](projects/04-technical-test)
 + 05: [Movie Search](projects/05-movie-search)
++ 06: [Shopping Cart](projects/06-shopping-cart)
