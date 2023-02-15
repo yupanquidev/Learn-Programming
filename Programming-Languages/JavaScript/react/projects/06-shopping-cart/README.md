@@ -15,3 +15,9 @@
 + ✏️ Haz que se puedan modificar la cantidad de productos del carrito.
 + ✏️ Sincroniza los cambios del carrito con la lista de productos.
 + ✏️ Guarda en un localStorage el carrito para que se recupere al recargar la página. (da puntos)
+
+**_Hooks usados en este projecto:_**
+
++ **useId:** Permiter generar un identificador unico para cada producto y además funciona con server side rendering.
+
++ **useContext:** 
