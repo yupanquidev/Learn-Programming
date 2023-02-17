@@ -18,6 +18,8 @@
 
 **_Hooks usados en este projecto:_**
 
-+ **useId:** Permiter generar un identificador unico para cada producto y además funciona con server side rendering.
++ **useId:** Permite generar un identificador unico para cada producto y además funciona con server side rendering.
 
 + **useContext:** Permite a un componente acceder a ese objeto de contexto y utilizar los valores que contiene. Es una forma de evitar tener que pasar props a través de varios niveles de componentes para que los componentes hijos puedan acceder a los datos.
+
++ **useReducer:** Permite manejar el estado de una manera escalable, porque se basa en que recibe en una función el estado actual y la acción que tiene que hacer, y a partir del estado actual y de la acción, devuelve el nuevo estado.
