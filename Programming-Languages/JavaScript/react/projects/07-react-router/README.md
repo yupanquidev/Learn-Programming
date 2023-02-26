@@ -11,6 +11,4 @@
 + ✅ Componente <Route /> para hacerlo declarativo
 + ✅ Lazy Loading de las rutas
 + ✅ Hacer un i18n con las rutas
-
-- [] Testing
-- [] Publicar el paquete en NPM
++ ✅ Testing
