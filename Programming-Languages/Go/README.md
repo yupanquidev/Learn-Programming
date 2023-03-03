@@ -34,4 +34,4 @@
 + **Twitch:** Utilzan para usuarios de forma concurrente con sus conexiones.
 + **Twitter:** Utiliza Go para procesar analítica de la App.
 + **Uber:** Utiliza Go para mantener en posición en tiempo real tanto conductores o como pasajeros.
-+ **Docker** y **Kubernetes:** Para despliegue de Apps.
++ **Docker** y **Kubernetes:** Para sus despliegues de Apps.
