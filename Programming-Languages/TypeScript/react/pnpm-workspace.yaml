@@ -1,3 +1,0 @@
-packages:
-  # Todos los proyectos dentro de projects son paquetes.
-  - 'projects/**'

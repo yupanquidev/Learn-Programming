@@ -1,38 +1,32 @@
 import { useState } from 'react'
-import { Todos } from './components/Todos'
-import { type TodoId } from './types'
+import reactLogo from './assets/react.svg'
+import './App.css'
 
-const mockTodos = [
-  {
-    id: '1',
-    title: 'Ver youtube videos',
-    completed: false
-  },
-  {
-    id: '2',
-    title: 'Escuchar musica',
-    completed: false
-  },
-  {
-    id: '3',
-    title: 'Estudiar typescript con react',
-    completed: true
-  }
-]
-
-const App = (): JSX.Element => {
-  const [todos, setTodos] = useState(mockTodos)
-
-  const handleRemove = ({ id }: TodoId): void => {
-    const newTodos = todos.filter(todo => todo.id !== id)
-    setTodos(newTodos)
-  }
+function App() {
+  const [count, setCount] = useState(0)
 
   return (
-    <div className='todoapp'>
-      <Todos
-        onRemoveTodo={handleRemove}
-        todos={todos} />
+    <div className="App">
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src="/vite.svg" className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://reactjs.org" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.tsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
     </div>
   )
 }

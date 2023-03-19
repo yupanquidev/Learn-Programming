@@ -13,5 +13,4 @@ func main() {
 
 	// Operador lógico Unario == !
 	fmt.Println(!(4 == 5))
-
 }
