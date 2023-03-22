@@ -35,3 +35,19 @@
 + **Twitter:** Utiliza Go para procesar analítica de la App.
 + **Uber:** Utiliza Go para mantener en posición en tiempo real tanto conductores o como pasajeros.
 + **Docker** y **Kubernetes:** Para sus despliegues de Apps.
+
+## Documentación
+
++ [La Documentación de Go](https://go.dev/)
+
++ [El blog de Go](https://go.dev/blog/)
++ [Ayuda de Go](https://go.dev/help)
++ [Conferecias de Go](https://github.com/golang/go/wiki/Conferences)
++ [Meetup de Go Developers](https://www.meetup.com/pro/go/)
++ [Charlas grabadas de Go](https://go.dev/talks/)
+
+## Conectarse
++ [GitHub](https://github.com/golang)
++ [Twitter](https://twitter.com/golang)
++ [Reddit](https://www.reddit.com/r/golang/)
++ [Slack](https://invite.slack.golangbridge.org/)
