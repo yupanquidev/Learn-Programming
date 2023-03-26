@@ -51,3 +51,4 @@
 + [Twitter](https://twitter.com/golang)
 + [Reddit](https://www.reddit.com/r/golang/)
 + [Slack](https://invite.slack.golangbridge.org/)
++ [StackOverflow](https://stackoverflow.com/collectives/go)
