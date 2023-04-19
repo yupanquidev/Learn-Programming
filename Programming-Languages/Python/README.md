@@ -13,7 +13,7 @@ Se trata de un lenguaje interpretado o de script, con tipado dinámico, fuerteme
   La característica de tipado dinámico se refiere a que no es necesario declarar el tipo de dato que va a contener una determinada variable, sino que su tipo se determinará en tiempo de ejecución según el tipo del valor al que se asigne, y el tipo de esta variable puede cambiar si se le asigna un valor de otro tipo.
 
 + ### Fuertemente tipado
-  No se permite tratar a una variable como si fuera de un tipo distinto al que tiene, es necesario convertir de forma explícita dicha variable al nuevo tipo previamente. Por ejemplo, si tenemos una variable que contiene un texto (variable de tipo cadena o string) no podremos tratarla como un número (sumar la cadena "9" y el número 8). En otros lenguajes el tipo de la variable cambiaría para adaptarse al comportamiento esperado, aunque esto es más propenso a errores.
+  No se permite tratar a una variable como si fuera de un tipo distinto al que tiene, es necesario convertir de forma explícita dicha variable al nuevo tipo previamente. Por ejemplo, si tenemos una variable que contiene un texto (variable de tipo cadena o string) no podremos tratarla como un número (sumar la cadena "7" y el número 3). En otros lenguajes el tipo de la variable cambiaría para adaptarse al comportamiento esperado, aunque esto es más propenso a errores.
 
 + ### Multiplataforma
   El intérprete de Python está disponible en multitud de plataformas (UNIX, Solaris, Linux, DOS, Windows, OS/2, Mac OS, etc.) por lo que si no utilizamos librerías específicas de cada plataforma nuestro programa podrá correr en todos estos sistemas sin grandes cambios.
@@ -22,8 +22,11 @@ Se trata de un lenguaje interpretado o de script, con tipado dinámico, fuerteme
   La orientación a objetos es un paradigma de programación en el que los conceptos del mundo real se trasladan a clases y objetos en el programa, y la ejecución consiste en interacciones entre objetos. Python también admite otros paradigmas de programación, como la programación imperativa, la programación funcional y la programación orientada a aspectos.
 
 ## ¿Por qué Python?
-Su sintaxis simple, clara, sencilla y cercana al lenguaje natural; tipado dinámico, gestor de memoria, cantidad de librerías disponibles y la potencia del lenguaje, entre otros, hacen que desarrollar una aplicación en Python sea sencillo, muy rápido y, lo más importante, divertido.
 
-Python no es adecuado sin embargo para la programación de bajo nivel o para aplicaciones en las que el rendimiento sea crítico.
+| Ventajas | Desventajas |
+| :--- | :--- |
+| Sintaxis simple, clara y sencilla | No es adecuado para la programación de bajo nivel |
+| Usado en ciencia de datos, IA, Machine learning  | No es adecuado para aplicaciones en las que el rendimiento sea crítico |
+| Portable | Lento en tiempo de ejecución |
 
-Algunos casos de éxito en el uso de Python son Google, Yahoo, la NASA, Industrias Light & Magic, y todas las distribuciones Linux, en las que Python cada vez representa un tanto por ciento mayor de los programas disponibles.
++ Casos de éxito en el uso de Python son Google, Yahoo, la NASA, Industrias Light & Magic, y todas las distribuciones Linux, en las que Python cada vez representa un tanto por ciento mayor de los programas disponibles.
