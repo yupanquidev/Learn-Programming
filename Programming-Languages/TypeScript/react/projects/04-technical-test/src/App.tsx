@@ -1,15 +1,18 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useMemo, useState } from 'react'
 import './App.css'
+import { Results } from './components/Results'
 import { UsersList } from './components/UsersList'
+import { useUsers } from './hooks/useUsers'
 import { SortBy, type User } from './types.d'
 
 function App () {
-  const [users, setUsers] = useState<User[]>([])
+  const { users, fetchNextPage, hasNextPage, isLoading, isError, refetch } = useUsers()
+
   const [showColors, setShowColors] = useState(false)
   const [sorting, setSorting] = useState<SortBy>(SortBy.NONE)
   const [filterCountry, setFilterCountry] = useState<string | null>(null)
 
-  const originalUsers = useRef<User[]>([])
+  // const originalUsers = useRef<User[]>([])
   /*
     - useRef -> es para guardar un valor que
       queremos que se comparta entre renderizados
@@ -26,27 +29,18 @@ function App () {
   }
 
   const handleReset = () => {
-    setUsers(originalUsers.current)
+    // setUsers(originalUsers.current)
+    void refetch()
   }
 
   const handleDelete = (email: string) => {
-    const filteredUsers = users.filter((user) => user.email !== email)
-    setUsers(filteredUsers)
+    // const filteredUsers = users.filter((user) => user.email !== email)
+    // setUsers(filteredUsers)
   }
 
   const handleChangeSort = (sort: SortBy) => {
     setSorting(sort)
   }
-
-  useEffect(() => {
-    fetch('https://randomuser.me/api?results=100')
-      .then(async res => await res.json())
-      .then(res => {
-        setUsers(res.results)
-        originalUsers.current = res.results
-      })
-      .catch(err => { console.log(err) })
-  }, [])
 
   const filteredUsers = useMemo(() => {
     return filterCountry != null && filterCountry.length > 0
@@ -73,6 +67,7 @@ function App () {
   return (
     <div className='App'>
       <h1>Prueba técnica</h1>
+      <Results />
       <header>
         <button onClick={toggleColors}>
           Colorear filas
@@ -91,12 +86,11 @@ function App () {
         />
       </header>
       <main>
-        <UsersList
-          changeSorting={handleChangeSort}
-          deleteUser={handleDelete}
-          showColors={showColors}
-          users={sortedUsers}
-        />
+        {users.length > 0 && <UsersList changeSorting={handleChangeSort} deleteUser={handleDelete} showColors={showColors} users={sortedUsers} />}
+        {isLoading && <strong>Cargando...</strong>}
+        {isError && <p>Ha ocurrido un Error</p>}
+        {!isError && users.length === 0 && <p>No hay usuarios</p>}
+        {!isLoading && !isError && hasNextPage === true && <button onClick={() => { void fetchNextPage() }}>Cargar más resultados</button>}
       </main>
     </div>
   )
