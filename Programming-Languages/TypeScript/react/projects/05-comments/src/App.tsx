@@ -1,7 +1,7 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
-import { FormInput, FormTextArea } from "./components/Form"
-import { Results } from "./components/Results"
-import { CommentWithId, getComments, postComment } from "./service/comments"
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { FormInput, FormTextArea } from './components/Form'
+import { Results } from './components/Results'
+import { CommentWithId, getComments, postComment } from './service/comments'
 
 function App () {
   const { data, isLoading, error } = useQuery<CommentWithId[]>(

@@ -23,10 +23,6 @@ Se trata de un lenguaje interpretado o de script, con tipado dinámico, fuerteme
 
 ## ¿Por qué Python?
 
-| Ventajas | Desventajas |
-| :--- | :--- |
-| Sintaxis simple, clara y sencilla | No es adecuado para la programación de bajo nivel |
-| Usado en ciencia de datos, IA, Machine learning  | No es adecuado para aplicaciones en las que el rendimiento sea crítico |
-| Portable | Lento en tiempo de ejecución |
+Python es un lenguaje de programación popular y versátil debido a su sintaxis clara, biblioteca estándar, orientación a objetos, portabilidad y comunidad activa de desarrolladores. Es fácil de aprender y tiene muchas aplicaciones, por lo que es una excelente opción para programadores de todos los niveles.
 
-+ Casos de éxito en el uso de Python son Google, Yahoo, la NASA, Industrias Light & Magic, y todas las distribuciones Linux, en las que Python cada vez representa un tanto por ciento mayor de los programas disponibles.
+Casos de éxito en el uso de Python son Google, Yahoo, la NASA, Industrias Light & Magic, y todas las distribuciones Linux, en las que Python cada vez representa un tanto por ciento mayor de los programas disponibles.
