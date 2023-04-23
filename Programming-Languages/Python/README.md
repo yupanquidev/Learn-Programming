@@ -1,6 +1,6 @@
 # **INTRODUCCIÓN**
 ## ¿Qué es Python?
-Python es un lenguaje de programación creado por [Guido van Rossum](https://es.wikipedia.org/wiki/Guido_van_Rossum) a principios de los años 90 y su nombre está inspirado en el grupo de cómicos ingleses “Monty Python”. Es un lenguaje similar a Perl, pero con una sintaxis muy limpia y que favorece un código legible.
+Python es un lenguaje de programación creado por [Guido van Rossum](https://es.wikipedia.org/wiki/Guido_van_Rossum) a principios de los años 90 y su nombre está inspirado en el grupo de cómicos ingleses “Monty Python”.
 
 Se trata de un lenguaje interpretado o de script, con tipado dinámico, fuertemente tipado, multiplataforma y orientado a objetos.
 
@@ -23,6 +23,6 @@ Se trata de un lenguaje interpretado o de script, con tipado dinámico, fuerteme
 
 ## ¿Por qué Python?
 
-Python es un lenguaje de programación popular y versátil debido a su sintaxis clara, biblioteca estándar, orientación a objetos, portabilidad y comunidad activa de desarrolladores. Es fácil de aprender y tiene muchas aplicaciones, por lo que es una excelente opción para programadores de todos los niveles.
+Python es un lenguaje de programación más populare del mundo. Posee una amplia gama de usos, desde automatizar tareas repetitivas y escribir aplicaciones web hasta compilar modelos de Machine Learning e implementar redes neuronales. Los científicos de datos, matemáticos y investigadores prefieren Python debido a su sintaxis, fácil de entender y a la gran cantidad de paquetes de código abierto disponibles, que son bibliotecas de código compartido gratuitas para todos los usuarios.
 
 Casos de éxito en el uso de Python son Google, Yahoo, la NASA, Industrias Light & Magic, y todas las distribuciones Linux, en las que Python cada vez representa un tanto por ciento mayor de los programas disponibles.
