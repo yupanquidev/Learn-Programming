@@ -39,7 +39,6 @@
 ## Documentación
 
 + [La Documentación de Go](https://go.dev/)
-
 + [El blog de Go](https://go.dev/blog/)
 + [Ayuda de Go](https://go.dev/help)
 + [Conferecias de Go](https://github.com/golang/go/wiki/Conferences)
