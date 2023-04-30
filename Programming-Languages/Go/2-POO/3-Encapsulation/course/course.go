@@ -1,9 +1,9 @@
-package main
+package course
 
 import "fmt"
 
 // Estructura de cursos
-type Course struct {
+type course struct {
 	Name   string
 	Price  float64
 	IsFree bool
@@ -13,12 +13,26 @@ type Course struct {
 	Classes map[uint]string
 }
 
-func (c *Course) ChangePrice(price float64) {
+// Función constructora
+func New(name string, price float64, isFree bool) *course {
+	if price == 0 {
+		price = 30
+	}
+
+	return &course{
+		Name:   name,
+		Price:  price,
+		IsFree: isFree,
+	}
+}
+
+// De esta forma se encapsula el campo Price
+func (c *course) changePrice(price float64) {
 	c.Price = price
 }
 
 // Definición de métodos
-func (c *Course) PrintClasses() {
+func (c *course) PrintClasses() {
 	text := "Las clases son: "
 	for _, class := range c.Classes {
 		text += class + ", "
