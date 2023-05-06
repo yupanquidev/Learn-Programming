@@ -23,4 +23,8 @@
 ## ⌨️ Proyectos
 
 + 01: [Todo App](projects/01-todo-app/)
-
++ 02: [Translator](projects/02-translate/)
++ 03: [CRUD](projects/03-crud/)
++ 04: [Technical Test](projects/04-technical-test/)
++ 05: [Comments](projects/05-comments/)
++ 06: [Quiz](projects/06-quiz/)
