@@ -6,6 +6,37 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "@typescript-eslint/parser": ">=5.0.0 <6.0.0",
+    "todomvc-app-css": "2.4.2",
+    "@popperjs/core": "2.11.6",
+    "openai": "3.2.1",
+    "@reduxjs/toolkit": "1.9.3",
+    "@swc/helpers": "0.5.0",
+    "react-redux": "8.0.5",
+    "sonner": "0.3.0",
+    "@tanstack/react-query": "4.29.3",
+    "@tanstack/react-query-devtools": "4.29.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "canvas-confetti": "1.6.0",
+    "react-syntax-highlighter": "15.5.0",
+    "zustand": "4.3.7"
+  },
+  "devDependencies": {
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "@types/react-syntax-highlighter": "^15.5.6",
+    "@vitejs/plugin-react-swc": "3.0.0",
+    "ts-standard": "12.0.2",
+    "typescript": "5.0.2",
+    "vite": "4.3.2",
+    "autoprefixer": "10.4.14",
+    "postcss": "8.4.23",
+    "tailwindcss": "3.3.1",
+    "happy-dom": "9.1.7",
+    "vitest": "0.29.8"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC"

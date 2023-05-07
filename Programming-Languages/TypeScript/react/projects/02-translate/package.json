@@ -8,33 +8,5 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest"
-  },
-  "dependencies": {
-    "@popperjs/core": "2.11.6",
-    "@typescript-eslint/parser": ">=5.0.0 <6.0.0",
-    "bootstrap": "5.2.3",
-    "openai": "3.2.1",
-    "react": "18.2.0",
-    "react-bootstrap": "2.7.2",
-    "react-dom": "18.2.0"
-  },
-  "devDependencies": {
-    "@testing-library/dom": ">=7.21.4",
-    "@testing-library/react": "14.0.0",
-    "@testing-library/user-event": "14.4.3",
-    "@types/react": "18.0.28",
-    "@types/react-dom": "18.0.11",
-    "@typescript-eslint/eslint-plugin": "5.43.0",
-    "@vitejs/plugin-react-swc": "3.0.0",
-    "eslint": "8.0.1",
-    "eslint-config-standard-with-typescript": "34.0.1",
-    "eslint-plugin-import": "2.25.2",
-    "eslint-plugin-n": "15.0.0",
-    "eslint-plugin-promise": "6.0.0",
-    "eslint-plugin-react": "7.32.2",
-    "happy-dom": "9.1.7",
-    "typescript": "4.9.5",
-    "vite": "4.2.0",
-    "vitest": "0.29.8"
   }
 }
