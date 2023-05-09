@@ -42,7 +42,6 @@ Un conjunto de reglas y estándares que se utilizan para nombrar variables, func
   + Los nombres de los componentes tienen que ser en _`PascalCase`_ porque React los interpreta como componentes.
 
 ### **Hooks aprendidos en este proyecto**
-
 + **useState:** Guarda el estado de un componente.
 
 #### Recursos:
