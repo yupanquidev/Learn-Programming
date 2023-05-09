@@ -46,5 +46,4 @@ Un conjunto de reglas y estándares que se utilizan para nombrar variables, func
 + **useState:** Guarda el estado de un componente.
 
 #### Recursos:
-
 + **Avatar Users:** https://unavatar.io/
