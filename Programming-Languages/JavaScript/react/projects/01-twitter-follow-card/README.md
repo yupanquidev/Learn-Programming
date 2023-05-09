@@ -1,5 +1,4 @@
 ## **Introducción a React**
-
 ### **PnPm:**
 
 La documentación oficial se encuentra en: https://pnpm.io/
