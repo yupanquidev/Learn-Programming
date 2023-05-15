@@ -1,106 +1,42 @@
-.tw-Card:hover {
-  background-color: #1d1f23;
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
-.tw-Card {
-  padding: 13px;
-  cursor: pointer;
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-.tw-followCard {
-  display: flex;
-  align-items: center;
-  color: #e7e9ea;
-  font-size: .96rem;
-  justify-content: space-between;
-  gap: 20px;
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.tw-followCard-header {
-  display: flex;
-  align-items: center;
-  gap: 10px
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
 }
 
-.tw-followCard-info {
-  display: flex;
-  flex-direction: column;
+.card {
+  padding: 2em;
 }
 
-.tw-followCard-infoUserName {
-  color: #5e6267;
-}
-
-.tw-followCard-avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 1000px;
-}
-
-.tw-followCard-button {
-  cursor: pointer;
-  border: 0;
-  border-radius: 999px;
-  padding: 9px 16px;
-  font-weight: bold;
-  border: 1px solid #000;
-  transition: .3s ease background-color;
-}
-
-.tw-followCard-button:hover {
-  opacity: .8;
-}
-
-.tw-followCard-text {
-  display: block;
-}
-
-.tw-followCard-button.is-following {
-  border: 1px solid #bbb;
-  background: transparent;
-  color: #e7e9ea;
-  width: 130px;
-}
-
-.tw-followCard-button.is-following:hover {
-  background-color: rgba(103, 7, 15, 0.178);
-  color: red;
-  border: 1px solid red;
-  transition: .3s ease all;
-  opacity: 1;
-  padding: 9px 0px;
-}
-
-.tw-followCard-button.is-following:hover .tw-followCard-text {
-  display: none;
-}
-
-.tw-followCard-button.is-following:hover .tw-followCard-stopFollow {
-  display: block;
-}
-
-.tw-followCard-stopFollow {
-  display: none;
-}
-
-.show-more {
-  padding: 13px;
-  color: #1d9bf0;
-  cursor: pointer;
-}
-
-.show-more:hover {
-  background-color: #1d1f23;
-  border-radius: 0px 0px 0px 20px;
-}
-
-.App {
-  background-color: #16181c;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.tw-followCard-infoUserName {
-  text-overflow: ellipsis;
+.read-the-docs {
+  color: #888;
 }
