@@ -60,7 +60,11 @@ function App () {
 
   return (
     <main className='board'>
-      <button onClick={resetGame}>Reset del Juego</button>
+      <h1>
+        <span className='flicker1'>Tic</span>
+        <span className='flicker2'>Tac</span>
+        <span className='flicker3'>Toe</span>
+      </h1>
       <section className='game'>
         {
           board.map((square, index) => {
@@ -85,6 +89,7 @@ function App () {
         </Square>
       </section>
       <WinnerModal resetGame={resetGame} winner={winner} />
+      <button onClick={resetGame}>Restablecer el Juego</button>
     </main>
   )
 }
