@@ -46,7 +46,7 @@
 .tw-followCard-text {
   display: block;
   font-size: 14px;
-  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
 }
 
 .tw-followCard-button.is-following {
