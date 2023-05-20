@@ -22,11 +22,13 @@
 
 ## ⌨️ Proyectos
 
-+ 01: [Twitter Follow Card](projects/01-twitter-follow-card/)
-+ 02: [Tic Tac Toe](projects/02-tic-tac-toe/)
-+ 03: [Mouse Follower](projects/03-mouse-follower)
-+ 04: [Technical Test](projects/04-technical-test)
-+ 05: [Movie Search](projects/05-movie-search)
-+ 06: [Shopping Cart](projects/06-shopping-cart)
-+ 07: [React-Router](projects/07-react-router)
+| N° | Nombre | Código |  Web |
+| :--: | :--: | :--: | :--: |
+| **01** | **Twitter Follow Card** | [**Ver**](projects/01-twitter-follow-card/) | [**Ver**](https://twitterfollowcard.fly.dev/) |
+| **02** | **Tic Tac Toe** | [**Ver**](projects/02-tic-tac-toe/) | [**Ver**](https://tictactoe-ypnq.fly.dev/) |
+| **03** | **Mouse Follower** | [**Ver**](projects/03-mouse-follower) | |
+| **04** | **Technical Test** | [**Ver**](projects/04-technical-test) | |
+| **05** | **Movie Search** | [**Ver**](projects/05-movie-search) | |
+| **06** | **Shopping Cart** | [**Ver**](projects/06-shopping-cart) | |
+| **07** | **React Router** | [**Ver**](projects/07-react-router) | |
 
