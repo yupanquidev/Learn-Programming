@@ -20,12 +20,14 @@ La **portabilidad** y la **ligereza** de Docker también facilitan la administra
 Docker es **ligero** y **rápido**. Proporciona una alternativa **viable** y **rentable** a las máquinas virtuales basadas en hipervisor, para que puedas utilizar más capacidad de tu servidor y alcanzar tus objetivos empresariales. Docker es perfecto para entornos de alta densidad y despliegues **pequeños** y **medianos**, donde necesitas hacer más **con menos recursos**.
 
 ## Arquitectura de Docker
-Docker utiliza una arquitectura `cliente-servidor`. El _**cliente**_ de Docker se comunica con el _**demonio**_ de Docker, que se encarga de realizar las tareas pesadas de construir, ejecutar y distribuir los contenedores de Docker. El cliente y el demonio de Docker pueden _**ejecutarse**_ en el mismo sistema o puedes conectar un cliente de Docker a un demonio de Docker remoto. El cliente y el demonio de Docker se comunican mediante una API REST, a través de sockets UNIX o una interfaz de red. Otro cliente de Docker es Docker Compose, que te permite trabajar con aplicaciones que constan de un conjunto de contenedores.
+Docker utiliza una arquitectura `cliente-servidor`. El _cliente_ de Docker se comunica con el _demonio_ de Docker, que se encarga de realizar las tareas pesadas de construir, ejecutar y distribuir los contenedores de Docker. El _cliente_ y el _demonio_ de Docker pueden **ejecutarse** en el mismo sistema o puedes conectar un _cliente_ de Docker a un _demonio_ de Docker remoto. El _cliente_ y el _demonio_ de Docker se comunican mediante una API REST, a través de sockets UNIX o una interfaz de red. Otro _cliente_ de Docker es **Docker Compose**, que te permite trabajar con aplicaciones que constan de un conjunto de contenedores.
+![Alt text](assets/Architecture.svg)
+
 
 ## ¿Por qué Docker?
 **[Docker](https://www.docker.com/)** es una herramienta popular para desarrolladores, administradores de sistemas e ingenieros de operaciones. Lo utilizan empresas de todos los tamaños para crear, implementar y administrar aplicaciones.
 
-![Alt text](assets/Architecture.svg)
+
 
 ### Algunas ventajas de usar Docker:
 
