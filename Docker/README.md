@@ -1,6 +1,7 @@
 # Introducción
 # ¿Qué es Docker?
-**[Docker](https://www.docker.com/)** es una plataforma abierta para desarrollar, enviar y ejecutar aplicaciones. Que permite **separar las aplicaciones de su infraestructura**, y que facilita la **entrega rápida de software**. Con Docker, es posible administrar su infraestructura de la misma manera que gestiona las aplicaciones. Al aprovechar las **metodologías de Docker** para enviar, probar e implementar código rápidamente, se puede **reducir significativamente el tiempo** entre escribir código y ejecutarlo en producción.
+**[Docker](https://www.docker.com/)** es una plataforma abierta para desarrollar, enviar y ejecutar aplicaciones. Que permite **separar las aplicaciones de su infraestructura**, y que facilita la **entrega rápida de software**. Con Docker, es posible administrar su infraestructura de la misma manera que se administran las aplicaciones. Al aprovechar las **metodologías de Docker** para enviar, probar e implementar código rápidamente, se puede **reducir significativamente el tiempo** entre escribir código y ejecutarlo en producción.
+
 ## Plataforma Docker
 Docker proporciona la capacidad de **empaquetar y ejecutar una aplicación** en un entorno de **aislamiento flexible** llamado contenedor. El **aislamiento** y la **seguridad** permiten ejecutar múltiples contenedores simultáneamente en un host determinado. Los contenedores son **livianos** y contienen todo lo necesario para ejecutar la aplicación, por lo que no necesita depender de lo que está instalado actualmente en el host. Puedes compartir fácilmente los contenedores mientras trabaja y asegurarse que todas las personas con las que comparte obtengan el **mismo contenedor** que funciona de la misma manera.
 
@@ -10,12 +11,15 @@ Docker proporciona la capacidad de **empaquetar y ejecutar una aplicación** en 
   - **Cuando estés listo**, despliega tu aplicación en tu entorno de producción, ya sea como un contenedor o como un servicio orquestado.
 
 ## ¿Para qué puedo usar Docker?
-### **Entrega rápida y consistente tus aplicaciones**
+### Entrega rápida y consistente tus aplicaciones
+
 Docker **optimiza** el ciclo de vida de desarrollo al permitir a los desarrolladores trabajar en **entornos estandarizados** utilizando **contenedores locales** que proporcionan tus aplicaciones y servicios. Los **contenedores** son ideales para flujos de trabajo de **integración continua** y **entrega continua** (CI/CD).
+
 ### Despliegue receptivo y escalado
 La plataforma basada en contenedores de Docker que permite cargas de trabajo altamente portátiles. Los contenedores de Docker pueden ejecutarse en la **cumputadora local de un desarrollador**, en máquinas físicas o virtuales en un centro de datos, en proveedores de nube o en una combinación de entornos.
 
 La **portabilidad** y la **ligereza** de Docker también facilitan la administraciín dinámica de cargas de trabajo, escalando aplicaciones y servicios según las necesidades del negocio, en tiempo casi real.
+
 ### Ejecutando más cargas de trabajo en el mismo hardware
 Docker es **ligero** y **rápido**. Proporciona una alternativa **viable** y **rentable** a las máquinas virtuales basadas en hipervisor, para que puedas utilizar más capacidad de tu servidor y alcanzar tus objetivos empresariales. Docker es perfecto para entornos de alta densidad y despliegues **pequeños** y **medianos**, donde necesitas hacer más **con menos recursos**.
 
@@ -23,38 +27,42 @@ Docker es **ligero** y **rápido**. Proporciona una alternativa **viable** y **r
 Docker utiliza una arquitectura `cliente-servidor`. El _cliente_ de Docker se comunica con el _demonio_ de Docker, que se encarga de realizar las tareas pesadas de construir, ejecutar y distribuir los contenedores de Docker. El _cliente_ y el _demonio_ de Docker pueden **ejecutarse** en el mismo sistema o puedes conectar un _cliente_ de Docker a un _demonio_ de Docker remoto. El _cliente_ y el _demonio_ de Docker se comunican mediante una API REST, a través de sockets UNIX o una interfaz de red. Otro _cliente_ de Docker es **Docker Compose**, que te permite trabajar con aplicaciones que constan de un conjunto de contenedores.
 ![Alt text](assets/Architecture.svg)
 
+### El demonio de Docker
+El demonio de Docker (`dockerd`) escucha las solicitudes de la API de Docker y administra los objetos de Docker, como imágenes, contenedores, redes y volúmenes. Un demonio también puede comunicarse con otros demonios para administrar los servicios de Docker.
 
-## ¿Por qué Docker?
-**[Docker](https://www.docker.com/)** es una herramienta popular para desarrolladores, administradores de sistemas e ingenieros de operaciones. Lo utilizan empresas de todos los tamaños para crear, implementar y administrar aplicaciones.
+### El cliente de Docker
+El cliente de Docker (`docker`) es la forma principal en que muchos usuarios de Docker interactúan con Docker. Cuando utilizas comandos como `docker run`, el cliente envía estos comandos al demonio de Docker(`dockerd`), que los ejecuta.  El comando `docker` utiliza la API de Docker. El cliente de Docker puede comunicarse con más de un demonio.
 
+### Docker Desktop
+[Docker Desktop](https://docs.docker.com/desktop/) es una aplicación fácil de instalar para MacOS, Windows o Linux que te permite construir y compartir aplicaciones y microservicios en contenedores. Docker Desktop incluye el demonio de Docker (`dockerd`), el cliente de Docker (`docker`), Docker Compose, Docker Content Trust, Kubernetes y Credential Helper.
 
+### Registros de Docker
+Un _registro_ de Docker almacena imágenes de Docker. [Docker Hub](https://hub.docker.com/) es un registro público que cualquiera puede utilizar, y Docker está configurado para buscar imágenes en [Docker Hub](https://hub.docker.com/) de forma predeterminada. Incluso puedes ejecutar tu propio registro privado.
 
-### Algunas ventajas de usar Docker:
+Cuando utilizas los comandos `docker pull` o `docker run`, las imágenes requeridas se descargan desde tu registro configurado. Cuando utilizas el comando `docker push`, tu imagen se envía a tu registro configurado.
 
-- **Portabilidad**
-- **Eficiencia**
-- **Seguridad**
-- **Colaboración** 
-- **Velocidad**
-- **Agilidad**
-- **Escalabilidad**
-- **Versatilidad**
+### Objetos de Docker
+Cuando utilizas Docker, estás creando y utilizando imágenes, redes, volúmenes, complementos y otros objetos.
 
-### Diferencias entre Docker y una máquina virtual
+#### Imágenes
+Una _imagen_ es un plantilla de solo lectura con instrucciones para crear un contenedor de Docker. A menudo, una imagen se basa en otra imagen, con algunas personalizaciones adicionales. Por ejemplo, puedes construir una imagen basada en la imagen de `Ubuntu`, pero instalar el servidor web Apache y tu aplicación, así como los detalles de configuración necesarios para hacer funcionar tu aplicación.
 
-_Los **contenedores** de **Docker** comparten el sistema operativo host y son más ligeros y eficientes que las máquinas virtuales, que ejecutan su propio sistema operativo._
+Puedes crear tus propias imágenes o simplemente utilizar las creadas por otros y publicadas en un registro. Para construir tu propia imagen, creas un _Dockerfile_ con una sintaxis sencilla que define los pasos necesarios para crear y ejecutar la imagen. Cada instrucción en un _Dockerfile_ crea una capa en la imagen. Cuando modificas el _Dockerfile_ y reconstruyes la imagen, solo se reconstruyen las capas que han cambiado. Esto es parte de lo que hace que las imágenes sean tan ligeras, pequeñas y rápidas en comparación con otras tecnologías de virtualización.
 
-| **Características** | **Docker** | **Máquinas Virtuales** |
-| :--: | :--: | :--: |
-| Sistema | Comparte el sistema operativo host | Ejecuta su propio sistema operativo |
-| Eficiencia | Más liviano y eficiente | Más pesado y requiere más recursos |
-| Tiempo de arranque | Rápido | Lento |
-| Uso de recursos | Eficiente | Menos eficiente |
-| Aislamiento | Los contenedores están aislados entre sí | Las máquinas virtuales están aisladas entre sí y del sistema operativo host |
-| Portabilidad | Portátil | No portátil |
+#### Contenedores
+
+Un contenedor es una instancia ejecutable de una imagen. Puedes crear, iniciar, detener, mover o eliminar un contenedor utilizando la API o la interfaz de línea de comandos de Docker. Puedes conectar un contenedor a una o más redes, adjuntar almacenamiento a él o incluso crear una nueva imagen basada en su estado actual.
+
+Por defecto, un contenedor está relativamente aislado de otros contenedores y de su máquina host. Puedes controlar el grado de aislamiento de la red, almacenamiento u otros subsistemas subyacentes de un contenedor con respecto a otros contenedores o a la máquina host.
+
+Un contenedor se define por su imagen, así como por cualquier opción de configuración que le proporciones al crearlo o iniciarlo. Cuando se elimina un contenedor, todos los cambios en su estado que no están almacenados en almacenamiento persistente desaparecen.
+
+## La tecnología subyacente
+Docker está escrito en el [lenguaje de programación Go](https://go.dev/) y aprovecha varias características del kernel de Linux para ofrecer su funcionalidad. Docker utiliza una tecnología llamada `namespaces `para proporcionar el espacio de trabajo aislado conocido como contenedor. Cuando ejecutas un contenedor, Docker crea un conjunto de _namespaces_ para ese contenedor.
+
+Estos namespaces proporcionan una capa de aislamiento. Cada aspecto de un contenedor se ejecuta en un namespace separado y su acceso está limitado a ese namespace.
 
 ## Comandos básicos de Docker:
-
 - **`docker pull`:** Descarga una imagen o un repositorio desde un registro.
   - Ejemplo: `docker pull nombre_imagen`
 - `docker run` - Ejecuta un comando en un nuevo contenedor.
