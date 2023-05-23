@@ -58,13 +58,26 @@ Por defecto, un contenedor está relativamente aislado de otros contenedores y d
 Un contenedor se define por su imagen, así como por cualquier opción de configuración que le proporciones al crearlo o iniciarlo. Cuando se elimina un contenedor, todos los cambios en su estado que no están almacenados en almacenamiento persistente desaparecen.
 
 ## La tecnología subyacente
-Docker está escrito en el [lenguaje de programación Go](https://go.dev/) y aprovecha varias características del kernel de Linux para ofrecer su funcionalidad. Docker utiliza una tecnología llamada `namespaces `para proporcionar el espacio de trabajo aislado conocido como contenedor. Cuando ejecutas un contenedor, Docker crea un conjunto de _namespaces_ para ese contenedor.
+Docker está escrito en el [lenguaje de programación Go](https://go.dev/) y aprovecha varias características del kernel de Linux para ofrecer su funcionalidad. Docker utiliza una tecnología llamada `namespaces` para proporcionar el espacio de trabajo aislado conocido como contenedor. Cuando ejecutas un contenedor, Docker crea un conjunto de _namespaces_ para ese contenedor.
 
 Estos namespaces proporcionan una capa de aislamiento. Cada aspecto de un contenedor se ejecuta en un namespace separado y su acceso está limitado a ese namespace.
 
 ## Comandos básicos de Docker:
 - **`docker pull`:** Descarga una imagen o un repositorio desde un registro.
-  - Ejemplo: `docker pull nombre_imagen`
+  ```bash
+    $ docker pull hello-world
+    Using default tag: latest
+    latest: Pulling from library/hello-world
+    719385e32844: Pull complete
+    Digest: sha256:fc6cf906cbfa013e80938cdf0bb199fbdbb86d6e3e013783e5a766f50f5dbce0
+    Status: Downloaded newer image for hello-world:latest
+    docker.io/library/hello-world:latest
+  ```
+
+  ```bash
+    docker pull hello-world
+  ```
+
 - `docker run` - Ejecuta un comando en un nuevo contenedor.
 - `docker start` - Inicia uno o más contenedores detenidos.
 - **docker stop** - Detiene uno o más contenedores en ejecución.
