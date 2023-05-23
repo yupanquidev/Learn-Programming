@@ -10,20 +10,22 @@ Docker proporciona la capacidad de **empaquetar y ejecutar una aplicación** en 
   - **Cuando estés listo**, despliega tu aplicación en tu entorno de producción, ya sea como un contenedor o como un servicio orquestado.
 
 ## ¿Para qué puedo usar Docker?
-> ### **Entrega rápida y consistente tus aplicaciones**
-> Docker **optimiza** el ciclo de vida de desarrollo al permitir a los desarrolladores trabajar en **entornos estandarizados** utilizando **contenedores locales** que proporcionan tus aplicaciones y servicios. Los **contenedores** son ideales para flujos de trabajo de **integración continua** y **entrega continua** (CI/CD).
-> ### Despliegue receptivo y escalado
-> La plataforma basada en contenedores de Docker que permite cargas de trabajo altamente portátiles. Los contenedores de Docker pueden ejecutarse en la **cumputadora local de un desarrollador**, en máquinas físicas o virtuales en un centro de datos, en proveedores de nube o en una combinación de entornos.
->
-> La **portabilidad** y la **ligereza** de Docker también facilitan la administraciín dinámica de cargas de trabajo, escalando aplicaciones y servicios según las necesidades del negocio, en tiempo casi real.
-> ### Ejecutando más cargas de trabajo en el mismo hardware
-> Docker es **ligero** y **rápido**. Proporciona una alternativa **viable** y **rentable** a las máquinas virtuales basadas en hipervisor, para que puedas utilizar más capacidad de tu servidor y alcanzar tus objetivos empresariales. Docker es perfecto para entornos de alta densidad y despliegues **pequeños** y **medianos**, donde necesitas hacer más **con menos recursos**.
+### **Entrega rápida y consistente tus aplicaciones**
+Docker **optimiza** el ciclo de vida de desarrollo al permitir a los desarrolladores trabajar en **entornos estandarizados** utilizando **contenedores locales** que proporcionan tus aplicaciones y servicios. Los **contenedores** son ideales para flujos de trabajo de **integración continua** y **entrega continua** (CI/CD).
+### Despliegue receptivo y escalado
+La plataforma basada en contenedores de Docker que permite cargas de trabajo altamente portátiles. Los contenedores de Docker pueden ejecutarse en la **cumputadora local de un desarrollador**, en máquinas físicas o virtuales en un centro de datos, en proveedores de nube o en una combinación de entornos.
+
+La **portabilidad** y la **ligereza** de Docker también facilitan la administraciín dinámica de cargas de trabajo, escalando aplicaciones y servicios según las necesidades del negocio, en tiempo casi real.
+### Ejecutando más cargas de trabajo en el mismo hardware
+Docker es **ligero** y **rápido**. Proporciona una alternativa **viable** y **rentable** a las máquinas virtuales basadas en hipervisor, para que puedas utilizar más capacidad de tu servidor y alcanzar tus objetivos empresariales. Docker es perfecto para entornos de alta densidad y despliegues **pequeños** y **medianos**, donde necesitas hacer más **con menos recursos**.
 
 ## Arquitectura de Docker
 Docker utiliza una arquitectura `cliente-servidor`. El _**cliente**_ de Docker se comunica con el _**demonio**_ de Docker, que se encarga de realizar las tareas pesadas de construir, ejecutar y distribuir los contenedores de Docker. El cliente y el demonio de Docker pueden _**ejecutarse**_ en el mismo sistema o puedes conectar un cliente de Docker a un demonio de Docker remoto. El cliente y el demonio de Docker se comunican mediante una API REST, a través de sockets UNIX o una interfaz de red. Otro cliente de Docker es Docker Compose, que te permite trabajar con aplicaciones que constan de un conjunto de contenedores.
 
 ## ¿Por qué Docker?
 **[Docker](https://www.docker.com/)** es una herramienta popular para desarrolladores, administradores de sistemas e ingenieros de operaciones. Lo utilizan empresas de todos los tamaños para crear, implementar y administrar aplicaciones.
+
+![Alt text](assets/Architecture.svg)
 
 ### Algunas ventajas de usar Docker:
 
