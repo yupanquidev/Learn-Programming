@@ -64,28 +64,67 @@ Estos namespaces proporcionan una capa de aislamiento. Cada aspecto de un conten
 
 ## Comandos básicos de Docker:
 - **`docker pull`:** Descarga una imagen o un repositorio desde un registro.
-  ```bash
-    $ docker pull hello-world
-    Using default tag: latest
-    latest: Pulling from library/hello-world
-    719385e32844: Pull complete
-    Digest: sha256:fc6cf906cbfa013e80938cdf0bb199fbdbb86d6e3e013783e5a766f50f5dbce0
-    Status: Downloaded newer image for hello-world:latest
-    docker.io/library/hello-world:latest
-  ```
+  <details>
+  <summary><strong>Ejemplo:</strong></summary>
 
-  ```bash
-    docker pull hello-world
+  ```powershell
+  $ docker pull hello-world
+  Using default tag: latest
+  latest: Pulling from library/hello-world
+  719385e32844: Already exists
+  Digest: sha256:fc6cf906cbfa013e80938cdf0bb199fbdbb86d6e3e013783e5a766f50f5dbce0
+  Status: Downloaded newer image for hello-world:latest
+  docker.io/library/hello-world:latest
   ```
+  </details>
 
 - `docker run` - Ejecuta un comando en un nuevo contenedor.
+  <details>
+  <summary><strong>Ejemplo:</strong></summary>
+  
+  ```powershell
+  $ docker run hello-world
+
+  Hello from Docker!
+  This message shows that your installation appears to be working correctly.
+
+  To generate this message, Docker took the following steps:
+   1. The Docker client contacted the Docker daemon.
+   2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+   (amd64)
+   3. The Docker daemon created a new container from that image which runs the
+   executable that produces the output you are currently reading.
+   4. The Docker daemon streamed that output to the Docker client, which sent it 
+   to your terminal.
+
+  To try something more ambitious, you can run an Ubuntu container with:
+   $ docker run -it ubuntu bash
+
+  Share images, automate workflows, and more with a free Docker ID:
+   https://hub.docker.com/
+
+  For more examples and ideas, visit:
+   https://docs.docker.com/get-started/
+  ```
+  </details>
+- `docker images` - Lista las imágenes.
+  ```powershell
+  $ docker images
+  REPOSITORY    TAG       IMAGE ID       CREATED       SIZE
+  hello-world   latest    9c7a54a9a43c   2 weeks ago   13.3kB
+  ```
+- `docker ps` - Lista los contenedores en ejecución.
+  ```powershell
+  $ docker ps
+  ```
+
 - `docker start` - Inicia uno o más contenedores detenidos.
 - **docker stop** - Detiene uno o más contenedores en ejecución.
 - **docker build** - Crea una imagen a partir de un Dockerfile.
 - **docker push** - Carga una imagen o un repositorio a un registro.
 - **docker export** - Exporta un contenedor como un archivo tar.
 - **docker exec** - Ejecuta un comando en un contenedor en ejecución.
-- **docker search** - Busca una imagen de Docker Hub.
+- **docker search** - Busca una imagen de [Docker Hub](https://hub.docker.com/).
 - **docker attach** - Conecta la entrada, la salida y el error estándar.
 - **docker commit** - Crea una nueva imagen a partir de los cambios de un contenedor.
 - **docker cp** - Copia archivos o carpetas entre un contenedor y el sistema local.
