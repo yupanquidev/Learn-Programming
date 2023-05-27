@@ -62,8 +62,88 @@ Docker está escrito en el [lenguaje de programación Go](https://go.dev/) y apr
 
 Estos namespaces proporcionan una capa de aislamiento. Cada aspecto de un contenedor se ejecuta en un namespace separado y su acceso está limitado a ese namespace.
 
-## Comandos básicos de Docker:
-- **`docker pull`:** Descarga una imagen o un repositorio desde un registro.
+## La línea de comandos de Docker (CLI):
+### docker:
+Para listar los comandos disponibles, ejecuta `docker` sin parámetros o ejecuta `docker help`.
+
+#### Subcomandos:
+| Nombre | Descripción |
+| :-- | :-- |
+| `attach` | Adjuntar flujos de error, salida y entrada estándar local a un contenedor en ejecución |
+| `build` | Compilar una imagen a partir de un Dockerfile |
+| `builder` | Administra compilaciones |
+| `checkpoint` | Administra puntos de control |
+| `commit` | Crear una nueva imagen a partir de los cambios de un contenedor. |
+| `config` | Administra configuraciones de Swarm |
+| `container` | Administrar contenedores |
+| `context` | Administrar contextos |
+| `cp` | Copiar archivos/carpetas entre un contenedor y el sistema de archivos local |
+| `create` | Crear un nuevo contenedor |
+| `diff` | Inspeccionar los cambios en archivos o directorios en el sistema de archivos de un contenedor |
+| `events` | Obtener eventos en tiempo real del servidor |
+| `exec` | Ejecutar un comando en un contenedor en ejecución |
+| `export` | Exportar el sistema de archivos de un contenedor como un archivo tar |
+| `history` | Mostrar el historial de una imagen |
+| `image` | Administrar imágenes |
+| `images` | Listar imágenes |
+| `import` | Importar el contenido de un archivo tar para crear una imagen de sistema de archivos |
+| `info` | Mostrar información de todo el sistema |
+| `inspect` | Devolver información de bajo nivel sobre los objetos de Docker |
+| `kill` | Finalizar uno o más contenedores en ejecución |
+| `load` | Cargar una imagen desde un archivo tar o STDIN |
+| `login` | Iniciar sesión en un registro |
+| `logout` | Cerrar sesión desde un registro |
+| `logs` | Obtener los registros (logs) de un contenedor |
+| `manifest` | Administrar manifiestos y listas de manifiestos de imágenes de Docker |
+| `network` | Administrar redes |
+| `node` | Administrar nodos de Swarm |
+| `pause` | Pausar todos los procesos dentro de uno o más contenedores |
+| `plugin` | Aministrar plugins |
+| `port` | Listar mapeos de puertos o un mapeo específico para el contenedor |
+| `ps` | Listar contenedores |
+| `pull` | Descargar una imagen desde un registro |
+| `push` | Subir una imagen a un registro |
+| `rename` | Cambiar el nombre de un contenedor |
+| `restart` | Reiniciar uno o más contenedores |
+| `rm` | Eliminar uno o más contenedores |
+| `rmi` | Eliminar uno o má imágenes |
+| `run` | Crear y ejecutar un nuevo contenedor a partir de una imagen |
+| `save` | Guardar una o más imágenes en un archivo tar (transmitido a STDOUT de forma predeterminada) |
+| `search` | Buscar imágenes en Docker Hub |
+| `secret` | Administrar secretos de Swarm |
+| `service` | Administrar servicios de Swarm |
+| `stack` | Administrar pilas de Swarm |
+| `start` | Iniciar uno o más contenedores detenidos |
+| `stats` | Mostrar una transmisión en vivo de las estadísticas de uso de recursos del o los contenedores |
+| `stop` | Detener uno o más contenedores en ejecución |
+| `swarm` | Administrar Swarm |
+| `system` | Administrar Docker |
+| `tag` | Crear una etiqueta (tag) TARGET_IMAGE que se refiere a SOURCE_IMAGE |
+| `top` | Mostrar los procesos en ejecución de un contenedor |
+| `trust` | Administrar la confianza en las imágenes de Docker |
+| `unpause` | Reanudar todos los procesos dentro de uno o más contenedores |
+| `update` | Actualizar la configuración de uno o más contenedores |
+| `version` | Mostrar la información de la versión de Docker |
+| `volume` |  Administrar volúmenes |
+| `wait` | Bloquear hasta que uno o más contenedores se detengan, luego imprimir sus códigos de salida |
+
+#### Opciones:
+| Nombre | Tipo | Predeterminado | Descripción |
+| :-- | :-- | :-- | :-- |
+| `--config` | `string` | `/root/.docker` | Ubicación de los archivos de configuración del cliente |
+| `-c`, `--context` | `string` |  | Nombre del contexto a utilizar para conectarse al demonio (anula la variable de entorno DOCKER_HOST y el contexto predeterminado establecido con `docker context use`) |
+| `D`, `--debug` | | | Activar el modo de depuración |
+| `-H`, `--host` | `list` | | Socket del demonio al que conectar |
+| `-l`, `--log-level` | `string` | `info` | Establecer el nivel de registro (`debug` \| `info` \| `warn` \| `error` \| `fatal`) |
+| `--tls` | | | Usar TLS; implícito con --tlsverify |
+| `--tlscacert` | `string` | `/root/.docker/ca.pem` | Confiar solo en certificados firmados por esta autoridad de certificación (CA) |
+| `--tlscert` | `string` | `/root/.docker/cert.pem` | Ruta al archivo de certificado TLS |
+| `--tlskey` | `string` | `/root/.docker/key.pem` | Ruta al archivo de clave TLS |
+| `--tlsverify` | | | Usar TLS y verificar el remoto|
+
+### Ejemplos:
+
+- `docker pull` - Descarga una imagen o un repositorio desde un registro.
   <details>
   <summary><strong>Ejemplo:</strong></summary>
 
@@ -80,8 +160,8 @@ Estos namespaces proporcionan una capa de aislamiento. Cada aspecto de un conten
 
 - `docker run` - Ejecuta un comando en un nuevo contenedor.
   <details>
-  <summary><strong>Ejemplo:</strong></summary>
-  
+  <summary><strong>Ejemplo:</strong></summary></br>
+
   ```powershell
   $ docker run hello-world
 
@@ -108,11 +188,16 @@ Estos namespaces proporcionan una capa de aislamiento. Cada aspecto de un conten
   ```
   </details>
 - `docker images` - Lista las imágenes.
+  <details>
+  <summary><strong>Ejemplo:</strong></summary></br>
+
   ```powershell
   $ docker images
   REPOSITORY    TAG       IMAGE ID       CREATED       SIZE
   hello-world   latest    9c7a54a9a43c   2 weeks ago   13.3kB
   ```
+  </details>
+
 - `docker ps` - Lista los contenedores en ejecución.
   ```powershell
   $ docker ps
