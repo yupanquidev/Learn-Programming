@@ -139,7 +139,7 @@ Para listar los comandos disponibles, ejecuta `docker` sin parámetros o ejecuta
 | `--tlscacert` | `string` | `/root/.docker/ca.pem` | Confiar solo en certificados firmados por esta autoridad de certificación (CA) |
 | `--tlscert` | `string` | `/root/.docker/cert.pem` | Ruta al archivo de certificado TLS |
 | `--tlskey` | `string` | `/root/.docker/key.pem` | Ruta al archivo de clave TLS |
-| `--tlsverify` | | | Usar TLS y verificar el remoto|
+| `--tlsverify` | | | Usar TLS y verificar el remoto |
 
 ### Ejemplos:
 
@@ -187,6 +187,7 @@ Para listar los comandos disponibles, ejecuta `docker` sin parámetros o ejecuta
    https://docs.docker.com/get-started/
   ```
   </details>
+
 - `docker images` - Lista las imágenes.
   <details>
   <summary><strong>Ejemplo:</strong></summary></br>
