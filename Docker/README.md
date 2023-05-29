@@ -143,6 +143,22 @@ Para listar los comandos disponibles, ejecuta `docker` sin parámetros o ejecuta
 
 ### Ejemplos:
 
+
+/> w
+  18.09
+
+
+- [X] sasa
+- [ ] Tarea principal
+    - [x] Subtarea 1 completada
+    - [ ] Subtarea 2
+        - [ ] Subtarea 2.1
+        - [x] Subtarea 2.2 completada
+    - [x] Subtarea 3 completada
+- [ ] Otra tarea principal
+
+
+
 - `docker pull` - Descarga una imagen o un repositorio desde un registro.
   <details>
   <summary><strong>Ejemplo:</strong></summary>
