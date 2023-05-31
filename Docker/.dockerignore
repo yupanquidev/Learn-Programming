@@ -1,0 +1,4 @@
+./assets/a.conf
+./assets/b.conf
+
+./assets/*.conf

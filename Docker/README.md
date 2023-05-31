@@ -247,10 +247,12 @@ Para listar los comandos disponibles, ejecuta `docker` sin parámetros o ejecuta
   ```
   </details>
 
+### Imágenes
+Dos tipos de imágenes:
+- Imágenes oficiales de Docker.
+- Imágenes de terceros.
 
-
-
-
+Se trabaja con un archivo llamado `Dockerfile` que contiene las instrucciones para construir una imagen.
 
 ## Glosario
 - **`Docker`:** Una plataforma de código abierto que permite desarrollar, enviar y ejecutar aplicaciones en contenedores.
