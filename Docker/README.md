@@ -141,7 +141,7 @@ Para listar los comandos disponibles, ejecuta `docker` sin parámetros o ejecuta
 | `--tlskey` | `string` | `/root/.docker/key.pem` | Ruta al archivo de clave TLS |
 | `--tlsverify` | | | Usar TLS y verificar el remoto |
 
-### Ejemplos:
+### Ejemplos de comandos de Docker:
 
 - `docker pull` - Descarga una imagen o un repositorio desde un registro.
   <details>
@@ -199,30 +199,62 @@ Para listar los comandos disponibles, ejecuta `docker` sin parámetros o ejecuta
   ```
   </details>
 
-- `docker ps` - Lista los contenedores en ejecución.
-  ```powershell
-  $ docker ps
-  ```
+- `docker container ls` o `docker ps` - Lista los contenedores en ejecución.
+  <details>
+  <summary><strong>Ejemplo:</strong></summary></br>
 
-- `docker start` - Inicia uno o más contenedores detenidos.
-- **docker stop** - Detiene uno o más contenedores en ejecución.
-- **docker build** - Crea una imagen a partir de un Dockerfile.
-- **docker push** - Carga una imagen o un repositorio a un registro.
-- **docker export** - Exporta un contenedor como un archivo tar.
-- **docker exec** - Ejecuta un comando en un contenedor en ejecución.
-- **docker search** - Busca una imagen de [Docker Hub](https://hub.docker.com/).
-- **docker attach** - Conecta la entrada, la salida y el error estándar.
-- **docker commit** - Crea una nueva imagen a partir de los cambios de un contenedor.
-- **docker cp** - Copia archivos o carpetas entre un contenedor y el sistema local.
-- **docker rm** - Elimina uno o más contenedores.
-- **docker rmi** - Elimina una o más imágenes.
-- **docker ps** - Lista los contenedores en ejecución.
-- **docker images** - Lista las imágenes disponibles localmente.
-- **docker info** - Muestra la información del sistema Docker.
-- **docker version** - Muestra la versión de Docker.
+  ```powershell
+  $ docker container ls
+  CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+  ```
+  </details>
+
+- `docker container rm` - Elimina uno o más contenedores.
+  <details>
+  <summary><strong>Ejemplo:</strong></summary></br>
+
+  Para eliminar se debe usa el `ID` o el `NOMBRE` del contenedor.
+
+  ```powershell
+  $ docker container rm 9c7a54a9a43c
+  9c7a54a9a43c
+  ```
+  </details>
+
+- `docker container create` - Crea un nuevo contenedor.
+  <details>
+  <summary><strong>Ejemplo:</strong></summary></br>
+
+  ```powershell
+  $ docker container create hello-world
+  9886ae6ee2f596dd47f4cebd55b9b420e36bf99b69b62a8201e671854dedb63c
+  ```
+  Y nos genera un `ID` unico para el contenedor.
+  </details>
+
+- `docker imagen pull` - Descarga una imagen o un repositorio desde un registro.
+  <details>
+  <summary><strong>Ejemplo:</strong></summary></br>
+
+  ```powershell
+  $ docker imagen pull Debian
+  Using default tag: latest
+  latest: Pulling from library/debian
+  bd73737482dd: Pull complete
+  Digest: sha256:432f545c6ba13b79e2681f4cc4858788b0ab099fc1cca799cc0fae4687c69070
+  Status: Downloaded newer image for debian:latest
+  docker.io/library/debian:latest
+  ```
+  </details>
+
+
+
+
+
 
 ## Glosario
 - **`Docker`:** Una plataforma de código abierto que permite desarrollar, enviar y ejecutar aplicaciones en contenedores.
 - **`Contenedor - Container`:** Un entorno aislado y ligero que contiene una aplicación y todas sus dependencias necesarias para ejecutarse de manera independiente.
 - **`Imagen - Image`:** Un paquete de solo lectura que incluye todo lo necesario para ejecutar una aplicación, incluyendo el código, las bibliotecas, las herramientas y las configuraciones.
-
+- **`TAG`**: Es una etiqueta que se le asigna a una imagen de Docker.
+- **`latest`**: Es la ultima versión de una imagen de Docker.
