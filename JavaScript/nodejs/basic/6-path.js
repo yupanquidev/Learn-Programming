@@ -1,10 +1,9 @@
 const path = require('path')
 
+// `./content/subfolder/test.txt` // Esto esta mal, porque no es compatible con todos los sistemas operativos.
 
-//`./content/subfolder/test.txt` // Esto esta mal, porque no es compatible con todos los sistemas operativos.
-
-/* 
-- Barra separadoras de carpetas según el sistema operativo (OS) 
+/*
+- Barra separadoras de carpetas según el sistema operativo (OS)
   *  unix -> /
   *  windows -> \
 */

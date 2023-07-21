@@ -3,7 +3,7 @@
 // 1
 const os = require('node:os')
 
-console.log('Informacion del sistema operativo: ',)
+console.log('Informacion del sistema operativo: ')
 console.log('_____________________')
 
 console.log('Arquitectura del sistema operativo: ', os.arch())

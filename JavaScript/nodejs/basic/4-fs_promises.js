@@ -1,4 +1,4 @@
-// Promesas 
+// Promesas
 
 // Esto sólo en los módulos nativos que no tienen promesas nativas
 // const { promisify } = require('node:util')

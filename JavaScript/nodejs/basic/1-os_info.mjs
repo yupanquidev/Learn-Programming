@@ -2,7 +2,7 @@
 
 import { arch, platform, release, totalmem, freemem, uptime, cpus } from 'node:os'
 
-console.log('Informacion del sistema operativo: ',)
+console.log('Informacion del sistema operativo: ')
 console.log('_____________________')
 
 console.log('Arquitectura del sistema operativo: ', arch())
