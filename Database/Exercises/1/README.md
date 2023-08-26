@@ -1,0 +1,12 @@
+# Ejercicio  N° 1
+- Armar esquema simple A *:* B
+- Llenar datos: 
+  - 5 personas:
+    - Con todas las zapatillas
+    - Sin zapatillas
+    - Con algunas zapatillas
+  - Zapatillas
+    - Que tenga todas las personas
+    - Sin personas
+- Volver a hacer el Query -> probar (INNER JOIN, LEFT JOIN)
+- Query de todos en A que no tenga B
