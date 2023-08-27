@@ -7,27 +7,27 @@
 
     ```sql
     CREATE TABLE people (
-	    id_people SERIAL PRIMARY KEY,
-	    name VARCHAR(50) NOT NULL
+	  id_people SERIAL PRIMARY KEY,
+	  name VARCHAR(50) NOT NULL
     );
     ```
   - Zapatillas:
 
     ```sql
     CREATE TABLE sneakers (
-	    id_sneakers SERIAL PRIMARY KEY,
-	    brand VARCHAR(50) NOT NULL
+	  id_sneakers SERIAL PRIMARY KEY,
+	  brand VARCHAR(50) NOT NULL
     );
     ```
   - PersonasZapatillas:
 
     ```sql
     CREATE TABLE people_sneakers (
-        id_people_sneakers SERIAL PRIMARY KEY,
-	    id_people int,
-	    FOREIGN KEY (id_people) REFERENCES people(id_people),
-	    id_sneakers int,
-	    FOREIGN KEY (id_sneakers) REFERENCES sneakers(id_sneakers)
+      id_people_sneakers SERIAL PRIMARY KEY,
+	  id_people int,
+	  FOREIGN KEY (id_people) REFERENCES people(id_people),
+	  id_sneakers int,
+	  FOREIGN KEY (id_sneakers) REFERENCES sneakers(id_sneakers)
     );
     ```
 - Llenar datos: 
@@ -43,12 +43,12 @@
   -- Agregar 5 personas
   INSERT INTO people(name)
   VALUES
-    ( 'María'),	('Pedro'), ('Ana'), ('Luis'), ('Julia');
+    ( 'María'), ('Pedro'), ('Ana'), ('Luis'), ('Julia');
 
   -- Agregar 4 zapatillas
   INSERT INTO sneakers(brand)
   VALUES
-    ('Nike'),('Adidas'),('Puma'),('Reebok');
+    ('Nike'), ('Adidas'), ('Puma'), ('Reebok');
 
   -- Relacionar personas con zapatillas
   INSERT INTO people_sneakers(id_people, id_sneakers)
@@ -72,10 +72,10 @@
     -- Muestra todos las personas que tiene zapatillas
     SELECT p.name, s.brand
     FROM people AS p
-    	INNER JOIN people_sneakers AS ps 
-    	ON p.id_people = ps.id_people
-    	INNER JOIN sneakers AS s 
-    	ON ps.id_sneakers=s.id_sneakers;
+     INNER JOIN people_sneakers AS ps 
+     ON p.id_people = ps.id_people
+     INNER JOIN sneakers AS s 
+     ON ps.id_sneakers=s.id_sneakers;
     ```
     Resultado:
     ```powershell
@@ -98,10 +98,10 @@
     -- Muestra todas las personas que tiene zapatillas
     SELECT p.name, s.brand
     FROM people AS p
-    	LEFT JOIN people_sneakers AS ps 
-    	ON p.id_people = ps.id_people
-    	INNER JOIN sneakers AS s 
-    	ON ps.id_sneakers=s.id_sneakers;
+     LEFT JOIN people_sneakers AS ps 
+     ON p.id_people = ps.id_people
+     INNER JOIN sneakers AS s 
+     ON ps.id_sneakers=s.id_sneakers;
     ```
     Resultado:
     ```powershell
@@ -125,10 +125,10 @@
     -- Muestra todas las personas que tiene zapatillas
     SELECT p.name, s.brand
     FROM people AS p
-    	INNER JOIN people_sneakers AS ps 
-    	ON p.id_people = ps.id_people
-    	LEFT JOIN sneakers AS s 
-    	ON ps.id_sneakers=s.id_sneakers;
+     INNER JOIN people_sneakers AS ps 
+     ON p.id_people = ps.id_people
+     LEFT JOIN sneakers AS s 
+     ON ps.id_sneakers=s.id_sneakers;
     ```
     Resultado:
     ```powershell
@@ -150,10 +150,10 @@
     -- Muestra todas la personas que tinen zapatillas y las que no tinen
     SELECT p.name, s.brand
     FROM people AS p
-    	LEFT JOIN people_sneakers AS ps 
-    	ON p.id_people = ps.id_people
-    	LEFT JOIN sneakers AS s 
-    	ON ps.id_sneakers=s.id_sneakers;
+     LEFT JOIN people_sneakers AS ps 
+     ON p.id_people = ps.id_people
+     LEFT JOIN sneakers AS s 
+     ON ps.id_sneakers=s.id_sneakers;
     ```
     Resultado:
     ```powershell
@@ -177,8 +177,8 @@
   -- Muestra todas las personas que no tengan zapatillas
   SELECT p.name, s.brand
   FROM people AS p
-  	LEFT JOIN people_sneakers AS ps ON p.id_people = ps.id_people
-  	LEFT JOIN sneakers AS s ON ps.id_sneakers=s.id_sneakers
+   LEFT JOIN people_sneakers AS ps ON p.id_people = ps.id_people
+   LEFT JOIN sneakers AS s ON ps.id_sneakers=s.id_sneakers
   WHERE ps.id_sneakers IS NULL;
   ```
   Resultado:
