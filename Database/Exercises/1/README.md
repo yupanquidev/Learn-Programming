@@ -72,10 +72,8 @@
     -- Muestra todos las personas que tiene zapatillas
     SELECT p.name, s.brand
     FROM people AS p
-     INNER JOIN people_sneakers AS ps 
-     ON p.id_people = ps.id_people
-     INNER JOIN sneakers AS s 
-     ON ps.id_sneakers=s.id_sneakers;
+      INNER JOIN people_sneakers AS ps ON p.id_people = ps.id_people
+      INNER JOIN sneakers AS s ON ps.id_sneakers=s.id_sneakers;
     ```
     Resultado:
     ```powershell
@@ -98,10 +96,8 @@
     -- Muestra todas las personas que tiene zapatillas
     SELECT p.name, s.brand
     FROM people AS p
-     LEFT JOIN people_sneakers AS ps 
-     ON p.id_people = ps.id_people
-     INNER JOIN sneakers AS s 
-     ON ps.id_sneakers=s.id_sneakers;
+      LEFT JOIN people_sneakers AS ps ON p.id_people = ps.id_people
+      INNER JOIN sneakers AS s ON ps.id_sneakers=s.id_sneakers;
     ```
     Resultado:
     ```powershell
@@ -125,10 +121,8 @@
     -- Muestra todas las personas que tiene zapatillas
     SELECT p.name, s.brand
     FROM people AS p
-     INNER JOIN people_sneakers AS ps 
-     ON p.id_people = ps.id_people
-     LEFT JOIN sneakers AS s 
-     ON ps.id_sneakers=s.id_sneakers;
+      INNER JOIN people_sneakers AS ps ON p.id_people = ps.id_people
+      LEFT JOIN sneakers AS s ON ps.id_sneakers=s.id_sneakers;
     ```
     Resultado:
     ```powershell
@@ -150,10 +144,8 @@
     -- Muestra todas la personas que tinen zapatillas y las que no tinen
     SELECT p.name, s.brand
     FROM people AS p
-     LEFT JOIN people_sneakers AS ps 
-     ON p.id_people = ps.id_people
-     LEFT JOIN sneakers AS s 
-     ON ps.id_sneakers=s.id_sneakers;
+      LEFT JOIN people_sneakers AS ps ON p.id_people = ps.id_people
+      LEFT JOIN sneakers AS s ON ps.id_sneakers=s.id_sneakers;
     ```
     Resultado:
     ```powershell
@@ -177,8 +169,8 @@
   -- Muestra todas las personas que no tengan zapatillas
   SELECT p.name, s.brand
   FROM people AS p
-   LEFT JOIN people_sneakers AS ps ON p.id_people = ps.id_people
-   LEFT JOIN sneakers AS s ON ps.id_sneakers=s.id_sneakers
+    LEFT JOIN people_sneakers AS ps ON p.id_people = ps.id_people
+    LEFT JOIN sneakers AS s ON ps.id_sneakers=s.id_sneakers
   WHERE ps.id_sneakers IS NULL;
   ```
   Resultado:
