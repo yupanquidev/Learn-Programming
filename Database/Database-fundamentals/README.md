@@ -1,5 +1,6 @@
-# Fundamentos de Bases de Datos - 5ta Edición
-> Mi resumen del libro de Ramez Elmasri y Shamkant B. Navathe
+# Fundamentos de Bases de Datos
+Mi resumen del libro de Ramez Elmasri y Shamkant B. Navathe
+> Quinta Edición
 ### Capítulo 1 - Introducción
 - [**1.1** Aplicaiones de los sistemas de bases de datos](#1)
 - [**1.2** Propósito de los sistemas de bases de datos](#2)
