@@ -25,7 +25,7 @@
     CREATE TABLE people_sneakers (
       id_people_sneakers SERIAL PRIMARY KEY,
 	  id_people int,
-          id_sneakers int,
+      id_sneakers int,
 	  FOREIGN KEY (id_people) REFERENCES people(id_people),
 	  FOREIGN KEY (id_sneakers) REFERENCES sneakers(id_sneakers)
     );
