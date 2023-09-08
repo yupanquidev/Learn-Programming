@@ -66,7 +66,7 @@
   -- Julia no tiene zapatillas
   ```
 - Hacer el Query -> probar (INNER JOIN, LEFT JOIN)
-  - Opcion 1: `INNER JOIN` Y `LEFT JOIN`:
+  - Opcion 1: `INNER JOIN` Y `INNER JOIN`:
 
     ```sql
     -- Muestra todos las personas que tiene zapatillas
