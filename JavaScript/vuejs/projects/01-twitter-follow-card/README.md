@@ -1,4 +1,4 @@
-# first-proyect
+# 01-twitter-follow-card
 
 This template should help get you started developing with Vue 3 in Vite.
 
