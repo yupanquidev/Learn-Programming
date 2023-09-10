@@ -1,7 +1,7 @@
 # Fundamentos de Bases de Datos
 Mi resumen del libro de Ramez Elmasri y Shamkant B. Navathe
 > Quinta Edición
-### Capítulo 1 - Introducción
+### [Capítulo 1 - Introducción](#introducción)
 - [**1.1** Aplicaiones de los sistemas de bases de datos](#1)
 - [**1.2** Propósito de los sistemas de bases de datos](#2)
 - [**1.3** Visión de los datos](#4)
@@ -357,5 +357,10 @@ Mi resumen del libro de Ramez Elmasri y Shamkant B. Navathe
 - [**29.13** Almacenes de datos e inteligencia de negocio](#918)
   - [Notas bibliográficas](#921)
 ### Bibliografía
+Capítulo 1
+### Introducción
+**Un sistema gestor de bases de datos** (SGBD) es un conjunto de programas que permiten acceder a una colección de datos interrelacionados, comúnmente llamada **base de datos**, que contiene información relevante para una empresa. El propósito principal de un SGBD es almacenar y recuperar información de manera _eficiente_ y _práctica_.
+
+Estos sistemas se diseñan para manejar grandes cantidades de información, definiendo estructuras de almacenamiento y mecanismos de manipulación de datos. Además, deben garantizar la seguridad y la integridad de los datos, especialmente cuando son compartidos entre usuarios. 
 
 **[⬆ vuelve hasta arriba](#fundamentos-de-bases-de-datos)**
