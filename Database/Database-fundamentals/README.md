@@ -358,12 +358,12 @@ Mi resumen del libro de Ramez Elmasri y Shamkant B. Navathe
   - [Notas bibliográficas](#921)
 ### Bibliografía
 Capítulo 1 - **[⬆ vuelve al capítulo 1](#capítulo-1---introducción)**
-### Introducción
+## Introducción
 **Un sistema gestor de bases de datos** (SGBD) es un conjunto de programas que permiten acceder a una colección de datos interrelacionados, comúnmente llamada **base de datos**, que contiene información relevante para una empresa. El propósito principal de un SGBD es almacenar y recuperar información de manera _eficiente_ y _práctica_.
 
 Estos sistemas se diseñan para manejar grandes cantidades de información, definiendo estructuras de almacenamiento y mecanismos de manipulación de datos. Además, deben garantizar la seguridad y la integridad de los datos, especialmente cuando son compartidos entre usuarios.
 
-#### 1.1 Aplicaciones de los sistemas de bases de datos
+### 1.1 Aplicaciones de los sistemas de bases de datos
 Las bases de datos se usan ampliamente. Algunas de sus aplicaciones representativas son:
 - _Banca:_ para la información de los clientes, cuentas, préstamos y transacciones bancarias.
 - _Líneas aéreas:_ para reservas e información de horarios. Las líneas aéreas fueron de las primeras en
