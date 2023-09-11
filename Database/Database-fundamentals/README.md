@@ -383,4 +383,6 @@ de artículos en las factorías, inventarios en los almacenes y pedidos.
 - _Recursos humanos:_ para información sobre los empleados, salarios, impuestos sobre los sueldos y
 prestaciones sociales, y para la generación de las nóminas.
 
+Las bases de datos son fundamentales en las empresas modernas, y su uso ha crecido en las últimas cuatro décadas. Inicialmente, poca gente interactuaba directamente con ellas, pero eso cambió con la llegada de cajeros automáticos y sistemas de respuesta vocal. La revolución de Internet permitió un acceso directo a las bases de datos a través de interfaces web. Actualmente, casi todas las personas interactúan con bases de datos sin darse cuenta, desde compras en línea hasta consultas bancarias. Empresas de software como Oracle son líderes en este campo, y las bases de datos son esenciales para empresas como Microsoft e IBM. En resumen, las bases de datos son esenciales en la vida cotidiana y en el mundo empresarial actual.
+
 **[⬆ vuelve al principio](#fundamentos-de-bases-de-datos)**
