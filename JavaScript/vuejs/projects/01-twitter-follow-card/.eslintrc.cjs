@@ -7,8 +7,5 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 'latest'
-  },
-  rules: {
-    'eslint-disable-next-line': 'no-undef'
   }
 }
