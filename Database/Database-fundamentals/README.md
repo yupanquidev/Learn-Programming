@@ -3,7 +3,7 @@ Mi resumen del libro de Ramez Elmasri y Shamkant B. Navathe
 > Quinta Edición
 ### [Capítulo 1 - Introducción](#introducción)
 - [**1.1** Aplicaiones de los sistemas de bases de datos](#11-aplicaciones-de-los-sistemas-de-bases-de-datos)
-- [**1.2** Propósito de los sistemas de bases de datos](#2)
+- [**1.2** Propósito de los sistemas de bases de datos](#12-propósito-de-los-sistemas-de-bases-de-datos)
 - [**1.3** Visión de los datos](#4)
 - [**1.4** Lenguajes de bases de datos](#7)
 - [**1.5** Bases de datos relacionales](#9)
@@ -362,7 +362,6 @@ Capítulo 1 - **[⬆ vuelve al capítulo 1](#capítulo-1---introducción)**
 **Un sistema gestor de bases de datos** (SGBD) es un conjunto de programas que permiten acceder a una colección de datos interrelacionados, comúnmente llamada **base de datos**, que contiene información relevante para una empresa. El propósito principal de un SGBD es almacenar y recuperar información de manera _eficiente_ y _práctica_.
 
 Estos sistemas se diseñan para manejar grandes cantidades de información, definiendo estructuras de almacenamiento y mecanismos de manipulación de datos. Además, deben garantizar la seguridad y la integridad de los datos, especialmente cuando son compartidos entre usuarios.
-
 ### 1.1 Aplicaciones de los sistemas de bases de datos
 Las bases de datos se usan ampliamente. Algunas de sus aplicaciones representativas son:
 - _Banca:_ para la información de los clientes, cuentas, préstamos y transacciones bancarias.
@@ -384,5 +383,25 @@ de artículos en las factorías, inventarios en los almacenes y pedidos.
 prestaciones sociales, y para la generación de las nóminas.
 
 Las bases de datos son fundamentales en las empresas modernas, y su uso ha crecido en las últimas cuatro décadas. Inicialmente, poca gente interactuaba directamente con ellas, pero eso cambió con la llegada de cajeros automáticos y sistemas de respuesta vocal. La revolución de Internet permitió un acceso directo a las bases de datos a través de interfaces web. Actualmente, casi todas las personas interactúan con bases de datos sin darse cuenta, desde compras en línea hasta consultas bancarias. Empresas de software como Oracle son líderes en este campo, y las bases de datos son esenciales para empresas como Microsoft e IBM. En resumen, las bases de datos son esenciales en la vida cotidiana y en el mundo empresarial actual.
+### 1.2 Propósito de los sistemas de bases de datos
+Los sistemas de bases de datos surgieron en respuesta a los primeros métodos de gestión informatizada de los datos comerciales. A modo de ejemplo de dichos métodos, típicos de los años sesenta, considérese parte de una entidad bancaria que, entre otros datos, guarda información sobre todos los clientes y todas las cuentas de ahorro. Una manera de guardar la información en la computadora es almacenarla en archivos del sistema operativo. Para permitir que los usuarios manipulen la información, el sistema tiene varios programas de aplicación que gestionan los archivos, incluyendo programas para:
+- Efectuar cargos o abonos en las cuentas.
+- Añadir cuentas nuevas.
+- Calcular el saldo de las cuentas.
+- Generar los extractos mensuales.
+
+Los programadores los han escrito en respuesta a las necesidades del banco. Se añaden nuevos programas de aplicación al sistema según surgen las necesidades. Por ejemplo, supóngase que una caja de ahorros decide ofrecer cuentas corrientes. En consecuencia, se crean nuevos archivos permanentes que contienen información acerca de todas las cuentas corrientes abiertas en el banco y puede que haya que escribir nuevos programas de aplicación para afrontar situaciones que no se dan en las cuentas de ahorro, como los descubiertos. Así, con el paso del tiempo, se añaden más archivos y programas de aplicación al sistema.
+
+Los sistemas operativos convencionales soportan este **sistema de procesamiento de archivos** típico. El sistema almacena los registros permanentes en varios archivos y necesita diferentes programas de aplicación para extraer y añadir a los archivos correspondientes. Antes de la aparición de los sistemas gestores de bases de datos (SGBDs), las organizaciones normalmente almacenaban la información en sistemas de este tipo.
+
+Guardar la información de la organización en un sistema de procesamiento de archivos tiene una
+serie de inconvenientes importantes:
+- **Redundancia e inconsistencia de los datos:**
+- **Dificultad en el acceso a los datos:**
+- **Aislamiento de datos:**
+- **Problemas de integridad:**
+- **Problemas de atomicidad:**
+- **Anomalías en el acceso concurrente:**
+- **Problemas de seguridad:**
 
 **[⬆ vuelve al principio](#fundamentos-de-bases-de-datos)**
