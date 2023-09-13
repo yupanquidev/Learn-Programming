@@ -41,18 +41,15 @@
 
   ```sql
   -- Agregar 5 personas
-  INSERT INTO people(name)
-  VALUES
+  INSERT INTO people(name) VALUES
     ( 'María'), ('Pedro'), ('Ana'), ('Luis'), ('Julia');
 
   -- Agregar 4 zapatillas
-  INSERT INTO sneakers(brand)
-  VALUES
+  INSERT INTO sneakers(brand) VALUES
     ('Nike'), ('Adidas'), ('Puma'), ('Reebok');
 
   -- Relacionar personas con zapatillas
-  INSERT INTO people_sneakers(id_people, id_sneakers)
-  VALUES 
+  INSERT INTO people_sneakers(id_people, id_sneakers) VALUES 
   -- Una persona con todas las zapatillas
   -- Maria tiene todas las zapatillas
     (1, 1), (1, 2), (1, 3), (1, 4),
