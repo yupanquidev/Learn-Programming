@@ -1,11 +1,11 @@
 use erp_odonto;
 
--- Trigger para la tabla erp_odo_rol
+-- Trigger para la tabla erpo_rol
 
 DELIMITER |
 /*  erp_odo_rol -> id_rol  */
-DROP TRIGGER IF EXISTS erp_odo_in_rol;
-CREATE TRIGGER erp_odo_in_rol 
+DROP TRIGGER IF EXISTS erpo_in_rol;
+CREATE TRIGGER erpo_in_rol 
 BEFORE INSERT ON erpo_rol FOR EACH ROW BEGIN
   DECLARE next_id INT;
   DECLARE COD VARCHAR(20);
@@ -23,8 +23,8 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_pais
 DELIMITER |
-DROP TRIGGER IF EXISTS erp_odo_in_pais;
-CREATE TRIGGER erp_odo_in_pais 
+DROP TRIGGER IF EXISTS erpo_in_pais;
+CREATE TRIGGER erpo_in_pais 
 BEFORE INSERT ON erpo_pais FOR EACH ROW BEGIN
   DECLARE next_id INT;
   DECLARE COD VARCHAR(20);
@@ -42,8 +42,8 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_prov (tabla provincia)
 DELIMITER |
-DROP TRIGGER IF EXISTS erp_odo_in_doc_prov;
-CREATE TRIGGER erp_odo_in_doc_prov
+DROP TRIGGER IF EXISTS erpo_in_prov;
+CREATE TRIGGER erpo_in_prov
 BEFORE INSERT ON erpo_prov FOR EACH ROW BEGIN
   DECLARE next_id INT;
   DECLARE COD VARCHAR(20);
@@ -61,8 +61,8 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_identidad
 DELIMITER |
-DROP TRIGGER IF EXISTS erp_odo_in_doc_identidad;
-CREATE TRIGGER erp_odo_in_doc_identidad
+DROP TRIGGER IF EXISTS erpo_in_identidad;
+CREATE TRIGGER erpo_in_identidad
 BEFORE INSERT ON erpo_docIdentidad FOR EACH ROW BEGIN
   DECLARE next_id INT;
   DECLARE COD VARCHAR(20);
@@ -81,8 +81,8 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_rrhh
 DELIMITER |
-DROP TRIGGER IF EXISTS erp_odo_in_rrhh;
-CREATE TRIGGER erp_odo_in_rrhh
+DROP TRIGGER IF EXISTS erpo_in_rrhh;
+CREATE TRIGGER erpo_in_rrhh
 BEFORE INSERT ON erpo_rrhh FOR EACH ROW BEGIN
   DECLARE next_id INT;
   DECLARE COD VARCHAR(20);
@@ -100,8 +100,8 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_usersistema
 DELIMITER |
-DROP TRIGGER IF EXISTS erp_odo_in_doc_usersistema;
-CREATE TRIGGER erp_odo_in_doc_usersistema
+DROP TRIGGER IF EXISTS erpo_in_usersistema;
+CREATE TRIGGER erpo_in_usersistema
 BEFORE INSERT ON erpo_usersistema FOR EACH ROW BEGIN
   DECLARE next_id INT;
   DECLARE COD VARCHAR(20);
@@ -119,8 +119,8 @@ DELIMITER ;
 
 -- Trigger para la tabla erp_odo_umedida 
 DELIMITER |
-DROP TRIGGER IF EXISTS erp_odo_in_umedida;
-CREATE TRIGGER erp_odo_in_umedida 
+DROP TRIGGER IF EXISTS erpo_in_umedida;
+CREATE TRIGGER erpo_in_umedida 
 BEFORE INSERT ON erpo_umedida FOR EACH ROW BEGIN
   DECLARE next_id INT;
   DECLARE COD VARCHAR(20);
@@ -138,8 +138,8 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_proveedor
 DELIMITER |
-DROP TRIGGER IF EXISTS erp_odo_in_proveedor;
-CREATE TRIGGER erp_odo_in_proveedor 
+DROP TRIGGER IF EXISTS erpo_in_proveedor;
+CREATE TRIGGER erpo_in_proveedor 
 BEFORE INSERT ON erpo_proveedor FOR EACH ROW BEGIN
   DECLARE next_id INT;
   DECLARE COD VARCHAR(20);
@@ -158,8 +158,8 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_material
 DELIMITER |
-DROP TRIGGER IF EXISTS erp_odo_in_doc_material;
-CREATE TRIGGER erp_odo_in_doc_material
+DROP TRIGGER IF EXISTS erpo_in_meterial;
+CREATE TRIGGER erpo_in_meterial
 BEFORE INSERT ON erpo_material FOR EACH ROW BEGIN
   DECLARE next_id INT;
   DECLARE COD VARCHAR(20);
@@ -177,8 +177,8 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_paciente
 DELIMITER |
-DROP TRIGGER IF EXISTS erp_odo_in_doc_paciente;
-CREATE TRIGGER erp_odo_in_doc_paciente
+DROP TRIGGER IF EXISTS erpo_in_paciente;
+CREATE TRIGGER erpo_in_paciente
 BEFORE INSERT ON erpo_paciente FOR EACH ROW BEGIN
   DECLARE next_id INT;
   DECLARE COD VARCHAR(20);
@@ -196,8 +196,8 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_servicio
 DELIMITER |
-DROP TRIGGER IF EXISTS erp_odo_in_doc_servicio;
-CREATE TRIGGER erp_odo_in_doc_servicio
+DROP TRIGGER IF EXISTS erpo_in_servicio;
+CREATE TRIGGER erpo_in_servicio
 BEFORE INSERT ON erpo_servicio FOR EACH ROW BEGIN
   DECLARE next_id INT;
   DECLARE COD VARCHAR(20);
@@ -215,8 +215,8 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_cita
 DELIMITER |
-DROP TRIGGER IF EXISTS erp_odo_in_doc_cita;
-CREATE TRIGGER erp_odo_in_doc_cita
+DROP TRIGGER IF EXISTS erpo_in_cita;
+CREATE TRIGGER erpo_in_cita
 BEFORE INSERT ON erpo_cita FOR EACH ROW BEGIN
   DECLARE next_id INT;
   DECLARE COD VARCHAR(20);
@@ -234,8 +234,8 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_Umaterial
 DELIMITER |
-DROP TRIGGER IF EXISTS erp_odo_in_Umaterial;
-CREATE TRIGGER erp_odo_in_Umaterial
+DROP TRIGGER IF EXISTS erpo_in_Umaterial;
+CREATE TRIGGER erpo_in_Umaterial
 BEFORE INSERT ON erpo_Umaterial FOR EACH ROW BEGIN
   DECLARE next_id INT;
   DECLARE COD VARCHAR(20);
@@ -253,8 +253,8 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_producto
 DELIMITER |
-DROP TRIGGER IF EXISTS erp_odo_in_producto;
-CREATE TRIGGER erp_odo_in_producto
+DROP TRIGGER IF EXISTS erpo_in_producto;
+CREATE TRIGGER erpo_in_producto
 BEFORE INSERT ON erpo_producto FOR EACH ROW BEGIN
   DECLARE next_id INT;
   DECLARE COD VARCHAR(20);
@@ -272,8 +272,8 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_stock
 DELIMITER |
-DROP TRIGGER IF EXISTS erp_odo_in_stock;
-CREATE TRIGGER erp_odo_in_stock
+DROP TRIGGER IF EXISTS erpo_in_stock;
+CREATE TRIGGER erpo_in_stock
 BEFORE INSERT ON erpo_stock FOR EACH ROW BEGIN
   DECLARE next_id INT;
   DECLARE COD VARCHAR(20);
@@ -291,8 +291,8 @@ DELIMITER ;
 
 -- Trigger para la tabla erp_odo_Historial Medico
 DELIMITER |
-DROP TRIGGER IF EXISTS erp_odo_in_Hmedico;
-CREATE TRIGGER erp_odo_in_Hmedico
+DROP TRIGGER IF EXISTS erpo_in_Hmedico;
+CREATE TRIGGER erpo_in_Hmedico
 BEFORE INSERT ON erpo_Hmedico FOR EACH ROW BEGIN
   DECLARE next_id INT;
   DECLARE COD VARCHAR(20);
@@ -310,8 +310,8 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_facturas
 DELIMITER |
-DROP TRIGGER IF EXISTS erp_odo_in_facturas;
-CREATE TRIGGER erp_odo_in_facturas
+DROP TRIGGER IF EXISTS erpo_in_facturas;
+CREATE TRIGGER erpo_in_facturas
 BEFORE INSERT ON erpo_facturas FOR EACH ROW BEGIN
   DECLARE next_id INT;
   DECLARE COD VARCHAR(20);
@@ -329,8 +329,8 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_pagos
 DELIMITER |
-DROP TRIGGER IF EXISTS erp_odo_in_pagos;
-CREATE TRIGGER erp_odo_in_pagos
+DROP TRIGGER IF EXISTS erpo_in_pagos;
+CREATE TRIGGER erpo_in_pagos
 BEFORE INSERT ON erpo_pagos FOR EACH ROW BEGIN
   DECLARE next_id INT;
   DECLARE COD VARCHAR(20);
@@ -349,8 +349,8 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_imgDentales
 DELIMITER |
-DROP TRIGGER IF EXISTS erp_odo_in_imgDentales;
-CREATE TRIGGER erp_odo_in_imgDentales
+DROP TRIGGER IF EXISTS erpo_in_imgDentales;
+CREATE TRIGGER erpo_in_imgDentales
 BEFORE INSERT ON erpo_imgDentales FOR EACH ROW BEGIN
   DECLARE next_id INT;
   DECLARE COD VARCHAR(20);
