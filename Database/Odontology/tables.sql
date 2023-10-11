@@ -190,5 +190,3 @@ CREATE TABLE erpo_imgDentales(
   enlace_img VARCHAR(50) NOT NULL COMMENT 'link del tipo_img',
   FOREIGN KEY(id_paciente) REFERENCES erpo_paciente(id)
 );
-
--- linea 194
