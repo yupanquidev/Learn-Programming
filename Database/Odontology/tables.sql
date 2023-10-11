@@ -1,5 +1,5 @@
 -- Tabla roles
-CREATE TABLE erpo_rol(
+CREATE TABLE erpo_rol (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   id_rol VARCHAR(20) COMMENT 'cod generado por trigger',
   rol VARCHAR(50) NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE erpo_pais (
 );
 
 -- Tabla provincia
-CREATE TABLE erpo_prov(
+CREATE TABLE erpo_prov (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   id_provincia VARCHAR(20) COMMENT 'cod generado por trigger',
   id_pais INT,
@@ -30,7 +30,7 @@ CREATE TABLE erpo_prov(
 );
 
 -- Tabla de documento identidad
-CREATE TABLE erpo_docIdentidad(
+CREATE TABLE erpo_docIdentidad (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   id_docIdentidad VARCHAR(20) COMMENT 'cod generado por trigger',
   tipo_docIdentidad VARCHAR(100) NOT NULL COMMENT 'dni, passport, cedula de identidad, ruc',
@@ -43,7 +43,7 @@ CREATE TABLE erpo_docIdentidad(
 );
 
 -- Tabla Recursos Humanos
-CREATE TABLE erpo_rrhh(
+CREATE TABLE erpo_rrhh (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   id_rrhh VARCHAR(20) COMMENT 'cod generado por trigger',
   nombre VARCHAR(50)NOT NULL,
@@ -57,7 +57,7 @@ CREATE TABLE erpo_rrhh(
 );
 
 -- Tabla Usuario Sistema
-CREATE TABLE erpo_usersistema(
+CREATE TABLE erpo_usersistema (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   id_usersistema VARCHAR(20) COMMENT 'cod generado por trigger',
   username VARCHAR(30),
@@ -70,7 +70,7 @@ CREATE TABLE erpo_usersistema(
 );
 
 -- Tabla unidades de medida
-CREATE TABLE erpo_umedida(
+CREATE TABLE erpo_umedida (
   id INT AUTO_INCREMENT PRIMARY KEY,
   id_umedida VARCHAR(20) COMMENT 'cod generado por trigger',
   nombre VARCHAR(5) NOT NULL,
@@ -79,7 +79,7 @@ CREATE TABLE erpo_umedida(
 );
 
 -- Tabla proveedores
-CREATE TABLE erpo_proveedor(
+CREATE TABLE erpo_proveedor (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   id_proveedor VARCHAR(20) COMMENT 'cod generado por trigger',
   razon_social VARCHAR(100) NOT NULL,
@@ -91,7 +91,7 @@ CREATE TABLE erpo_proveedor(
 );
 
 -- Tabla paciente
-CREATE TABLE erpo_paciente(
+CREATE TABLE erpo_paciente (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   id_paciente VARCHAR(20) COMMENT 'cod generado por trigger',
   id_docidentidad INT,
@@ -102,7 +102,7 @@ CREATE TABLE erpo_paciente(
 );
 
 -- Tabla producto
-CREATE TABLE erpo_producto(
+CREATE TABLE erpo_producto (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   id_producto VARCHAR(20) COMMENT 'cod generado por trigger',
   id_umedida INT,
@@ -128,7 +128,7 @@ CREATE TABLE erpo_stock (
 );
 
 -- Tabla cita
-CREATE TABLE erpo_cita(
+CREATE TABLE erpo_cita (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   id_cita VARCHAR(20) COMMENT 'cod generado por trigger',
   id_paciente INT,
@@ -146,7 +146,7 @@ CREATE TABLE erpo_cita(
 );
 
 -- Tabla facturas
-CREATE TABLE erpo_facturas(
+CREATE TABLE erpo_facturas (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   id_facturas VARCHAR(20) COMMENT 'cod generado por trigger',
   id_cita INT,
@@ -157,7 +157,7 @@ CREATE TABLE erpo_facturas(
 );
 
 -- Tabla uso material
-CREATE TABLE erpo_Umaterial(
+CREATE TABLE erpo_usomaterial (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   id_Umaterial VARCHAR(20) COMMENT 'cod generado por trigger',
   id_stock INT,
@@ -170,7 +170,7 @@ CREATE TABLE erpo_Umaterial(
 );
 
 -- Tabla pagos
-CREATE TABLE erpo_pagos(
+CREATE TABLE erpo_pagos (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   id_pagos VARCHAR(20) COMMENT 'cod generado por trigger',
   id_facturas INT,
@@ -181,7 +181,7 @@ CREATE TABLE erpo_pagos(
 );
 
 -- Tabla imagenes dentales
-CREATE TABLE erpo_imgDentales(
+CREATE TABLE erpo_imgDentales (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   id_imgDentales VARCHAR(20) COMMENT 'cod generado por trigger',
   id_paciente INT,
