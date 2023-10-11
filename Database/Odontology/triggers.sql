@@ -91,7 +91,6 @@ END
 |
 DELIMITER ;
 
-
 -- Trigger para la tabla erpo_rrhh
 DELIMITER |
 DROP TRIGGER IF EXISTS erpo_in_rrhh;
@@ -182,7 +181,6 @@ BEGIN
 	SET NEW.id_proveedor = COD;
 END
 |
-
 DELIMITER ;
 
 -- Trigger para la tabla erpo_material
@@ -414,7 +412,6 @@ BEGIN
 END
 |
 DELIMITER ;
-
 
 -- Trigger para la tabla erpo_imgDentales
 DELIMITER |
