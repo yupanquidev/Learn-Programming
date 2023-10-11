@@ -94,10 +94,10 @@ CREATE TABLE erpo_proveedor(
 CREATE TABLE erpo_paciente(
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   id_paciente VARCHAR(20) COMMENT 'cod generado por trigger',
-  id_docIdentidad INT,
+  id_docidentidad INT,
   id_provincia INT,
   tipo_alergia VARCHAR(40) NOT NULL,
-  FOREIGN KEY(id_docIdentidad) REFERENCES erpo_docIdentidad(id),
+  FOREIGN KEY(id_docidentidad) REFERENCES erpo_docidentidad(id),
   FOREIGN KEY(id_provincia) REFERENCES erpo_prov(id)
 );
 
