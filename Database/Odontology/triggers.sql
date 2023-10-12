@@ -1,3 +1,5 @@
+USE  erp_odonto;
+
 -- Trigger para la tabla erpo_rol
 DELIMITER |
 /*  erp_odo_rol -> id_rol  */

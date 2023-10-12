@@ -1,90 +1,49 @@
 USE  erp_odonto;
 
--- Tabla roles
-DROP TABLE IF EXISTS erpo_rol;
-CREATE TABLE erpo_rol (
-  id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  cod_rol VARCHAR(20) COMMENT 'Codigo generado por trigger',
-  rol VARCHAR(50) NOT NULL,
-  descripcion VARCHAR(50) NOT NULL
-);
-
--- Tabla pais
-DROP TABLE IF EXISTS erpo_pais;
-CREATE TABLE erpo_pais (
-  id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  cod_pais VARCHAR(20) COMMENT 'Codigo generado por trigger',
-  pais VARCHAR(50),
-  capital VARCHAR(30) NOT NULL,
-  codigo_ISO VARCHAR(10) NOT NULL COMMENT 'ejm: Perú: PER; Bolivia: BOL',
-  provincia VARCHAR(30) NOT NULL,
-  distrito VARCHAR(50) NOT NULL,
-  moneda VARCHAR(30) COMMENT 'Peru: Soles; Mexico: Pesos mexicanos'
-);
-
--- Tabla provincia
-DROP TABLE IF EXISTS erpo_provincia;
-CREATE TABLE erpo_provincia (
+-- Tabla paciente
+DROP TABLE IF EXISTS erpo_paciente;
+CREATE TABLE erpo_paciente (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  cod_provincia VARCHAR(20) COMMENT 'Codigo generado por trigger',
-  provincia VARCHAR(50) NOT NULL,
-  codigo_postal VARCHAR(20) NOT NULL,
-  distrito VARCHAR(20) NOT NULL,
-  id_pais INT,
-  FOREIGN KEY(id_pais) REFERENCES erpo_pais(id)
-);
-
--- Tabla de documento identidad
-DROP TABLE IF EXISTS erpo_docidentidad;
-CREATE TABLE erpo_docidentidad (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  cod_docidentidad VARCHAR(20) COMMENT 'Codigo generado por trigger',
-  tipo_docidentidad VARCHAR(100) NOT NULL COMMENT 'dni, passport, cedula de identidad, ruc',
-  numero_doc INT NOT NULL,
-  genero VARCHAR(20) NOT NULL,
-  fecha_nacimiento DATE NOT NULL,
-  fecha_emision DATE NOT NULL,
-  fecha_caducidad DATE NOT NULL,
-  direccion VARCHAR(30) NOT NULL
-);
-
--- Tabla Recursos Humanos
-DROP TABLE IF EXISTS erpo_rrhh;
-CREATE TABLE erpo_rrhh (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  cod_rrhh VARCHAR(20) COMMENT 'Codigo generado por trigger',
-  nombre VARCHAR(50)NOT NULL,
-  apellido VARCHAR(100) NOT NULL,
-  telefono VARCHAR(12) NOT NULL,
-  email VARCHAR(50) NOT NULL UNIQUE,
-  id_provincia INT,
+  cod_paciente VARCHAR(20) COMMENT 'Codigo generado por trigger',
+  tipo_alergia VARCHAR(40) NOT NULL,
   id_docidentidad INT,
-  FOREIGN KEY (id_provincia) REFERENCES erpo_provincia(id),
-  FOREIGN KEY (id_docidentidad) REFERENCES erpo_docidentidad(id)
+  id_provincia INT,
+  FOREIGN KEY(id_docidentidad) REFERENCES erpo_docidentidad(id),
+  FOREIGN KEY(id_provincia) REFERENCES erpo_provincia(id)
 );
 
--- Tabla Usuario Sistema
-DROP TABLE IF EXISTS erpo_usersistema;
-CREATE TABLE erpo_usersistema (
-  id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  cod_usersistema VARCHAR(20) COMMENT 'Codigo generado por trigger',
-  username VARCHAR(30),
-  contraseña VARBINARY(60),
-  fingerprint VARBINARY(60) COMMENT 'seguridad con huella dactilar',
-  id_rol INT,
-  id_rrhh INT,
-  FOREIGN KEY(id_rol) REFERENCES erpo_rol(id),
-  FOREIGN KEY(id_rrhh) REFERENCES erpo_rrhh(id)
+-- Tabla imagenes dentales
+DROP TABLE IF EXISTS erpo_imgdentales;
+CREATE TABLE erpo_imgdentales (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  cod_imgdentales VARCHAR(20) COMMENT 'Codigo generado por trigger',
+  fecha_img DATE NOT NULL,
+  tipo_img VARCHAR(30) NOT NULL COMMENT 'radiografia, imagen dental, fotografia intraoral',
+  enlace_img VARCHAR(50) NOT NULL COMMENT 'link del tipo_img',
+  id_paciente INT,
+  FOREIGN KEY(id_paciente) REFERENCES erpo_paciente(id)
 );
 
--- Tabla unidades de medida
-DROP TABLE IF EXISTS erpo_umedida;
-CREATE TABLE erpo_umedida (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  cod_umedida VARCHAR(20) COMMENT 'Codigo generado por trigger',
-  nombre VARCHAR(5) NOT NULL,
-  simbolo VARCHAR(5) NOT NULL,
-  equivalencia VARCHAR(100) NOT NULL
+-- Tabla factura
+DROP TABLE IF EXISTS erpo_factura;
+CREATE TABLE erpo_factura (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  cod_factura VARCHAR(20) COMMENT 'Codigo generado por trigger',
+  fecha_factura DATE NOT NULL,
+  detalle_tratamiento TEXT NOT NULL,
+  total_factura INT
+);
+
+-- Tabla pagos
+DROP TABLE IF EXISTS erpo_pagos;
+CREATE TABLE erpo_pagos (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  cod_pagos VARCHAR(20) COMMENT 'Codigo generado por trigger',
+  fecha_pago DATE NOT NULL,
+  monto_pago INT NOT NULL,
+  metodo_pago VARCHAR(30),
+  id_factura INT,
+  FOREIGN KEY (id_factura) REFERENCES erpo_factura(id)
 );
 
 -- Tabla proveedores
@@ -100,19 +59,18 @@ CREATE TABLE erpo_proveedor (
   FOREIGN KEY (id_pais) REFERENCES erpo_pais(id)
 );
 
--- Tabla paciente
-DROP TABLE IF EXISTS erpo_paciente;
-CREATE TABLE erpo_paciente (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  cod_paciente VARCHAR(20) COMMENT 'Codigo generado por trigger',
-  tipo_alergia VARCHAR(40) NOT NULL,
-  id_docidentidad INT,
-  id_provincia INT,
-  FOREIGN KEY(id_docidentidad) REFERENCES erpo_docidentidad(id),
-  FOREIGN KEY(id_provincia) REFERENCES erpo_provincia(id)
+-- Tabla unidades de medida
+DROP TABLE IF EXISTS erpo_umedida;
+CREATE TABLE erpo_umedida (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  cod_umedida VARCHAR(20) COMMENT 'Codigo generado por trigger',
+  nombre VARCHAR(5) NOT NULL,
+  simbolo VARCHAR(5) NOT NULL,
+  equivalencia VARCHAR(100) NOT NULL
 );
 
 -- Tabla producto
+DROP TABLE IF EXISTS erpo_producto;
 CREATE TABLE erpo_producto (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_producto VARCHAR(20) COMMENT 'Codigo generado por trigger',
@@ -133,22 +91,46 @@ CREATE TABLE erpo_stock (
   cantidad INT NOT NULL,
   fecha_entrada DATETIME NOT NULL,
   fecha_caducidad DATE NOT NULL,
-  id_proveedor INT,
   id_producto INT,
-  FOREIGN KEY (id_proveedor) REFERENCES erpo_proveedor(id),
-  FOREIGN KEY (id_producto) REFERENCES erpo_producto(id)
+  id_proveedor INT,
+  FOREIGN KEY (id_producto) REFERENCES erpo_producto(id),
+  FOREIGN KEY (id_proveedor) REFERENCES erpo_proveedor(id)
 );
 
--- Tabla facturas
-DROP TABLE IF EXISTS erpo_facturas;
-CREATE TABLE erpo_facturas (
+-- Tabla Recursos Humanos
+DROP TABLE IF EXISTS erpo_rrhh;
+CREATE TABLE erpo_rrhh (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  cod_facturas VARCHAR(20) COMMENT 'Codigo generado por trigger',
-  fecha_factura DATE NOT NULL,
-  detalle_tratamiento TEXT NOT NULL,
-  total_factura INT,
-  id_cita INT,
-  FOREIGN KEY(id_cita) REFERENCES erpo_cita(id)
+  cod_rrhh VARCHAR(20) COMMENT 'Codigo generado por trigger',
+  nombre VARCHAR(50)NOT NULL,
+  apellido VARCHAR(100) NOT NULL,
+  telefono VARCHAR(12) NOT NULL,
+  email VARCHAR(50) NOT NULL UNIQUE,
+  id_provincia INT,
+  id_docidentidad INT,
+  FOREIGN KEY (id_provincia) REFERENCES erpo_provincia(id),
+  FOREIGN KEY (id_docidentidad) REFERENCES erpo_docidentidad(id)
+);
+
+-- Tabla cita
+DROP TABLE IF EXISTS erpo_cita;
+CREATE TABLE erpo_cita (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  cod_cita VARCHAR(20) COMMENT 'Codigo generado por trigger',
+  fecha_cita DATE NOT NULL,
+  diagnostico VARCHAR(30) NOT NULL,
+  descripcion TEXT,
+  tratamientos_realizados VARCHAR(30) NOT NULL,
+  medicamentos_recetados VARCHAR(30) NOT NULL,
+  notas_medicas TEXT,
+  id_factura INT,
+  id_paciente INT,
+  id_stock INT,
+  id_rrhh INT,
+  FOREIGN KEY(id_factura) REFERENCES erpo_factura(id),
+  FOREIGN KEY(id_paciente) REFERENCES erpo_paciente(id),
+  FOREIGN KEY(id_stock) REFERENCES erpo_stock(id),
+  FOREIGN KEY(id_rrhh) REFERENCES erpo_rrhh(id)
 );
 
 -- Tabla uso material
@@ -164,45 +146,25 @@ CREATE TABLE erpo_usomaterial (
   FOREIGN KEY(id_stock) REFERENCES erpo_stock(id)
 );
 
--- Tabla pagos
-DROP TABLE IF EXISTS erpo_pagos;
-CREATE TABLE erpo_pagos (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  cod_pagos VARCHAR(20) COMMENT 'Codigo generado por trigger',
-  fecha_pago DATE NOT NULL,
-  monto_pago INT NOT NULL,
-  metodo_pago VARCHAR(30),
-  id_facturas INT,
-  FOREIGN KEY (id_facturas) REFERENCES erpo_facturas(id)
+-- Tabla roles
+DROP TABLE IF EXISTS erpo_rol;
+CREATE TABLE erpo_rol (
+  id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  cod_rol VARCHAR(20) COMMENT 'Codigo generado por trigger',
+  rol VARCHAR(50) NOT NULL,
+  descripcion VARCHAR(50) NOT NULL
 );
 
--- Tabla imagenes dentales
-DROP TABLE IF EXISTS erpo_imgdentales;
-CREATE TABLE erpo_imgdentales (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  cod_imgdentales VARCHAR(20) COMMENT 'Codigo generado por trigger',
-  fecha_img DATE NOT NULL,
-  tipo_img VARCHAR(30) NOT NULL COMMENT 'radiografia, imagen dental, fotografia intraoral',
-  enlace_img VARCHAR(50) NOT NULL COMMENT 'link del tipo_img',
-  id_paciente INT,
-  FOREIGN KEY(id_paciente) REFERENCES erpo_paciente(id)
-);
-
--- Tabla cita
-DROP TABLE IF EXISTS erpo_cita;
-CREATE TABLE erpo_cita (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  cod_cita VARCHAR(20) COMMENT 'Codigo generado por trigger',
-  fecha_cita DATE NOT NULL,
-  diagnostico VARCHAR(30) NOT NULL,
-  descripcion TEXT,
-  tratamientos_realizados VARCHAR(30) NOT NULL,
-  medicamentos_recetados VARCHAR(30) NOT NULL,
-  notas_medicas TEXT,
-  id_paciente INT,
-  id_stock INT,
+-- Tabla Usuario Sistema
+DROP TABLE IF EXISTS erpo_usersistema;
+CREATE TABLE erpo_usersistema (
+  id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  cod_usersistema VARCHAR(20) COMMENT 'Codigo generado por trigger',
+  username VARCHAR(30),
+  contrasenia VARBINARY(60),
+  fingerprint VARBINARY(60) COMMENT 'seguridad con huella dactilar',
   id_rrhh INT,
-  FOREIGN KEY(id_paciente) REFERENCES erpo_paciente(id),
-  FOREIGN KEY(id_stock) REFERENCES erpo_stock(id),
-  FOREIGN KEY(id_rrhh) REFERENCES erpo_rrhh(id)
+  id_rol INT,
+  FOREIGN KEY(id_rrhh) REFERENCES erpo_rrhh(id),
+  FOREIGN KEY(id_rol) REFERENCES erpo_rol(id)
 );
