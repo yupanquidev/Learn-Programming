@@ -1,6 +1,6 @@
 -- Creamos la Base de Datos.
 DROP DATABASE IF EXISTS erp_odonto;
-CREATE DATABASE erp_odonto CHARACTER SET utf8;
+CREATE DATABASE IF NOT EXISTS erp_odonto DEFAULT CHARACTER SET utf8;
 USE erp_odonto;
 
 -- Creamos usuarios permitidos.

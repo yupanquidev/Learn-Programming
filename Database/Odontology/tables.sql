@@ -1,8 +1,52 @@
 USE  erp_odonto;
 
+-- Tabla factura
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_factura (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  cod_factura VARCHAR(20) COMMENT 'Codigo generado por trigger',
+  fecha_factura DATE NOT NULL,
+  detalle_tratamiento TEXT NOT NULL,
+  total_factura INT
+);
+
+-- Tabla de documento identidad
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_docidentidad (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  cod_docidentidad VARCHAR(20) COMMENT 'Codigo generado por trigger',
+  tipo_docidentidad VARCHAR(100) NOT NULL COMMENT 'dni, passport, cedula de identidad, ruc',
+  numero_doc INT NOT NULL,
+  genero VARCHAR(20) NOT NULL,
+  fecha_nacimiento DATE NOT NULL,
+  fecha_emision DATE NOT NULL,
+  fecha_caducidad DATE NOT NULL,
+  direccion VARCHAR(30) NOT NULL
+);
+
+-- Tabla pais
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_pais (
+  id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  cod_pais VARCHAR(20) COMMENT 'Codigo generado por trigger',
+  pais VARCHAR(50),
+  capital VARCHAR(30) NOT NULL,
+  codigo_ISO VARCHAR(10) NOT NULL COMMENT 'ejm: Perú: PER; Bolivia: BOL',
+  provincia VARCHAR(30) NOT NULL,
+  distrito VARCHAR(50) NOT NULL,
+  moneda VARCHAR(30) COMMENT 'Peru: Soles; Mexico: Pesos mexicanos'
+);
+
+-- Tabla provincia
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_provincia (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  cod_provincia VARCHAR(20) COMMENT 'Codigo generado por trigger',
+  provincia VARCHAR(50) NOT NULL,
+  codigo_postal VARCHAR(20) NOT NULL,
+  distrito VARCHAR(20) NOT NULL,
+  id_pais INT,
+  FOREIGN KEY(id_pais) REFERENCES erpo_pais(id)
+);
+
 -- Tabla paciente
-DROP TABLE IF EXISTS erpo_paciente;
-CREATE TABLE erpo_paciente (
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_paciente (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_paciente VARCHAR(20) COMMENT 'Codigo generado por trigger',
   tipo_alergia VARCHAR(40) NOT NULL,
@@ -13,8 +57,7 @@ CREATE TABLE erpo_paciente (
 );
 
 -- Tabla imagenes dentales
-DROP TABLE IF EXISTS erpo_imgdentales;
-CREATE TABLE erpo_imgdentales (
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_imgdentales (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_imgdentales VARCHAR(20) COMMENT 'Codigo generado por trigger',
   fecha_img DATE NOT NULL,
@@ -24,19 +67,8 @@ CREATE TABLE erpo_imgdentales (
   FOREIGN KEY(id_paciente) REFERENCES erpo_paciente(id)
 );
 
--- Tabla factura
-DROP TABLE IF EXISTS erpo_factura;
-CREATE TABLE erpo_factura (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  cod_factura VARCHAR(20) COMMENT 'Codigo generado por trigger',
-  fecha_factura DATE NOT NULL,
-  detalle_tratamiento TEXT NOT NULL,
-  total_factura INT
-);
-
 -- Tabla pagos
-DROP TABLE IF EXISTS erpo_pagos;
-CREATE TABLE erpo_pagos (
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_pagos (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_pagos VARCHAR(20) COMMENT 'Codigo generado por trigger',
   fecha_pago DATE NOT NULL,
@@ -46,9 +78,8 @@ CREATE TABLE erpo_pagos (
   FOREIGN KEY (id_factura) REFERENCES erpo_factura(id)
 );
 
--- Tabla proveedores
-DROP TABLE IF EXISTS erpo_proveedor;
-CREATE TABLE erpo_proveedor (
+-- Tabla proveedor
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_proveedor (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_proveedor VARCHAR(20) COMMENT 'Codigo generado por trigger',
   razon_social VARCHAR(100) NOT NULL,
@@ -60,8 +91,7 @@ CREATE TABLE erpo_proveedor (
 );
 
 -- Tabla unidades de medida
-DROP TABLE IF EXISTS erpo_umedida;
-CREATE TABLE erpo_umedida (
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_umedida (
   id INT AUTO_INCREMENT PRIMARY KEY,
   cod_umedida VARCHAR(20) COMMENT 'Codigo generado por trigger',
   nombre VARCHAR(5) NOT NULL,
@@ -70,8 +100,7 @@ CREATE TABLE erpo_umedida (
 );
 
 -- Tabla producto
-DROP TABLE IF EXISTS erpo_producto;
-CREATE TABLE erpo_producto (
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_producto (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_producto VARCHAR(20) COMMENT 'Codigo generado por trigger',
   nombre VARCHAR(30) NOT NULL,
@@ -84,8 +113,7 @@ CREATE TABLE erpo_producto (
 );
 
 -- Tabla de stock
-DROP TABLE IF EXISTS erpo_stock;
-CREATE TABLE erpo_stock (
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_stock (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   cod_stock VARCHAR(20) COMMENT 'Codigo generado por trigger',
   cantidad INT NOT NULL,
@@ -98,8 +126,7 @@ CREATE TABLE erpo_stock (
 );
 
 -- Tabla Recursos Humanos
-DROP TABLE IF EXISTS erpo_rrhh;
-CREATE TABLE erpo_rrhh (
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_rrhh (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_rrhh VARCHAR(20) COMMENT 'Codigo generado por trigger',
   nombre VARCHAR(50)NOT NULL,
@@ -113,8 +140,7 @@ CREATE TABLE erpo_rrhh (
 );
 
 -- Tabla cita
-DROP TABLE IF EXISTS erpo_cita;
-CREATE TABLE erpo_cita (
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_cita (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_cita VARCHAR(20) COMMENT 'Codigo generado por trigger',
   fecha_cita DATE NOT NULL,
@@ -134,8 +160,7 @@ CREATE TABLE erpo_cita (
 );
 
 -- Tabla uso material
-DROP TABLE IF EXISTS erpo_usomaterial;
-CREATE TABLE erpo_usomaterial (
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_usomaterial (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_usomaterial VARCHAR(20) COMMENT 'Codigo generado por trigger',
   detalle_uso_material TEXT NOT NULL,
@@ -147,8 +172,7 @@ CREATE TABLE erpo_usomaterial (
 );
 
 -- Tabla roles
-DROP TABLE IF EXISTS erpo_rol;
-CREATE TABLE erpo_rol (
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_rol (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   cod_rol VARCHAR(20) COMMENT 'Codigo generado por trigger',
   rol VARCHAR(50) NOT NULL,
@@ -156,8 +180,7 @@ CREATE TABLE erpo_rol (
 );
 
 -- Tabla Usuario Sistema
-DROP TABLE IF EXISTS erpo_usersistema;
-CREATE TABLE erpo_usersistema (
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_usersistema (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   cod_usersistema VARCHAR(20) COMMENT 'Codigo generado por trigger',
   username VARCHAR(30),
