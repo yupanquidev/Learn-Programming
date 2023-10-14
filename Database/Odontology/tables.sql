@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_pais (
   cod_pais VARCHAR(20) COMMENT 'Codigo generado por trigger',
   pais VARCHAR(50),
   capital VARCHAR(30) NOT NULL,
-  codigo_ISO VARCHAR(10) NOT NULL COMMENT 'ejm: Perú: PER; Bolivia: BOL',
+  codigo_iso VARCHAR(10) NOT NULL COMMENT 'ejm: Perú: PER; Bolivia: BOL',
   provincia VARCHAR(30) NOT NULL,
   distrito VARCHAR(50) NOT NULL,
   moneda VARCHAR(30) COMMENT 'Peru: Soles; Mexico: Pesos mexicanos'
