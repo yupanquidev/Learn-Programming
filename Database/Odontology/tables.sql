@@ -1,3 +1,5 @@
+USE erp_odonto;
+
 -- Tabla factura
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_factura (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -60,7 +62,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_imgdentales (
   cod_imgdentales VARCHAR(20) COMMENT 'Codigo generado por trigger',
   fecha_img DATE NOT NULL,
   tipo_img VARCHAR(30) NOT NULL COMMENT 'radiografia, imagen dental, fotografia intraoral',
-  enlace_img VARCHAR(50) NOT NULL COMMENT 'link del tipo_img',
+  imagen LONGBLOB NOT NULL COMMENT 'Imagenes',
   id_paciente INT,
   FOREIGN KEY(id_paciente) REFERENCES erpo_paciente(id)
 );
