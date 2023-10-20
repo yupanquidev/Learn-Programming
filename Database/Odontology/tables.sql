@@ -1,5 +1,5 @@
-USE erp_odonto;
 
+USE erp_odonto;
 -- Tabla factura
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_factura (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
