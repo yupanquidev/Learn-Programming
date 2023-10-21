@@ -227,9 +227,9 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_area (
   descripcion TEXT NOT NULL,
   ubicacion VARCHAR(100) NOT NULL COMMENT 'En que parte del edificio se encuentra',
   responsable VARCHAR(100) NOT NULL COMMENT 'El personal responsable del area, como el dentista, gerente de la recepcion, jefe de rrhh',
-  horario COMMENT VARCHAR(100) NOT NULL 'Horario en las que el area opera/esta abierta',
+  horario VARCHAR(100) NOT NULL COMMENT 'Horario en las que el area opera/esta abierta',
   FOREIGN KEY(id_rrhh) REFERENCES erpo_rrhh(id),
-  FOREIGN KEY(id_citas) REFERENCES erpo_cita(id)
+  FOREIGN KEY(id_cita) REFERENCES erpo_cita(id)
 );
 
 -- Tabla Servicio:
