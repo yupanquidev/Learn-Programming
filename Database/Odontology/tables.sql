@@ -23,14 +23,14 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_docidentidad (
 );
 
 -- Tabla pais
-CREATE TABLE IF NOT EXISTS erp_odonto.erpo_pais (
-  id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  cod_pais VARCHAR(20) COMMENT 'Codigo generado por trigger',
-  pais VARCHAR(50),
-  capital VARCHAR(30) NOT NULL,
-  codigo_iso VARCHAR(10) NOT NULL COMMENT 'ejm: Perú: PER; Bolivia: BOL',
-  provincia VARCHAR(30) NOT NULL,
-  distrito VARCHAR(50) NOT NULL,
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_pais ( 
+  id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY, 
+  cod_pais VARCHAR(20) COMMENT 'Codigo generado por trigger', 
+  pais VARCHAR(50), 
+  capital VARCHAR(30) NOT NULL, 
+  codigo_iso VARCHAR(10) NOT NULL COMMENT 'ejm: Perú: PER; Bolivia: BOL', 
+  provincia VARCHAR(30) NOT NULL, 
+  distrito VARCHAR(50) NOT NULL, 
   moneda VARCHAR(30) COMMENT 'Peru: Soles; Mexico: Pesos mexicanos'
 );
 
@@ -67,6 +67,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_imgdentales (
   FOREIGN KEY(id_paciente) REFERENCES erpo_paciente(id)
 );
 
+-- Tabla comprobante
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_comprobante (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_comprobante VARCHAR(20) COMMENT 'Codigo generado por trigger',
@@ -151,7 +152,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_stock (
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_rrhh (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_rrhh VARCHAR(20) COMMENT 'Codigo generado por trigger',
-  nombre VARCHAR(50)NOT NULL,
+  nombre VARCHAR(50) NOT NULL,
   apellido VARCHAR(100) NOT NULL,
   telefono VARCHAR(12) NOT NULL,
   email VARCHAR(50) NOT NULL UNIQUE,
@@ -165,8 +166,8 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_rrhh (
 -- Tabla cita
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_cita (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  cod_cita VARCHAR(20) COMMENT 'Codigo generado por trigger',
   fecha_cita DATE NOT NULL,
+  cod_cita VARCHAR(20) COMMENT 'Codigo generado por trigger',
   diagnostico VARCHAR(30) NOT NULL,
   descripcion TEXT,
   tratamientos_realizados VARCHAR(30) NOT NULL,
@@ -183,6 +184,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_cita (
 );
 
 -- Tabla uso material
+
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_usomaterial (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_usomaterial VARCHAR(20) COMMENT 'Codigo generado por trigger',
@@ -219,21 +221,34 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_usersistema (
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_area (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   cod_area VARCHAR(20) COMMENT 'Codigo generado por trigger',
-  nombre_area VARCHAR(255) COMMENT 'consultorio 1, consultorio 2, recepcion, laboratorio'
+  id_rrhh INT COMMENT 'Personal asignado a cada area como dentista, asistente, recepcionista',
+  id_cita INT COMMENT 'llevar un registro de las citas programadas para el ingreso a las areas, en citas se va a ver que material va a usar',
+  nombre_area VARCHAR(255) COMMENT 'consultorio 1, consultorio 2, recepcion, laboratorio',
+  descripcion TEXT NOT NULL,
+  ubicacion VARCHAR(100) NOT NULL COMMENT 'En que parte del edificio se encuentra',
+  responsable VARCHAR(100) NOT NULL COMMENT 'El personal responsable del area, como el dentista, gerente de la recepcion, jefe de rrhh',
+  horario VARCHAR(100) NOT NULL COMMENT 'Horario en las que el area opera/esta abierta',
+  FOREIGN KEY(id_rrhh) REFERENCES erpo_rrhh(id),
+  FOREIGN KEY(id_cita) REFERENCES erpo_cita(id)
 );
 
 -- Tabla Servicio:
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_servicio (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  cod_servcio VARCHAR(20) COMMENT 'Codigo generado por trigger',
+  cod_servicio VARCHAR(20) COMMENT 'Codigo generado por trigger',
+  id_cita INT COMMENT 'programar y registrar los servicios prestados en citas',
   nombre_servicio VARCHAR(255),
-  costo DECIMAL(10, 2)
+  costo DECIMAL(10, 2),
+  FOREIGN KEY(id_cita) REFERENCES erpo_cita(id)
 );
 
+-- Tabla cobros
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_cobros (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   code_servicio VARCHAR(20) COMMENT 'Codigo generado por un trigger',
   costo_total DECIMAL(10, 2),
   id_servicio INT,
-  FOREIGN KEY (id_servicio) REFERENCES erpo_servicio(id)
-)
+  id_pagos INT,
+  FOREIGN KEY (id_servicio) REFERENCES erpo_servicio(id),
+  FOREIGN KEY (id_pagos) REFERENCES erpo_pagos(id)
+);
