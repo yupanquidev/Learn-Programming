@@ -219,20 +219,22 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_usersistema (
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_area (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   cod_area VARCHAR(20) COMMENT 'Codigo generado por trigger',
-  nombre_area VARCHAR(255) COMMENT 'consultorio 1, consultorio 2, recepcion, laboratorio'
+  nombre_area VARCHAR(255) COMMENT 'consultorio 1, consultorio 2, recepcion, laboratorio',
+  ubicacion VARCHAR(100)
 );
 
--- Tabla Servicio:
+-- Tabla Servicio
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_servicio (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  cod_servcio VARCHAR(20) COMMENT 'Codigo generado por trigger',
+  cod_servicio VARCHAR(20) COMMENT 'Codigo generado por trigger',
   nombre_servicio VARCHAR(255),
   costo DECIMAL(10, 2)
 );
 
+-- Tabla Cobros.
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_cobros (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  code_servicio VARCHAR(20) COMMENT 'Codigo generado por un trigger',
+  code_cobro VARCHAR(20) COMMENT 'Codigo generado por un trigger',
   costo_total DECIMAL(10, 2),
   id_servicio INT,
   FOREIGN KEY (id_servicio) REFERENCES erpo_servicio(id)
