@@ -69,4 +69,3 @@ FROM people AS p
 	LEFT JOIN people_sneakers AS ps ON p.id_people = ps.id_people
 	LEFT JOIN sneakers AS s ON ps.id_sneakers=s.id_sneakers
 WHERE ps.id_sneakers IS NULL;
-
