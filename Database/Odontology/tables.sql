@@ -230,6 +230,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_servicio (
   cod_servcio VARCHAR(20) COMMENT 'Codigo generado por trigger',
   nombre_servicio VARCHAR(255),
   costo DECIMAL(10, 2),
+  id_cita INT,
   FOREIGN KEY(id_cita) REFERENCES erpo_cita(id)
 );
 
