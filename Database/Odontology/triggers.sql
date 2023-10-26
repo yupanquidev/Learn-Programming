@@ -460,7 +460,7 @@ END
 |
 DELIMITER ;
 
--- Trigger para la tabla erpo_cobros
+-- Trigger para la tabla erpo_cobro
 DELIMITER |
 DROP TRIGGER IF EXISTS erpo_in_cobro;
 CREATE TRIGGER erpo_in_cobro
