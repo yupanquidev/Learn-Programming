@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_pais (
   moneda VARCHAR(30) COMMENT 'Peru: Soles; Mexico: Pesos mexicanos'
 );
 
--- Tabla de provincia 
+-- Tabla de provincia
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_provincia (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_provincia VARCHAR(20) COMMENT 'Codigo generado por trigger',
@@ -221,13 +221,13 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_usersistema (
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_area (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   cod_area VARCHAR(20) COMMENT 'Codigo generado por trigger',
-  id_rrhh INT COMMENT 'Personal asignado a cada area como dentista, asistente, recepcionista',
-  id_cita INT COMMENT 'llevar un registro de las citas programadas para el ingreso a las areas, en citas se va a ver que material va a usar',
   nombre_area VARCHAR(255) COMMENT 'consultorio 1, consultorio 2, recepcion, laboratorio',
   descripcion TEXT NOT NULL,
   ubicacion VARCHAR(100) NOT NULL COMMENT 'En que parte del edificio se encuentra',
   responsable VARCHAR(100) NOT NULL COMMENT 'El personal responsable del area, como el dentista, gerente de la recepcion, jefe de rrhh',
   horario VARCHAR(100) NOT NULL COMMENT 'Horario en las que el area opera/esta abierta',
+  id_rrhh INT COMMENT 'Personal asignado a cada area como dentista, asistente, recepcionista',
+  id_cita INT COMMENT 'llevar un registro de las citas programadas para el ingreso a las areas, en citas se va a ver que material va a usar',
   FOREIGN KEY(id_rrhh) REFERENCES erpo_rrhh(id),
   FOREIGN KEY(id_cita) REFERENCES erpo_cita(id)
 );
