@@ -236,7 +236,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_area (
 -- Tabla de servicio
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_servicio (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  cod_servcio VARCHAR(20) COMMENT 'Codigo generado por trigger',
+  cod_servicio VARCHAR(20) COMMENT 'Codigo generado por trigger',
   nombre_servicio VARCHAR(255),
   costo DECIMAL(10, 2),
   id_cita INT,
