@@ -3,12 +3,12 @@
 </script>
 
 <template>
-  <article class="followCard">
+  <article class="follow-card">
     <header class="header">
       <img class="avatar" src="" alt="">
       <div class="info">
         <a href="#"></a>
-        <span class="info-username">@</span>
+        <span class="info-username">@{{ username }}</span>
       </div>
     </header>
     <button>
