@@ -24,8 +24,8 @@
 
 | N° | Nombre | Código |  Web |
 | :--: | :--: | :--: | :--: |
-| **01** | **Twitter Follow Card** | [**Ver**](projects/01-twitter-follow-card/) | [**Ver**](https://twitterfollowcard.fly.dev/) |
-| **02** | **Tic Tac Toe** | [**Ver**](projects/02-tic-tac-toe/) | [**Ver**](https://tictactoe-ypnq.fly.dev/) |
+| **01** | **Twitter Follow Card** | [**Ver**](projects/01-twitter-follow-card/) | [**Ver**](https://x-follow-card-r.pages.dev) |
+| **02** | **Tic Tac Toe** | [**Ver**](projects/02-tic-tac-toe/) | [**Ver**](https://tic-tac-toe-r.pages.dev) |
 | **03** | **Mouse Follower** | [**Ver**](projects/03-mouse-follower) | |
 | **04** | **Technical Test** | [**Ver**](projects/04-technical-test) | |
 | **05** | **Movie Search** | [**Ver**](projects/05-movie-search) | |
