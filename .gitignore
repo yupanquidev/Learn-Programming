@@ -1,2 +1,3 @@
-# Ignora todos los archivos de la carpeta .idea, de cualquier subdirectorio.
 **/.idea
+**/.vscode
+**/.wrangler
