@@ -1,6 +1,6 @@
 # **⚛️ React** 
 
-## 📍Historia
+## Historia
 
 + React es de Meta, de código abierto, mantenido por Meta y una comunidad de desarrolladores.
 + React nació en Facebook en 2011, cuando se creó la primera versión de Instagram.
@@ -10,7 +10,7 @@
 + 2013 empieza a ser de código abierto. 
 + https://github.com/facebook/react
 
-## ❓¿Qué es React?
+## ¿Qué es React?
 
 + Es una biblioteca de JavaScript para construir interfaces de usuario.
 + Se utiliza el cualquier sitio páginas web, aplicaciones móviles, aplicaciones de escritorio, etc.
