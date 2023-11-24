@@ -1,9 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@font-face {
+  font-family: "Geist Sans";
+  src:
+    url("/font/GeistVariableVF.woff2") format("woff2 supports variations"),
+    url("/font/GeistVariableVF.woff2") format("woff2-variations"),
+    url("/font/GeistVariableVF.ttf") format("truetype");
+  font-weight: 100 900;
+  font-stretch: 75% 125%;
+}
+
+html {
+  font-family: "Geist Sans";
+}
 
 body {
   margin: 0;
   background: #000;
-  font-family:"TwitterChirp", -apple-system,BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Geist Sans";
   display: grid;
   place-content: center;
   min-height: 100vh;
