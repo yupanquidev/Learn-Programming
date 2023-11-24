@@ -83,7 +83,6 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_pagos (
   metodo_pago VARCHAR(30) NOT NULL COMMENT 'Efectivo, tarjeta de credito, tarjeta de debito, transferencia bancaria, deposito bancario, cheque',
   id_factura INT,
   id_comprobante INT,
-  FOREIGN KEY (id_factura) REFERENCES erpo_factura(id),
   FOREIGN KEY (id_comprobante) REFERENCES erpo_comprobante(id)
 );
 
@@ -136,6 +135,16 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_producto (
   FOREIGN KEY(id_proveedor) REFERENCES erpo_proveedor(id)
 );
 
+-- Tabla de proveedor_producto m:m
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_proveedorproducto(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  cod_prove_producto VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
+  id_proveedor INT,
+  id_producto INT,
+  FOREIGN KEY (id_proveedor) REFERENCES erp_proveedor(id),
+  FOREIGN KEY (id_producto) REFERENCES erpo_producto(id)
+);
+
 -- Tabla de stock
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_stock (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
@@ -149,10 +158,10 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_stock (
   FOREIGN KEY (id_proveedor) REFERENCES erpo_proveedor(id)
 );
 
--- Tabla de recursos humanos
-CREATE TABLE IF NOT EXISTS erp_odonto.erpo_rrhh (
+-- Tabla de personal
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_personal (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  cod_rrhh VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
+  cod_personal VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
   nombre VARCHAR(50) NOT NULL,
   apellido VARCHAR(100) NOT NULL,
   telefono VARCHAR(12) NOT NULL,
@@ -177,11 +186,11 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_cita (
   id_factura INT,
   id_paciente INT,
   id_stock INT,
-  id_rrhh INT,
+  id_personal INT,
   FOREIGN KEY(id_factura) REFERENCES erpo_factura(id),
   FOREIGN KEY(id_paciente) REFERENCES erpo_paciente(id),
   FOREIGN KEY(id_stock) REFERENCES erpo_stock(id),
-  FOREIGN KEY(id_rrhh) REFERENCES erpo_rrhh(id)
+  FOREIGN KEY(id_personal) REFERENCES erpo_personal(id)
 );
 
 -- Tabla de uso de material
@@ -226,9 +235,9 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_area (
   ubicacion VARCHAR(100) NOT NULL COMMENT 'En que parte del edificio se encuentra',
   responsable VARCHAR(100) NOT NULL COMMENT 'El personal responsable del area, como el dentista, gerente de la recepcion, jefe de rrhh',
   horario VARCHAR(100) NOT NULL COMMENT 'Horario en las que el area opera/esta abierta',
-  id_rrhh INT COMMENT 'Personal asignado a cada area como dentista, asistente, recepcionista',
+  id_personal INT COMMENT 'Personal asignado a cada area como dentista, asistente, recepcionista',
   id_cita INT COMMENT 'llevar un registro de las citas programadas para el ingreso a las areas, en citas se va a ver que material va a usar',
-  FOREIGN KEY(id_rrhh) REFERENCES erpo_rrhh(id),
+  FOREIGN KEY(id_personal) REFERENCES erpo_personal(id),
   FOREIGN KEY(id_cita) REFERENCES erpo_cita(id)
 );
 
