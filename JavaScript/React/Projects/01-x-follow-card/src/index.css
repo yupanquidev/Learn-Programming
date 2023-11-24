@@ -6,6 +6,7 @@
     url("/font/GeistVariableVF.ttf") format("truetype");
   font-weight: 100 900;
   font-stretch: 75% 125%;
+  font-display: swap;
 }
 
 html {
