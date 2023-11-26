@@ -1,28 +1,5 @@
 USE erp_odonto;
 
--- Trigger para la tabla erpo_facturas
-DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_factura;
-CREATE TRIGGER erpo_in_factura
-  BEFORE INSERT
-  ON erpo_factura
-  FOR EACH ROW
-BEGIN
-  DECLARE next_id INT;
-  DECLARE cod VARCHAR(20);
-  SET next_id = (SELECT COUNT(*) + 1 FROM erpo_factura);
-  IF (next_id < 10) THEN
-    SET cod = CONCAT('ERPODO0', next_id);
-  ELSE
-    IF (next_id < 100) THEN
-      SET cod = CONCAT('ERPODO01-', next_id);
-    END IF;
-  END IF;
-  SET new.cod_factura = cod;
-END
-|
-DELIMITER ;
-
 -- Trigger para la tabla erpo_docidentidad
 DELIMITER |
 DROP TRIGGER IF EXISTS erpo_in_docidentidad;
@@ -92,6 +69,29 @@ END
 |
 DELIMITER ;
 
+-- Trigger para la tabla erpo_cliente
+DELIMITER |
+DROP TRIGGER IF EXISTS erpo_in_cliente;
+CREATE TRIGGER erpo_in_cliente
+  BEFORE INSERT
+  ON erpo_cliente
+  FOR EACH ROW
+BEGIN
+  DECLARE next_id INT;
+  DECLARE cod VARCHAR(20);
+  SET next_id = (SELECT COUNT(*) + 1 FROM erpo_cliente);
+  IF (next_id < 10) THEN
+    SET cod = CONCAT('ERPODO01-0', next_id);
+  ELSE
+    IF (next_id < 100) THEN
+      SET cod = CONCAT('ERPODO01-', next_id);
+    END IF;
+  END IF;
+  SET new.cod_cliente = cod;
+END
+|
+DELIMITER ;
+
 -- Trigger para la tabla erpo_paciente
 DELIMITER |
 DROP TRIGGER IF EXISTS erpo_in_paciente;
@@ -138,8 +138,31 @@ END
 |
 DELIMITER ;
 
--- Trigger para la tabla erpo_comprobante
+-- Trigger para la tabla pagos
 DELIMITER |
+DROP TRIGGER IF EXISTS erpo_in_pagos;
+CREATE TRIGGER erpo_in_pagos
+  BEFORE INSERT
+  ON erpo_pagos
+  FOR EACH ROW
+BEGIN
+  DECLARE next_id INT;
+  DECLARE cod VARCHAR(20);
+  SET next_id = (SELECT COUNT(*) + 1 FROM erpo_pagos);
+  IF (next_id < 10) THEN
+    SET cod = CONCAT('ERPODO01-0', next_id);
+  ELSE
+    IF (next_id < 100) THEN
+      SET cod = CONCAT('ERPODO01-', next_id);
+    END IF;
+  END IF;
+  SET new.cod_pagos = cod;
+END
+|
+DELIMITER ;
+
+-- Trigger para la tabla erpo_comprobante
+/*DELIMITER |
 DROP TRIGGER IF EXISTS erpo_in_comprobante;
 CREATE TRIGGER erpo_in_comprobante
   BEFORE INSERT
@@ -157,29 +180,6 @@ BEGIN
     END IF;
   END IF;
   SET new.cod_comprobante = cod;
-END
-|
-DELIMITER ;
-
--- Trigger para la tabla erpo_pagos
-DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_pagos;
-CREATE TRIGGER erpo_in_pagos
-  BEFORE INSERT
-  ON erpo_pagos
-  FOR EACH ROW
-BEGIN
-  DECLARE next_id INT;
-  DECLARE cod VARCHAR(20);
-  SET next_id = (SELECT COUNT(*) + 1 FROM erpo_pagos);
-  IF (next_id < 10) THEN
-    SET cod = CONCAT('ERPODO0', next_id);
-  ELSE
-    IF (next_id < 100) THEN
-      SET cod = CONCAT('ERPODO01-', next_id);
-    END IF;
-  END IF;
-  SET new.cod_pagos = cod;
 END
 |
 DELIMITER ;
@@ -203,6 +203,29 @@ BEGIN
     END IF;
   END IF;
   SET new.cod_pagocomprobante = cod;
+END
+|
+DELIMITER ;*/
+
+-- Trigger para la tabla erp_odo_umedida
+DELIMITER |
+DROP TRIGGER IF EXISTS erpo_in_umedida;
+CREATE TRIGGER erpo_in_umedida
+  BEFORE INSERT
+  ON erpo_umedida
+  FOR EACH ROW
+BEGIN
+  DECLARE next_id INT;
+  DECLARE cod VARCHAR(20);
+  SET next_id = (SELECT COUNT(*) + 1 FROM erpo_umedida);
+  IF (next_id < 10) THEN
+    SET cod = CONCAT('ERPODO01-0', next_id);
+  ELSE
+    IF (next_id < 100) THEN
+      SET cod = CONCAT('ERPODO01-', next_id);
+    END IF;
+  END IF;
+  SET new.cod_umedida = cod;
 END
 |
 DELIMITER ;
@@ -230,29 +253,6 @@ END
 |
 DELIMITER ;
 
--- Trigger para la tabla erp_odo_umedida
-DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_umedida;
-CREATE TRIGGER erpo_in_umedida
-  BEFORE INSERT
-  ON erpo_umedida
-  FOR EACH ROW
-BEGIN
-  DECLARE next_id INT;
-  DECLARE cod VARCHAR(20);
-  SET next_id = (SELECT COUNT(*) + 1 FROM erpo_umedida);
-  IF (next_id < 10) THEN
-    SET cod = CONCAT('ERPODO01-0', next_id);
-  ELSE
-    IF (next_id < 100) THEN
-      SET cod = CONCAT('ERPODO01-', next_id);
-    END IF;
-  END IF;
-  SET new.cod_umedida = cod;
-END
-|
-DELIMITER ;
-
 -- Trigger para la tabla erpo_producto
 DELIMITER |
 DROP TRIGGER IF EXISTS erpo_in_producto;
@@ -272,6 +272,29 @@ BEGIN
     END IF;
   END IF;
   SET new.cod_producto = cod;
+END
+|
+DELIMITER ;
+
+-- Trigger para la tabla erpo_proveedorproducto
+DELIMITER |
+DROP TRIGGER IF EXISTS erpo_in_proveedorproducto;
+CREATE TRIGGER erpo_in_proveedorproducto
+  BEFORE INSERT
+  ON erpo_proveedorproducto
+  FOR EACH ROW
+BEGIN
+  DECLARE next_id INT;
+  DECLARE cod VARCHAR(20);
+  SET next_id = (SELECT COUNT(*) + 1 FROM erpo_proveedorproducto);
+  IF (next_id < 10) THEN
+    SET cod = CONCAT('ERPODO0', next_id);
+  ELSE
+    IF (next_id < 100) THEN
+      SET cod = CONCAT('ERPODO01-', next_id);
+    END IF;
+  END IF;
+  SET new.cod_proveedorproducto = cod;
 END
 |
 DELIMITER ;
@@ -299,6 +322,29 @@ END
 |
 DELIMITER ;
 
+-- Trigger para la tabla erpo_stockreserva
+DELIMITER |
+DROP TRIGGER IF EXISTS erpo_in_stockreserva;
+CREATE TRIGGER erpo_in_stockreserva
+  BEFORE INSERT
+  ON erpo_stockreserva
+  FOR EACH ROW
+BEGIN
+  DECLARE next_id INT;
+  DECLARE cod VARCHAR(20);
+  SET next_id = (SELECT COUNT(*) + 1 FROM erpo_stockreserva);
+  IF (next_id < 10) THEN
+    SET cod = CONCAT('ERPODO0', next_id);
+  ELSE
+    IF (next_id < 100) THEN
+      SET cod = CONCAT('ERPODO01-', next_id);
+    END IF;
+  END IF;
+  SET new.cod_stockreserva = cod;
+END
+|
+DELIMITER ;
+
 -- Trigger para la tabla erpo_rrhh
 DELIMITER |
 DROP TRIGGER IF EXISTS erpo_in_rrhh;
@@ -322,6 +368,29 @@ END
 |
 DELIMITER ;
 
+-- Trigger para la tabla erpo_personal
+DELIMITER |
+DROP TRIGGER IF EXISTS erpo_in_personal;
+CREATE TRIGGER erpo_in_personal
+  BEFORE INSERT
+  ON erpo_personal
+  FOR EACH ROW
+BEGIN
+  DECLARE next_id INT;
+  DECLARE cod VARCHAR(20);
+  SET next_id = (SELECT COUNT(*) + 1 FROM erpo_personal);
+  IF (next_id < 10) THEN
+    SET cod = CONCAT('ERPODO0', next_id);
+  ELSE
+    IF (next_id < 100) THEN
+      SET cod = CONCAT('ERPODO01-', next_id);
+    END IF;
+  END IF;
+  SET new.cod_personal = cod;
+END
+|
+DELIMITER ;
+
 -- Trigger para la tabla erpo_cita
 DELIMITER |
 DROP TRIGGER IF EXISTS erpo_in_cita;
@@ -341,6 +410,98 @@ BEGIN
     END IF;
   END IF;
   SET new.cod_cita = cod;
+END
+|
+DELIMITER ;
+
+-- Trigger para la tabla erpo_comprobante_pago
+DELIMITER |
+DROP TRIGGER IF EXISTS erpo_in_comprobante_pago;
+CREATE TRIGGER erpo_in_comprobante_pago
+  BEFORE INSERT
+  ON erpo_comprobante_pago
+  FOR EACH ROW
+BEGIN
+  DECLARE next_id INT;
+  DECLARE cod VARCHAR(20);
+  SET next_id = (SELECT COUNT(*) + 1 FROM erpo_comprobante_pago);
+  IF (next_id < 10) THEN
+    SET cod = CONCAT('ERPODO0', next_id);
+  ELSE
+    IF (next_id < 100) THEN
+      SET cod = CONCAT('ERPODO01-', next_id);
+    END IF;
+  END IF;
+  SET new.cod_comprobante_pago = cod;
+END
+|
+DELIMITER ;
+
+-- Trigger para la tabla erpo_facturas
+DELIMITER |
+DROP TRIGGER IF EXISTS erpo_in_factura;
+CREATE TRIGGER erpo_in_factura
+  BEFORE INSERT
+  ON erpo_factura
+  FOR EACH ROW
+BEGIN
+  DECLARE next_id INT;
+  DECLARE cod VARCHAR(20);
+  SET next_id = (SELECT COUNT(*) + 1 FROM erpo_factura);
+  IF (next_id < 10) THEN
+    SET cod = CONCAT('ERPODO0', next_id);
+  ELSE
+    IF (next_id < 100) THEN
+      SET cod = CONCAT('ERPODO01-', next_id);
+    END IF;
+  END IF;
+  SET new.cod_factura = cod;
+END
+|
+DELIMITER ;
+
+-- Trigger para la tabla erpo_boleta
+DELIMITER |
+DROP TRIGGER IF EXISTS erpo_in_boleta;
+CREATE TRIGGER erpo_in_boleta
+  BEFORE INSERT
+  ON erpo_boleta
+  FOR EACH ROW
+BEGIN
+  DECLARE next_id INT;
+  DECLARE cod VARCHAR(20);
+  SET next_id = (SELECT COUNT(*) + 1 FROM erpo_boleta);
+  IF (next_id < 10) THEN
+    SET cod = CONCAT('ERPODO0', next_id);
+  ELSE
+    IF (next_id < 100) THEN
+      SET cod = CONCAT('ERPODO01-', next_id);
+    END IF;
+  END IF;
+  SET new.cod_boleta = cod;
+END
+|
+DELIMITER ;
+
+-- Trigger para la tabla erpo_ticket 
+DELIMITER |
+DROP TRIGGER IF EXISTS erpo_in_ticket ;
+CREATE TRIGGER erpo_in_ticket 
+  BEFORE INSERT
+  ON erpo_ticket 
+  FOR EACH ROW
+BEGIN
+  DECLARE next_id INT;
+  DECLARE cod VARCHAR(20);
+  SET next_id = (SELECT COUNT(*) + 1 FROM erpo_ticket);
+  IF (next_id < 10) THEN
+    SET cod = CONCAT('ERPODO0', next_id);
+  ELSE
+    IF (next_id < 100) THEN
+      SET cod = CONCAT('ERPODO01-', next_id);
+    END IF;
+  END IF;
+  SET new.cod_ticket  = cod;
 END
 |
 DELIMITER ;
@@ -456,29 +617,6 @@ BEGIN
     END IF;
   END IF;
   SET new.cod_servicio = cod;
-END
-|
-DELIMITER ;
-
--- Trigger para la tabla erpo_cobro
-DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_cobro;
-CREATE TRIGGER erpo_in_cobro
-  BEFORE INSERT
-  ON erpo_cobro
-  FOR EACH ROW
-BEGIN
-  DECLARE next_id INT;
-  DECLARE cod VARCHAR(20);
-  SET next_id = (SELECT COUNT(*) + 1 FROM erpo_cobro);
-  IF (next_id < 10) THEN
-    SET cod = CONCAT('ERPODO01-0', next_id);
-  ELSE
-    IF (next_id < 100) THEN
-      SET cod = CONCAT('ERPODO01-', next_id);
-    END IF;
-  END IF;
-  SET new.cod_cobro = cod;
 END
 |
 DELIMITER ;
