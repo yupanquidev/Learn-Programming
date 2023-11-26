@@ -248,7 +248,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_rol (
   descripcion VARCHAR(50) NOT NULL
 );
 
--- Tabla de paciente
+-- Tabla de imgdentales
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_imgdentales (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_imgdentales VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
