@@ -192,9 +192,11 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_comprobante_pago (
   id_pago INT,
   id_cita INT,
   id_producto INT,
+  id_stockreserva INT,
   FOREIGN KEY (id_pago) REFERENCES erpo_pagos(id),
   FOREIGN KEY (id_cita) REFERENCES erpo_cita(id),
-  FOREIGN KEY (id_producto) REFERENCES erpo_producto(id)
+  FOREIGN KEY (id_producto) REFERENCES erpo_producto(id),
+  FOREIGN KEY () REFERENCES erpo_stockreserva(id)
 );
 
 -- Tabla factura
