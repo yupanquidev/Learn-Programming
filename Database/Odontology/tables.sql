@@ -299,3 +299,15 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_servicio (
   id_cita INT,
   FOREIGN KEY (id_cita) REFERENCES erpo_cita(id)
 );
+
+-- Tabla de auditoria
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_auditoria (
+  id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  cod_auditoria VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
+  id_Usuario INT, -- PK con usuario
+  fechaHora TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  accion_realizada VARCHAR(255),
+  tabla_afectada VARCHAR(50),
+  registro_afectadoID INT,
+  detalles_cambios TEXT
+);
