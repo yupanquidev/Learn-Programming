@@ -1,4 +1,4 @@
-USE DATABASE erp_odonto;
+USE erp_odonto;
 
 INSERT INTO erpo_usersistema (nombre, apellido, username, correo, contrasenia, fingerprint) 
 VALUES (
