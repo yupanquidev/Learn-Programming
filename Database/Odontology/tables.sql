@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_paciente (
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_umedida (
   id INT AUTO_INCREMENT PRIMARY KEY,
   cod_umedida VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
-  nombre VARCHAR(5) NOT NULL,
+  nombre VARCHAR(25) NOT NULL,
   simbolo VARCHAR(5) NOT NULL,
   equivalencia VARCHAR(100) NOT NULL
 );
@@ -250,7 +250,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_ticket (
   FOREIGN KEY (id_comprobante) REFERENCES erpo_comprobante_pago(id)
 );
 
--- Tabla de roles
+-- Tabla de rol
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_rol (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   cod_rol VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
@@ -279,7 +279,6 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_usersistema (
   correo VARCHAR(100) NOT NULL,
   contrasenia VARBINARY(60) NOT NULL COMMENT 'seguridad con hash',
   fingerprint VARBINARY(60) NOT NULL COMMENT 'seguridad con huella dactilar',
-  estado CHAR(1) NOT NULL COMMENT 'Los campos si son obligatorios',
   id_personal INT,
   id_rol INT,
   FOREIGN KEY (id_personal) REFERENCES erpo_personal(id),
@@ -311,6 +310,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_servicio (
   FOREIGN KEY (id_cita) REFERENCES erpo_cita(id)
 );
 
+-- Tabla auditoria
 CREATE TABLE IF NOT EXISTS erp_odonto.auditoria (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   cod_auditoria VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
