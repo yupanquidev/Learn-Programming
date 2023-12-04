@@ -279,6 +279,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_usersistema (
   correo VARCHAR(100) NOT NULL,
   contrasenia VARBINARY(60) NOT NULL COMMENT 'seguridad con hash',
   fingerprint VARBINARY(60) NOT NULL COMMENT 'seguridad con huella dactilar',
+  estado CHAR(1) COMMENT 'usuario activo o inactivo',
   id_personal INT,
   id_rol INT,
   FOREIGN KEY (id_personal) REFERENCES erpo_personal(id),
