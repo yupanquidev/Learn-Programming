@@ -225,8 +225,6 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_factura (
   cod_factura VARCHAR(20),
   id_comprobante_pago INT,
   -- Campos específicos de la factura
-  --
-  --
   FOREIGN KEY (id_comprobante_pago) REFERENCES erpo_comprobante_pago(id)
 );
 
@@ -235,7 +233,6 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_boleta (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_boleta VARCHAR(20),
   id_comprobante INT,
-  --
   -- Campos específicos de la boleta
   FOREIGN KEY (id_comprobante) REFERENCES erpo_comprobante_pago(id)
 );
@@ -246,7 +243,6 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_ticket (
   cod_ticket VARCHAR(20),
   id_comprobante INT,
   -- Campos específicos del ticket
-  --
   FOREIGN KEY (id_comprobante) REFERENCES erpo_comprobante_pago(id)
 );
 
