@@ -207,6 +207,9 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_pagos (
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_comprobante_pago (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_comprobante_pago VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
+  fecha_emision DATE,
+  monto DECIMAL(10, 2),
+  estaddo_pago VARCHAR(20),
   id_pago INT,
   id_cita INT,
   id_producto INT,
