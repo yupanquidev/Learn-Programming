@@ -207,6 +207,9 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_pagos (
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_comprobante_pago (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_comprobante_pago VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
+  fecha_emision DATE,
+  monto DECIMAL(10, 2),
+  estaddo_pago VARCHAR(20),
   id_pago INT,
   id_cita INT,
   id_producto INT,
@@ -225,8 +228,6 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_factura (
   cod_factura VARCHAR(20),
   id_comprobante_pago INT,
   -- Campos específicos de la factura
-  --
-  --
   FOREIGN KEY (id_comprobante_pago) REFERENCES erpo_comprobante_pago(id)
 );
 
@@ -235,7 +236,6 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_boleta (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_boleta VARCHAR(20),
   id_comprobante INT,
-  --
   -- Campos específicos de la boleta
   FOREIGN KEY (id_comprobante) REFERENCES erpo_comprobante_pago(id)
 );
@@ -246,7 +246,6 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_ticket (
   cod_ticket VARCHAR(20),
   id_comprobante INT,
   -- Campos específicos del ticket
-  --
   FOREIGN KEY (id_comprobante) REFERENCES erpo_comprobante_pago(id)
 );
 
@@ -279,6 +278,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_usersistema (
   correo VARCHAR(100) NOT NULL,
   contrasenia VARBINARY(60) NOT NULL COMMENT 'seguridad con hash',
   fingerprint VARBINARY(60) NOT NULL COMMENT 'seguridad con huella dactilar',
+  estado CHAR(1) COMMENT 'usuario activo o inactivo',
   id_personal INT,
   id_rol INT,
   FOREIGN KEY (id_personal) REFERENCES erpo_personal(id),
