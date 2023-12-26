@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_docidentidad (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_docidentidad VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
   tipo_docidentidad VARCHAR(100) NOT NULL COMMENT 'dni, passport, cedula de identidad, ruc',
-  numero_doc INT NOT NULL,
+  numero_docidentidad INT NOT NULL,
   genero VARCHAR(20) NOT NULL,
   fecha_nacimiento DATE NOT NULL,
   fecha_emision DATE NOT NULL,
