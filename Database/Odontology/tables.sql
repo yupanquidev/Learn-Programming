@@ -1,18 +1,5 @@
 USE erp_odonto;
 
--- Tabla de documento de identidad
-CREATE TABLE IF NOT EXISTS erp_odonto.erpo_docidentidad (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  cod_docidentidad VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
-  tipo_docidentidad VARCHAR(100) NOT NULL COMMENT 'dni, passport, cedula de identidad, ruc',
-  numero_docidentidad INT NOT NULL,
-  genero VARCHAR(20) NOT NULL,
-  fecha_nacimiento DATE NOT NULL,
-  fecha_emision DATE NOT NULL,
-  fecha_caducidad DATE NOT NULL,
-  direccion VARCHAR(30) NOT NULL
-);
-
 -- Tabla de pais
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_pais (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
@@ -33,6 +20,23 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_provincia (
   codigo_postal VARCHAR(20) NOT NULL,
   distrito VARCHAR(20) NOT NULL,
   id_pais INT,
+  FOREIGN KEY (id_pais) REFERENCES erpo_pais(id)
+);
+
+-- Tabla de documento de identidad
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_docidentidad (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  cod_docidentidad VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
+  tipo_docidentidad VARCHAR(100) NOT NULL COMMENT 'dni, passport, cedula de identidad, ruc',
+  numero_docidentidad INT NOT NULL,
+  genero VARCHAR(20) NOT NULL,
+  fecha_nacimiento DATE NOT NULL,
+  fecha_emision DATE NOT NULL,
+  fecha_caducidad DATE NOT NULL,
+  direccion VARCHAR(30) NOT NULL,
+  id_provincia INT,
+  id_pais INT,
+  FOREIGN KEY (id_provincia) REFERENCES erpo_provincia(id),
   FOREIGN KEY (id_pais) REFERENCES erpo_pais(id)
 );
 
@@ -227,7 +231,6 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_factura (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_factura VARCHAR(20),
   id_comprobante_pago INT,
-  -- Campos específicos de la factura
   FOREIGN KEY (id_comprobante_pago) REFERENCES erpo_comprobante_pago(id)
 );
 
@@ -236,7 +239,6 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_boleta (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_boleta VARCHAR(20),
   id_comprobante INT,
-  -- Campos específicos de la boleta
   FOREIGN KEY (id_comprobante) REFERENCES erpo_comprobante_pago(id)
 );
 
@@ -245,7 +247,6 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_ticket (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_ticket VARCHAR(20),
   id_comprobante INT,
-  -- Campos específicos del ticket
   FOREIGN KEY (id_comprobante) REFERENCES erpo_comprobante_pago(id)
 );
 
