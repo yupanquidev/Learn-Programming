@@ -7,8 +7,6 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_pais (
   pais VARCHAR(50) NOT NULL,
   capital VARCHAR(30) NOT NULL,
   codigo_iso VARCHAR(10) NOT NULL COMMENT 'ejm: Perú: PER; Bolivia: BOL',
-  provincia VARCHAR(30) NOT NULL,
-  distrito VARCHAR(50) NOT NULL,
   moneda VARCHAR(30) COMMENT 'Peru: Soles; Mexico: Pesos mexicanos'
 );
 
