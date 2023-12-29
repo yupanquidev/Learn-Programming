@@ -48,7 +48,6 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_cliente (
   FOREIGN KEY (id_docidentidad) REFERENCES erpo_docidentidad(id),
   FOREIGN KEY (id_pais) REFERENCES erpo_pais(id),
   FOREIGN KEY (id_provincia) REFERENCES erpo_provincia(id)
-
 );
 
 -- Tabla de paciente
