@@ -1,5 +1,3 @@
-create database erp_odonto;
-
 USE erp_odonto;
 
 -- Tabla de pais
