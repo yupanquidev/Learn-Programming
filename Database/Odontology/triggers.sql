@@ -1,28 +1,5 @@
 USE erp_odonto;
 
--- Trigger para la tabla erpo_docidentidad
-DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_docidentidad |;
-CREATE TRIGGER erpo_in_docidentidad
-  BEFORE INSERT
-  ON erpo_docidentidad
-  FOR EACH ROW
-BEGIN
-  DECLARE next_id INT;
-  DECLARE cod VARCHAR(20);
-  SET next_id = (SELECT COUNT(*) + 1 FROM erpo_docidentidad);
-  IF (next_id < 10) THEN
-    SET cod = CONCAT('ERPODO01-0', next_id);
-  ELSE
-    IF (next_id < 100) THEN
-      SET cod = CONCAT('ERPODO01-', next_id);
-    END IF;
-  END IF;
-  SET new.cod_docidentidad = cod;
-END
-|
-DELIMITER ;
-
 -- Trigger para la tabla erpo_pais
 DELIMITER |
 DROP TRIGGER IF EXISTS erpo_in_pais |;
@@ -65,6 +42,29 @@ BEGIN
     END IF;
   END IF;
   SET new.cod_provincia = cod;
+END
+|
+DELIMITER ;
+
+-- Trigger para la tabla erpo_docidentidad
+DELIMITER |
+DROP TRIGGER IF EXISTS erpo_in_docidentidad |;
+CREATE TRIGGER erpo_in_docidentidad
+  BEFORE INSERT
+  ON erpo_docidentidad
+  FOR EACH ROW
+BEGIN
+  DECLARE next_id INT;
+  DECLARE cod VARCHAR(20);
+  SET next_id = (SELECT COUNT(*) + 1 FROM erpo_docidentidad);
+  IF (next_id < 10) THEN
+    SET cod = CONCAT('ERPODO01-0', next_id);
+  ELSE
+    IF (next_id < 100) THEN
+      SET cod = CONCAT('ERPODO01-', next_id);
+    END IF;
+  END IF;
+  SET new.cod_docidentidad = cod;
 END
 |
 DELIMITER ;
