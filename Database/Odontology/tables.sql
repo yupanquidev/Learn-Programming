@@ -1,3 +1,5 @@
+create database erp_odonto;
+
 USE erp_odonto;
 
 -- Tabla de pais
@@ -28,8 +30,6 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_docidentidad (
   tipo_docidentidad VARCHAR(100) NOT NULL COMMENT 'dni, passport, cedula de identidad, ruc',
   nombre VARCHAR(200),
   apellido VARCHAR(250),
-  telefono VARCHAR(15),
-  email VARCHAR(255),
   numero_docidentidad INT NOT NULL,
   genero VARCHAR(20) NOT NULL,
   fecha_nacimiento DATE NOT NULL,
@@ -42,6 +42,8 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_docidentidad (
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_cliente (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_cliente VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
+  telefono VARCHAR(15),
+  email VARCHAR(255),
   id_docidentidad INT,
   id_pais INT,
   id_provincia INT,
@@ -54,20 +56,19 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_cliente (
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_paciente (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_paciente VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
-  nombre VARCHAR(255) NOT NULL,
-  apellido VARCHAR(255),
-  fecha_nacimiento DATE,
+  direccion VARCHAR(255),
   telefono VARCHAR(15),
   email VARCHAR(255),
-  direccion VARCHAR(255),
   antecedentes_medicos TEXT,
   historial_dental TEXT,
   id_cliente INT,
   id_provincia INT,
   id_pais INT,
+  id_docidentidad INT,
   FOREIGN KEY (id_cliente) REFERENCES erpo_cliente(id),
   FOREIGN KEY (id_provincia) REFERENCES erpo_provincia(id),
-  FOREIGN KEY (id_pais) REFERENCES erpo_pais(id)
+  FOREIGN KEY (id_pais) REFERENCES erpo_pais(id),
+  FOREIGN KEY (id_docidentidad) REFERENCES erpo_docidentidad(id)
 );
 
 -- Tabla de unidad de medida
