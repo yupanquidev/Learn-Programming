@@ -24,18 +24,11 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_provincia (
 );
 
 -- Tabla de documento de identidad
-CREATE TABLE IF NOT EXISTS erp_odonto.erpo_docidentidad (
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_tipodocidentidad (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_docidentidad VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
-  tipo_docidentidad VARCHAR(100) NOT NULL COMMENT 'dni, passport, cedula de identidad, ruc',
-  nombre VARCHAR(200),
-  apellido VARCHAR(250),
-  numero_docidentidad INT NOT NULL,
-  genero VARCHAR(20) NOT NULL,
-  fecha_nacimiento DATE NOT NULL,
-  fecha_emision DATE NOT NULL,
-  fecha_caducidad DATE NOT NULL,
-  direccion VARCHAR(30) NOT NULL,
+  tipo_docidentidad VARCHAR(100) NOT NULL COMMENT 'dni, passport, cedula de identidad, ruc,',
+  detalle VARCHAR(100) NULL COMMENT 'detalle del documento de identidad',
   estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
@@ -45,11 +38,16 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_cliente (
   cod_cliente VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
   telefono VARCHAR(15),
   email VARCHAR(255),
+  docidentidad VARCHAR(50) COMMENT 'dni: 2020344576, ruc: 10..., 20..., ',
+  nombre VARCHAR(200),
+  apellido VARCHAR(250),
+  direccion VARCHAR(30) NOT NULL,
   id_docidentidad INT,
   id_pais INT,
   id_provincia INT,
-  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
-  FOREIGN KEY (id_docidentidad) REFERENCES erpo_docidentidad(id),
+  tipo_cliente VARCHAR (100) NULL COMMENT 'persona natural, corporativo, asegurado, etc',
+  estado binary(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
+  FOREIGN KEY (id_docidentidad) REFERENCES erpo_tipodocidentidad(id),
   FOREIGN KEY (id_pais) REFERENCES erpo_pais(id),
   FOREIGN KEY (id_provincia) REFERENCES erpo_provincia(id)
 );
@@ -58,20 +56,25 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_cliente (
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_paciente (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   cod_paciente VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
+  docidentidad VARCHAR(50) COMMENT 'dni: 2020344576, ruc: 10..., 20..., ',
+  nombre VARCHAR(200),
+  apellido VARCHAR(250),
+  direccion VARCHAR(30) NOT NULL,
+  id_tipodocidentidad INT,
+  id_provincia INT,
+  id_pais INT,
+  id_cliente INT,
   direccion VARCHAR(255),
   telefono VARCHAR(15),
   email VARCHAR(255),
   antecedentes_medicos TEXT,
   historial_dental TEXT,
-  id_cliente INT,
-  id_provincia INT,
-  id_pais INT,
-  id_docidentidad INT,
-  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
+  cliente binary(1) DEFAULT '0' COMMENT 'determinamos si el paciente es el cliente quien efectuara los pagos',
+  estado binary(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
   FOREIGN KEY (id_cliente) REFERENCES erpo_cliente(id),
   FOREIGN KEY (id_provincia) REFERENCES erpo_provincia(id),
   FOREIGN KEY (id_pais) REFERENCES erpo_pais(id),
-  FOREIGN KEY (id_docidentidad) REFERENCES erpo_docidentidad(id)
+  FOREIGN KEY (id_tipodocidentidad) REFERENCES erpo_tipodocidentidad(id)
 );
 
 -- Tabla de unidad de medida
@@ -327,13 +330,23 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_servicio (
   FOREIGN KEY (id_cita) REFERENCES erpo_cita(id)
 );
 
+-- Tabla procesos
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_procesos (
+  id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  id_proceso VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
+  proceso varchar(100) NOT NULL COMMENT 'proceso u accion realizada',
+  detalle varchar(100) NOT NULL COMMENT 'detalle del proceso'
+);
+
 -- Tabla auditoria
-CREATE TABLE IF NOT EXISTS erp_odonto.auditoria (
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_auditoria (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   cod_auditoria VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
   fecha_hora TIMESTAMP,
-  accion_realizada VARCHAR(255),
-  id_usersistema INT,
+  ip VARCHAR (40) COMMENT 'este campo controla IPV4 y IPV6',
+  id_usersistema INT COMMENT 'es el usuario quien realizo la acción',
+  id_procesos INT COMMENT 'es la accion realizada',
   estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
-  FOREIGN KEY (id_usersistema) REFERENCES erpo_usersistema(id)
-)
+  FOREIGN KEY (id_usersistema) REFERENCES erpo_usersistema(id),
+  FOREIGN KEY (id_procesos) REFERENCES erpo_procesos(id)
+);
