@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_provincia (
 -- Tabla de documento de identidad
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_tipodocidentidad (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  cod_docidentidad VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
+  cod_tipodocidentidad VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
   tipo_docidentidad VARCHAR(100) NOT NULL COMMENT 'dni, passport, cedula de identidad, ruc,',
   detalle VARCHAR(100) NULL COMMENT 'detalle del documento de identidad',
   estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
@@ -332,6 +332,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_servicio (
 -- Tabla procesos
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_procesos (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  cod_procesos VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
   id_proceso VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
   proceso varchar(100) NOT NULL COMMENT 'proceso u accion realizada',
   detalle varchar(100) NOT NULL COMMENT 'detalle del proceso',

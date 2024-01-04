@@ -48,15 +48,15 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_docidentidad
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_docidentidad |;
-CREATE TRIGGER erpo_in_docidentidad
+DROP TRIGGER IF EXISTS erpo_in_tipodocidentidad |;
+CREATE TRIGGER erpo_in_tipodocidentidad
   BEFORE INSERT
-  ON erpo_docidentidad
+  ON erpo_tipodocidentidad
   FOR EACH ROW
 BEGIN
   DECLARE next_id INT;
   DECLARE cod VARCHAR(20);
-  SET next_id = (SELECT COUNT(*) + 1 FROM erpo_docidentidad);
+  SET next_id = (SELECT COUNT(*) + 1 FROM erpo_tipodocidentidad);
   IF (next_id < 10) THEN
     SET cod = CONCAT('ERPODO01-0', next_id);
   ELSE
@@ -64,7 +64,7 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_docidentidad = cod;
+  SET new.cod_tipodocidentidad = cod;
 END
 |
 DELIMITER ;
@@ -552,17 +552,17 @@ END
 |
 DELIMITER ;
 
--- Trigger para la tabla erpo_auditoria
+-- Trigger para la tabla erpo_procesos
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_servicio |;
-CREATE TRIGGER erpo_in_servicio
+DROP TRIGGER IF EXISTS erpo_in_procesos |;
+CREATE TRIGGER erpo_in_procesos
   BEFORE INSERT
-  ON erpo_servicio
+  ON erpo_procesos
   FOR EACH ROW
 BEGIN
   DECLARE next_id INT;
   DECLARE cod VARCHAR(20);
-  SET next_id = (SELECT COUNT(*) + 1 FROM erpo_servicio);
+  SET next_id = (SELECT COUNT(*) + 1 FROM erpo_procesos);
   IF (next_id < 10) THEN
     SET cod = CONCAT('ERPODO01-0', next_id);
   ELSE
@@ -570,7 +570,31 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_servicio = cod;
+  SET new.cod_procesos = cod;
+END
+|
+DELIMITER ;
+
+
+-- Trigger para la tabla erpo_auditoria
+DELIMITER |
+DROP TRIGGER IF EXISTS erpo_in_auditoria |;
+CREATE TRIGGER erpo_in_auditoria
+  BEFORE INSERT
+  ON erpo_auditoria
+  FOR EACH ROW
+BEGIN
+  DECLARE next_id INT;
+  DECLARE cod VARCHAR(20);
+  SET next_id = (SELECT COUNT(*) + 1 FROM erpo_auditoria);
+  IF (next_id < 10) THEN
+    SET cod = CONCAT('ERPODO01-0', next_id);
+  ELSE
+    IF (next_id < 100) THEN
+      SET cod = CONCAT('ERPODO01-', next_id);
+    END IF;
+  END IF;
+  SET new.cod_auditoria = cod;
 END
 |
 DELIMITER ;
