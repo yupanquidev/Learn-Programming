@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_pais (
   capital VARCHAR(30) NOT NULL,
   codigo_iso VARCHAR(10) NOT NULL COMMENT 'ejm: Perú: PER; Bolivia: BOL',
   moneda VARCHAR(30) COMMENT 'Peru: Soles; Mexico: Pesos mexicanos'
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla de provincia
@@ -19,6 +20,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_provincia (
   distrito VARCHAR(20) NOT NULL,
   id_pais INT,
   FOREIGN KEY (id_pais) REFERENCES erpo_pais(id)
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla de documento de identidad
@@ -34,6 +36,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_docidentidad (
   fecha_emision DATE NOT NULL,
   fecha_caducidad DATE NOT NULL,
   direccion VARCHAR(30) NOT NULL
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla de cliente
@@ -48,6 +51,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_cliente (
   FOREIGN KEY (id_docidentidad) REFERENCES erpo_docidentidad(id),
   FOREIGN KEY (id_pais) REFERENCES erpo_pais(id),
   FOREIGN KEY (id_provincia) REFERENCES erpo_provincia(id)
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla de paciente
@@ -67,6 +71,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_paciente (
   FOREIGN KEY (id_provincia) REFERENCES erpo_provincia(id),
   FOREIGN KEY (id_pais) REFERENCES erpo_pais(id),
   FOREIGN KEY (id_docidentidad) REFERENCES erpo_docidentidad(id)
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla de unidad de medida
@@ -76,6 +81,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_umedida (
   nombre VARCHAR(25) NOT NULL,
   simbolo VARCHAR(5) NOT NULL,
   equivalencia VARCHAR(100) NOT NULL
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla de proveedor
@@ -93,6 +99,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_proveedor (
   vendedor VARCHAR(100) NOT NULL,
   id_pais INT,
   FOREIGN KEY (id_pais) REFERENCES erpo_pais(id)
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla de producto
@@ -106,6 +113,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_producto (
   id_proveedor INT,
   FOREIGN KEY (id_umedida) REFERENCES erpo_umedida(id),
   FOREIGN KEY (id_proveedor) REFERENCES erpo_proveedor(id)
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla de proveedor_producto m:m
@@ -116,6 +124,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_proveedorproducto (
   id_producto INT,
   FOREIGN KEY (id_proveedor) REFERENCES erpo_proveedor(id),
   FOREIGN KEY (id_producto) REFERENCES erpo_producto(id)
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla de stock
@@ -127,6 +136,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_stock (
   fecha_caducidad DATE NOT NULL,
   id_producto INT,
   FOREIGN KEY (id_producto) REFERENCES erpo_producto(id)
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla stock reserva
@@ -142,6 +152,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_stockreserva (
   FOREIGN KEY (id_producto) REFERENCES erpo_producto(id),
   FOREIGN KEY (id_stock) REFERENCES erpo_stock(id),
   FOREIGN KEY (id_paciente) REFERENCES erpo_paciente(id)
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla de personal
@@ -157,6 +168,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_personal (
   id_docidentidad INT,
   FOREIGN KEY (id_provincia) REFERENCES erpo_provincia(id),
   FOREIGN KEY (id_docidentidad) REFERENCES erpo_docidentidad(id)
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla de cita
@@ -175,6 +187,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_cita (
   FOREIGN KEY (id_paciente) REFERENCES erpo_paciente(id),
   FOREIGN KEY (id_stockreserva) REFERENCES erpo_stockreserva(id),
   FOREIGN KEY (id_personal) REFERENCES erpo_personal(id)
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla de uso de material
@@ -187,6 +200,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_usomaterial (
   cantidad_uso INT,
   id_stock INT,
   FOREIGN KEY (id_stock) REFERENCES erpo_stock(id)
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla de pagos
@@ -198,6 +212,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_pagos (
   metodo_pago VARCHAR(30) NOT NULL COMMENT 'Efectivo, tarjeta de credito, tarjeta de debito, transferencia bancaria, deposito bancario, cheque',
   uso_material INT,
   FOREIGN KEY (uso_material) REFERENCES erpo_usomaterial(id)
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla de comprobante pago
@@ -217,6 +232,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_comprobante_pago (
   FOREIGN KEY (id_producto) REFERENCES erpo_producto(id),
   FOREIGN KEY (id_proveedor) REFERENCES erpo_proveedor(id),
   FOREIGN KEY (id_cliente) REFERENCES erpo_cliente(id)
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla factura
@@ -225,6 +241,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_factura (
   cod_factura VARCHAR(20),
   id_comprobante_pago INT,
   FOREIGN KEY (id_comprobante_pago) REFERENCES erpo_comprobante_pago(id)
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla boleta
@@ -233,6 +250,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_boleta (
   cod_boleta VARCHAR(20),
   id_comprobante INT,
   FOREIGN KEY (id_comprobante) REFERENCES erpo_comprobante_pago(id)
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla ticket
@@ -241,6 +259,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_ticket (
   cod_ticket VARCHAR(20),
   id_comprobante INT,
   FOREIGN KEY (id_comprobante) REFERENCES erpo_comprobante_pago(id)
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla de rol
@@ -249,6 +268,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_rol (
   cod_rol VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
   rol VARCHAR(50) NOT NULL,
   descripcion VARCHAR(50) NOT NULL
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla de imgenes dentales
@@ -260,6 +280,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_imgdentales (
   imagen LONGBLOB NOT NULL COMMENT 'Imagenes',
   id_paciente INT,
   FOREIGN KEY (id_paciente) REFERENCES erpo_paciente(id)
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla de usuario de sistema
@@ -277,6 +298,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_usersistema (
   id_rol INT,
   FOREIGN KEY (id_personal) REFERENCES erpo_personal(id),
   FOREIGN KEY (id_rol) REFERENCES erpo_rol(id)
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla area
@@ -292,6 +314,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_area (
   id_cita INT COMMENT 'llevar un registro de las citas programadas para el ingreso a las areas, en citas se va a ver que material va a usar',
   FOREIGN KEY (id_personal) REFERENCES erpo_personal(id),
   FOREIGN KEY (id_cita) REFERENCES erpo_cita(id)
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla de servicio
@@ -302,6 +325,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_servicio (
   costo DECIMAL(10, 2) NOT NULL,
   id_cita INT,
   FOREIGN KEY (id_cita) REFERENCES erpo_cita(id)
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla auditoria
