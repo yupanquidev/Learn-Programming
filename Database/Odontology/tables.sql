@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_cliente (
   id_pais INT,
   id_provincia INT,
   tipo_cliente VARCHAR (100) NULL COMMENT 'persona natural, corporativo, asegurado, etc',
-  estado binary(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
+  estado binary(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
   FOREIGN KEY (id_docidentidad) REFERENCES erpo_tipodocidentidad(id),
   FOREIGN KEY (id_pais) REFERENCES erpo_pais(id),
   FOREIGN KEY (id_provincia) REFERENCES erpo_provincia(id)
@@ -59,12 +59,11 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_paciente (
   docidentidad VARCHAR(50) COMMENT 'dni: 2020344576, ruc: 10..., 20..., ',
   nombre VARCHAR(200),
   apellido VARCHAR(250),
-  direccion VARCHAR(30) NOT NULL,
+  direccion VARCHAR(50) NOT NULL,
   id_tipodocidentidad INT,
   id_provincia INT,
   id_pais INT,
   id_cliente INT,
-  direccion VARCHAR(255),
   telefono VARCHAR(15),
   email VARCHAR(255),
   antecedentes_medicos TEXT,
@@ -168,10 +167,10 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_personal (
   email VARCHAR(50) NOT NULL UNIQUE,
   referencia VARCHAR(12) NOT NULL COMMENT 'Telefono de referencia, algun familiar',
   id_provincia INT,
-  id_docidentidad INT,
+  id_tipodocidentidad INT,
   estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
   FOREIGN KEY (id_provincia) REFERENCES erpo_provincia(id),
-  FOREIGN KEY (id_docidentidad) REFERENCES erpo_docidentidad(id)
+  FOREIGN KEY (id_tipodocidentidad) REFERENCES erpo_tipodocidentidad(id)
 );
 
 -- Tabla de cita
