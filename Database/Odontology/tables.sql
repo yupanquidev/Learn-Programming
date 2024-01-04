@@ -270,8 +270,8 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_rol (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   cod_rol VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
   rol VARCHAR(50) NOT NULL,
-  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
-  descripcion VARCHAR(50) NOT NULL
+  descripcion VARCHAR(50) NOT NULL,
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
 -- Tabla de imgenes dentales
@@ -336,6 +336,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_procesos (
   id_proceso VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
   proceso varchar(100) NOT NULL COMMENT 'proceso u accion realizada',
   detalle varchar(100) NOT NULL COMMENT 'detalle del proceso'
+  estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
 );
 
 -- Tabla auditoria
