@@ -333,7 +333,6 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_servicio (
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_procesos (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   cod_procesos VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
-  id_proceso VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
   proceso varchar(100) NOT NULL COMMENT 'proceso u accion realizada',
   detalle varchar(100) NOT NULL COMMENT 'detalle del proceso',
   estado BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'

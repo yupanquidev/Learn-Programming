@@ -150,7 +150,7 @@ BEGIN
   DECLARE cod VARCHAR(20);
   SET next_id = (SELECT COUNT(*) + 1 FROM erpo_proveedor);
   IF (next_id < 10) THEN
-    SET cod = CONCAT('ERPODO0', next_id);
+    SET cod = CONCAT('ERPODO01-0', next_id);
   ELSE
     IF (next_id < 100) THEN
       SET cod = CONCAT('ERPODO01-', next_id);
@@ -173,11 +173,13 @@ BEGIN
   DECLARE cod VARCHAR(20);
   SET next_id = (SELECT COUNT(*) + 1 FROM erpo_producto);
   IF (next_id < 10) THEN
-    SET cod = CONCAT('ERPODO0', next_id);
-  ELSE
-    IF (next_id < 100) THEN
-      SET cod = CONCAT('ERPODO01-', next_id);
-    END IF;
+    SET cod = CONCAT('ERPODO01-000', next_id);
+  ELSEIF (next_id < 100) THEN
+    SET cod = CONCAT('ERPODO01-00', next_id);
+  ELSEIF (next_id < 1000) THEN
+    SET cod = CONCAT('ERPODO01-0', next_id);
+  ELSEIF (next_id < 10000) THEN
+    SET cod = CONCAT('ERPODO01-', next_id);
   END IF;
   SET new.cod_producto = cod;
 END
@@ -196,7 +198,7 @@ BEGIN
   DECLARE cod VARCHAR(20);
   SET next_id = (SELECT COUNT(*) + 1 FROM erpo_proveedorproducto);
   IF (next_id < 10) THEN
-    SET cod = CONCAT('ERPODO0', next_id);
+    SET cod = CONCAT('ERPODO01-0', next_id);
   ELSE
     IF (next_id < 100) THEN
       SET cod = CONCAT('ERPODO01-', next_id);
@@ -219,7 +221,7 @@ BEGIN
   DECLARE cod VARCHAR(20);
   SET next_id = (SELECT COUNT(*) + 1 FROM erpo_stock);
   IF (next_id < 10) THEN
-    SET cod = CONCAT('ERPODO0', next_id);
+    SET cod = CONCAT('ERPODO01-0', next_id);
   ELSE
     IF (next_id < 100) THEN
       SET cod = CONCAT('ERPODO01-', next_id);
@@ -242,7 +244,7 @@ BEGIN
   DECLARE cod VARCHAR(20);
   SET next_id = (SELECT COUNT(*) + 1 FROM erpo_stockreserva);
   IF (next_id < 10) THEN
-    SET cod = CONCAT('ERPODO0', next_id);
+    SET cod = CONCAT('ERPODO01-0', next_id);
   ELSE
     IF (next_id < 100) THEN
       SET cod = CONCAT('ERPODO01-', next_id);
@@ -265,7 +267,7 @@ BEGIN
   DECLARE cod VARCHAR(20);
   SET next_id = (SELECT COUNT(*) + 1 FROM erpo_personal);
   IF (next_id < 10) THEN
-    SET cod = CONCAT('ERPODO0', next_id);
+    SET cod = CONCAT('ERPODO01-0', next_id);
   ELSE
     IF (next_id < 100) THEN
       SET cod = CONCAT('ERPODO01-', next_id);
@@ -311,7 +313,7 @@ BEGIN
   DECLARE cod VARCHAR(20);
   SET next_id = (SELECT COUNT(*) + 1 FROM erpo_usomaterial);
   IF (next_id < 10) THEN
-    SET cod = CONCAT('ERPODO0', next_id);
+    SET cod = CONCAT('ERPODO01-0', next_id);
   ELSE
     IF (next_id < 100) THEN
       SET cod = CONCAT('ERPODO01-', next_id);
@@ -357,7 +359,7 @@ BEGIN
   DECLARE cod VARCHAR(20);
   SET next_id = (SELECT COUNT(*) + 1 FROM erpo_comprobante_pago);
   IF (next_id < 10) THEN
-    SET cod = CONCAT('ERPODO0', next_id);
+    SET cod = CONCAT('ERPODO01-0', next_id);
   ELSE
     IF (next_id < 100) THEN
       SET cod = CONCAT('ERPODO01-', next_id);
@@ -380,7 +382,7 @@ BEGIN
   DECLARE cod VARCHAR(20);
   SET next_id = (SELECT COUNT(*) + 1 FROM erpo_factura);
   IF (next_id < 10) THEN
-    SET cod = CONCAT('ERPODO0', next_id);
+    SET cod = CONCAT('ERPODO01-0', next_id);
   ELSE
     IF (next_id < 100) THEN
       SET cod = CONCAT('ERPODO01-', next_id);
@@ -403,7 +405,7 @@ BEGIN
   DECLARE cod VARCHAR(20);
   SET next_id = (SELECT COUNT(*) + 1 FROM erpo_boleta);
   IF (next_id < 10) THEN
-    SET cod = CONCAT('ERPODO0', next_id);
+    SET cod = CONCAT('ERPODO01-0', next_id);
   ELSE
     IF (next_id < 100) THEN
       SET cod = CONCAT('ERPODO01-', next_id);
@@ -426,7 +428,7 @@ BEGIN
   DECLARE cod VARCHAR(20);
   SET next_id = (SELECT COUNT(*) + 1 FROM erpo_ticket);
   IF (next_id < 10) THEN
-    SET cod = CONCAT('ERPODO0', next_id);
+    SET cod = CONCAT('ERPODO01-0', next_id);
   ELSE
     IF (next_id < 100) THEN
       SET cod = CONCAT('ERPODO01-', next_id);
@@ -449,7 +451,7 @@ BEGIN
   DECLARE cod VARCHAR(20);
   SET next_id = (SELECT COUNT(*) + 1 FROM erpo_rol);
   IF (next_id < 10) THEN
-    SET cod = CONCAT('ERPODO0', next_id);
+    SET cod = CONCAT('ERPODO01-0', next_id);
   ELSE
     IF (next_id < 100) THEN
       SET cod = CONCAT('ERPODO01-', next_id);
@@ -472,7 +474,7 @@ BEGIN
   DECLARE cod VARCHAR(20);
   SET next_id = (SELECT COUNT(*) + 1 FROM erpo_imgdentales);
   IF (next_id < 10) THEN
-    SET cod = CONCAT('ERPODO0', next_id);
+    SET cod = CONCAT('ERPODO01-0', next_id);
   ELSE
     IF (next_id < 100) THEN
       SET cod = CONCAT('ERPODO01-', next_id);
@@ -564,17 +566,18 @@ BEGIN
   DECLARE cod VARCHAR(20);
   SET next_id = (SELECT COUNT(*) + 1 FROM erpo_procesos);
   IF (next_id < 10) THEN
+    SET cod = CONCAT('ERPODO01-000', next_id);
+  ELSEIF (next_id < 100) THEN
+    SET cod = CONCAT('ERPODO01-00', next_id);
+  ELSEIF (next_id < 1000) THEN
     SET cod = CONCAT('ERPODO01-0', next_id);
-  ELSE
-    IF (next_id < 100) THEN
-      SET cod = CONCAT('ERPODO01-', next_id);
-    END IF;
+  ELSEIF (next_id < 10000) THEN
+    SET cod = CONCAT('ERPODO01-', next_id);
   END IF;
   SET new.cod_procesos = cod;
 END
 |
 DELIMITER ;
-
 
 -- Trigger para la tabla erpo_auditoria
 DELIMITER |
