@@ -180,6 +180,9 @@ BEGIN
     SET cod = CONCAT('ERPODO01-0', next_id);
   ELSEIF (next_id < 10000) THEN
     SET cod = CONCAT('ERPODO01-', next_id);
+  ELSE
+    SIGNAL SQLSTATE '45000'
+      SET MESSAGE_TEXT = 'Se ha alcanzado el límite de 9999 datos en la tabla erpo_procesos';
   END IF;
   SET new.id_producto = cod;
 END
@@ -573,12 +576,11 @@ BEGIN
     SET cod = CONCAT('ERPODO01-0', next_id);
   ELSEIF (next_id < 10000) THEN
     SET cod = CONCAT('ERPODO01-', next_id);
-  SET new.cod_procesos = cod;
-  END IF;
-  IF
+  ELSE
     SIGNAL SQLSTATE '45000'
       SET MESSAGE_TEXT = 'Se ha alcanzado el límite de 9999 datos en la tabla erpo_procesos';
-  END IF;    
+  END IF;
+  SET new.id_procesos = cod;
 END
 |
 DELIMITER ;
