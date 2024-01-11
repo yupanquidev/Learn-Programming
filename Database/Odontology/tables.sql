@@ -32,22 +32,35 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_tipodocidentidad (
   cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
 );
 
+-- Tabla de empresa
+CREATE TABLE IF NOT EXISTS erp_odonto.erp_empresa (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  id_empresa VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
+  id_tipodocidentidad INT,
+  cmp_razon_social VARCHAR(100) NOT NULL,
+  cmp_direccion VARCHAR(30) NOT NULL,
+  cmp_telefono VARCHAR(15),
+  cmp_email VARCHAR(100)
+  cmp_logo LONGBLOB NOT NULL COMMENT 'Logo en formato img',
+    cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
+);
+
 -- Tabla de cliente
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_cliente (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   id_cliente VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
-  id_docidentidad INT,
+  id_tipodocidentidad INT,
   id_pais INT,
   id_provincia INT,
   cmp_telefono VARCHAR(15),
-  cmp_email VARCHAR(255),
+  cmp_email VARCHAR(150),
   cmp_docidentidad VARCHAR(50) COMMENT 'dni: 2020344576, ruc: 10..., 20..., ',
   cmp_nombre VARCHAR(200),
-  cmp_apellido VARCHAR(250),
+  cmp_apellido VARCHAR(50),
   cmp_direccion VARCHAR(30) NOT NULL,
   cmp_tipo_cliente VARCHAR (100) NULL COMMENT 'persona natural, corporativo, asegurado, etc',
   cmp_e binary(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
-  FOREIGN KEY (id_docidentidad) REFERENCES erpo_tipodocidentidad(id),
+  FOREIGN KEY (id_tipodocidentidad) REFERENCES erpo_tipodocidentidad(id),
   FOREIGN KEY (id_pais) REFERENCES erpo_pais(id),
   FOREIGN KEY (id_provincia) REFERENCES erpo_provincia(id)
 );
