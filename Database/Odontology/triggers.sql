@@ -182,7 +182,7 @@ BEGIN
     SET cod = CONCAT('ERPODO01-', next_id);
   ELSE
     SIGNAL SQLSTATE '45000'
-      SET MESSAGE_TEXT = 'Se ha alcanzado el límite de 9999 datos en la tabla erpo_procesos';
+      SET MESSAGE_TEXT = 'Se ha alcanzado el límite de 9999 datos en la tabla erpo_producto';
   END IF;
   SET new.id_producto = cod;
 END
