@@ -18,14 +18,14 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_pais = cod;
+  SET new.id_pais = cod;
 END
 |
 DELIMITER ;
 
 -- Trigger para la tabla erpo_provincia
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_provincia |;
+DROP TRIGGER IF EXISTS erpo_in_prov |;
 CREATE TRIGGER erpo_in_prov
   BEFORE INSERT
   ON erpo_provincia
@@ -41,7 +41,7 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_provincia = cod;
+  SET new.id_provincia = cod;
 END
 |
 DELIMITER ;
@@ -64,30 +64,7 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_tipodocidentidad = cod;
-END
-|
-DELIMITER ;
-
--- Trigger para la tabla erpo_empresa
-DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_empresa |;
-CREATE TRIGGER erpo_in_empresa
-  BEFORE INSERT
-  ON erpo_empresa
-  FOR EACH ROW
-BEGIN
-  DECLARE next_id INT;
-  DECLARE cod VARCHAR(20);
-  SET next_id = (SELECT COUNT(*) + 1 FROM erpo_empresa);
-  IF (next_id < 10) THEN
-    SET cod = CONCAT('ERPODO01-0', next_id);
-  ELSE
-    IF (next_id < 100) THEN
-      SET cod = CONCAT('ERPODO01-', next_id);
-    END IF;
-  END IF;
-  SET new.cod_empresa = cod;
+  SET new.id_tipodocidentidad = cod;
 END
 |
 DELIMITER ;
@@ -110,7 +87,7 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_cliente = cod;
+  SET new.id_cliente = cod;
 END
 |
 DELIMITER ;
@@ -133,7 +110,7 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_paciente = cod;
+  SET new.id_paciente = cod;
 END
 |
 DELIMITER ;
@@ -156,7 +133,7 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_umedida = cod;
+  SET new.id_umedida = cod;
 END
 |
 DELIMITER ;
@@ -179,7 +156,7 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_proveedor = cod;
+  SET new.id_proveedor = cod;
 END
 |
 DELIMITER ;
@@ -203,8 +180,11 @@ BEGIN
     SET cod = CONCAT('ERPODO01-0', next_id);
   ELSEIF (next_id < 10000) THEN
     SET cod = CONCAT('ERPODO01-', next_id);
+  ELSE
+    SIGNAL SQLSTATE '45000'
+      SET MESSAGE_TEXT = 'Se ha alcanzado el límite de 9999 datos en la tabla erpo_producto';
   END IF;
-  SET new.cod_producto = cod;
+  SET new.id_producto = cod;
 END
 |
 DELIMITER ;
@@ -227,7 +207,7 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_proveedorproducto = cod;
+  SET new.id_proveedorproducto = cod;
 END
 |
 DELIMITER ;
@@ -250,7 +230,7 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_stock = cod;
+  SET new.id_stock = cod;
 END
 |
 DELIMITER ;
@@ -273,14 +253,14 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_stockreserva = cod;
+  SET new.id_stockreserva = cod;
 END
 |
 DELIMITER ;
 
 -- Trigger para la tabla erpo_personal
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_personal |;
+DROP TRIGGER IF EXISTS erpo_in_personal;
 CREATE TRIGGER erpo_in_personal
   BEFORE INSERT
   ON erpo_personal
@@ -296,7 +276,7 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_personal = cod;
+  SET new.id_personal = cod;
 END
 |
 DELIMITER ;
@@ -319,7 +299,7 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_cita = cod;
+  SET new.id_cita = cod;
 END
 |
 DELIMITER ;
@@ -342,7 +322,7 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_usomaterial = cod;
+  SET new.id_usomaterial = cod;
 END
 |
 DELIMITER ;
@@ -365,7 +345,7 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_pagos = cod;
+  SET new.id_pagos = cod;
 END
 |
 DELIMITER ;
@@ -388,7 +368,7 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_comprobante_pago = cod;
+  SET new.id_comprobante_pago = cod;
 END
 |
 DELIMITER ;
@@ -411,7 +391,7 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_factura = cod;
+  SET new.id_factura = cod;
 END
 |
 DELIMITER ;
@@ -434,7 +414,7 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_boleta = cod;
+  SET new.id_boleta = cod;
 END
 |
 DELIMITER ;
@@ -457,7 +437,7 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_ticket  = cod;
+  SET new.id_ticket  = cod;
 END
 |
 DELIMITER ;
@@ -480,7 +460,7 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_rol = cod;
+  SET new.id_rol = cod;
 END
 |
 DELIMITER ;
@@ -503,7 +483,7 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_imgdentales = cod;
+  SET new.id_imgdentales = cod;
 END
 |
 DELIMITER ;
@@ -526,7 +506,7 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_usersistema = cod;
+  SET new.id_usersistema = cod;
 END
 |
 DELIMITER ;
@@ -549,7 +529,7 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_area = cod;
+  SET new.id_area = cod;
 END
 |
 DELIMITER ;
@@ -572,7 +552,7 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_servicio = cod;
+  SET new.id_servicio = cod;
 END
 |
 DELIMITER ;
@@ -596,8 +576,11 @@ BEGIN
     SET cod = CONCAT('ERPODO01-0', next_id);
   ELSEIF (next_id < 10000) THEN
     SET cod = CONCAT('ERPODO01-', next_id);
+  ELSE
+    SIGNAL SQLSTATE '45000'
+      SET MESSAGE_TEXT = 'Se ha alcanzado el límite de 9999 datos en la tabla erpo_procesos';
   END IF;
-  SET new.cod_procesos = cod;
+  SET new.id_procesos = cod;
 END
 |
 DELIMITER ;
@@ -620,7 +603,7 @@ BEGIN
       SET cod = CONCAT('ERPODO01-', next_id);
     END IF;
   END IF;
-  SET new.cod_auditoria = cod;
+  SET new.id_auditoria = cod;
 END
 |
 DELIMITER ;
