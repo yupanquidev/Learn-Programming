@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_provincia (
   id_pais INT,
   cmp_codigo_postal VARCHAR(20) NOT NULL,
   cmp_provincia VARCHAR(50) NOT NULL,
-  cmp_distrito VARCHAR(20) NOT NULL,
+  cmp_distrito VARCHAR(50) NOT NULL,
   cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
   FOREIGN KEY (id_pais) REFERENCES erpo_pais(id)
 );
