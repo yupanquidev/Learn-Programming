@@ -2,7 +2,7 @@ USE erp_odonto;
 
 -- Trigger para la tabla erpo_pais
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_pais |;
+DROP TRIGGER IF EXISTS erpo_in_pais;
 CREATE TRIGGER erpo_in_pais
   BEFORE INSERT
   ON erpo_pais
@@ -25,7 +25,7 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_provincia
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_prov |;
+DROP TRIGGER IF EXISTS erpo_in_prov;
 CREATE TRIGGER erpo_in_prov
   BEFORE INSERT
   ON erpo_provincia
@@ -48,7 +48,7 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_docidentidad
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_tipodocidentidad |;
+DROP TRIGGER IF EXISTS erpo_in_tipodocidentidad;
 CREATE TRIGGER erpo_in_tipodocidentidad
   BEFORE INSERT
   ON erpo_tipodocidentidad
@@ -71,7 +71,7 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_cliente
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_cliente |;
+DROP TRIGGER IF EXISTS erpo_in_cliente;
 CREATE TRIGGER erpo_in_cliente
   BEFORE INSERT
   ON erpo_cliente
@@ -94,7 +94,7 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_paciente
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_paciente |;
+DROP TRIGGER IF EXISTS erpo_in_paciente;
 CREATE TRIGGER erpo_in_paciente
   BEFORE INSERT
   ON erpo_paciente
@@ -117,7 +117,7 @@ DELIMITER ;
 
 -- Trigger para la tabla erp_odo_umedida
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_umedida |;
+DROP TRIGGER IF EXISTS erpo_in_umedida;
 CREATE TRIGGER erpo_in_umedida
   BEFORE INSERT
   ON erpo_umedida
@@ -140,7 +140,7 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_proveedor
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_proveedor |;
+DROP TRIGGER IF EXISTS erpo_in_proveedor;
 CREATE TRIGGER erpo_in_proveedor
   BEFORE INSERT
   ON erpo_proveedor
@@ -163,7 +163,7 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_producto
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_producto |;
+DROP TRIGGER IF EXISTS erpo_in_producto;
 CREATE TRIGGER erpo_in_producto
   BEFORE INSERT
   ON erpo_producto
@@ -191,7 +191,7 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_proveedorproducto
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_proveedorproducto |;
+DROP TRIGGER IF EXISTS erpo_in_proveedorproducto;
 CREATE TRIGGER erpo_in_proveedorproducto
   BEFORE INSERT
   ON erpo_proveedorproducto
@@ -214,7 +214,7 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_stock
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_stock |;
+DROP TRIGGER IF EXISTS erpo_in_stock;
 CREATE TRIGGER erpo_in_stock
   BEFORE INSERT
   ON erpo_stock
@@ -237,7 +237,7 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_stockreserva
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_stockreserva |;
+DROP TRIGGER IF EXISTS erpo_in_stockreserva;
 CREATE TRIGGER erpo_in_stockreserva
   BEFORE INSERT
   ON erpo_stockreserva
@@ -283,7 +283,7 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_cita
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_cita |;
+DROP TRIGGER IF EXISTS erpo_in_cita;
 CREATE TRIGGER erpo_in_cita
   BEFORE INSERT
   ON erpo_cita
@@ -306,7 +306,7 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_usomaterial
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_usomaterial |;
+DROP TRIGGER IF EXISTS erpo_in_usomaterial;
 CREATE TRIGGER erpo_in_usomaterial
   BEFORE INSERT
   ON erpo_usomaterial
@@ -329,7 +329,7 @@ DELIMITER ;
 
 -- Trigger para la tabla pagos
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_pagos |;
+DROP TRIGGER IF EXISTS erpo_in_pagos;
 CREATE TRIGGER erpo_in_pagos
   BEFORE INSERT
   ON erpo_pagos
@@ -352,7 +352,7 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_comprobante_pago
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_comprobante_pago |;
+DROP TRIGGER IF EXISTS erpo_in_comprobante_pago;
 CREATE TRIGGER erpo_in_comprobante_pago
   BEFORE INSERT
   ON erpo_comprobante_pago
@@ -375,7 +375,7 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_facturas
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_factura |;
+DROP TRIGGER IF EXISTS erpo_in_factura;
 CREATE TRIGGER erpo_in_factura
   BEFORE INSERT
   ON erpo_factura
@@ -398,7 +398,7 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_boleta
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_boleta |;
+DROP TRIGGER IF EXISTS erpo_in_boleta;
 CREATE TRIGGER erpo_in_boleta
   BEFORE INSERT
   ON erpo_boleta
@@ -421,7 +421,7 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_ticket
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_ticket |;
+DROP TRIGGER IF EXISTS erpo_in_ticket;
 CREATE TRIGGER erpo_in_ticket
   BEFORE INSERT
   ON erpo_ticket
@@ -444,7 +444,7 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_rol
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_rol |;
+DROP TRIGGER IF EXISTS erpo_in_rol;
 CREATE TRIGGER erpo_in_rol
   BEFORE INSERT
   ON erpo_rol
@@ -467,7 +467,7 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_imgdentales
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_imgdentales |;
+DROP TRIGGER IF EXISTS erpo_in_imgdentales;
 CREATE TRIGGER erpo_in_imgdentales
   BEFORE INSERT
   ON erpo_imgdentales
@@ -490,7 +490,7 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_usersistema
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_usersistema |;
+DROP TRIGGER IF EXISTS erpo_in_usersistema;
 CREATE TRIGGER erpo_in_usersistema
   BEFORE INSERT
   ON erpo_usersistema
@@ -513,7 +513,7 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_area
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_area |;
+DROP TRIGGER IF EXISTS erpo_in_area;
 CREATE TRIGGER erpo_in_area
   BEFORE INSERT
   ON erpo_area
@@ -536,7 +536,7 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_servicio
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_servicio |;
+DROP TRIGGER IF EXISTS erpo_in_servicio;
 CREATE TRIGGER erpo_in_servicio
   BEFORE INSERT
   ON erpo_servicio
@@ -559,7 +559,7 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_procesos
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_procesos |;
+DROP TRIGGER IF EXISTS erpo_in_procesos;
 CREATE TRIGGER erpo_in_procesos
   BEFORE INSERT
   ON erpo_procesos
@@ -587,7 +587,7 @@ DELIMITER ;
 
 -- Trigger para la tabla erpo_auditoria
 DELIMITER |
-DROP TRIGGER IF EXISTS erpo_in_auditoria |;
+DROP TRIGGER IF EXISTS erpo_in_auditoria;
 CREATE TRIGGER erpo_in_auditoria
   BEFORE INSERT
   ON erpo_auditoria
