@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_tipodocidentidad (
 );
 
 -- Tabla empresa
-CREATE TABLE IF NOT EXISTS erp_odonto.erp_empresa (
+CREATE TABLE IF NOT EXISTS erp_odonto.erpo_empresa (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   id_empresa VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
   id_tipodocidentidad INT,
