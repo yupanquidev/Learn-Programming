@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_empresa (
   id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
   id_empresa VARCHAR(20) NOT NULL UNIQUE COMMENT 'Codigo generado por trigger',
   id_tipodocidentidad INT,
-  cmp_razon_social VARCHAR(100) NOT NULL,
+  cmp_razonsocial VARCHAR(100) NOT NULL,
   cmp_direccion VARCHAR(30) NOT NULL,
   cmp_telefono VARCHAR(15),
   cmp_email VARCHAR(100),
