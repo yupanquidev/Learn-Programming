@@ -69,6 +69,29 @@ END
 |
 DELIMITER ;
 
+-- Trigger para la tabla erpo_empresa
+DELIMITER |
+DROP TRIGGER IF EXISTS erpo_in_empresa;
+CREATE TRIGGER erpo_in_empresa
+  BEFORE INSERT
+  ON erpo_empresa
+  FOR EACH ROW
+BEGIN
+  DECLARE next_id INT;
+  DECLARE cod VARCHAR(20);
+  SET next_id = (SELECT COUNT(*) + 1 FROM erpo_empresa);
+  IF (next_id < 10) THEN
+    SET cod = CONCAT('ERPODO01-0', next_id);
+  ELSE
+    IF (next_id < 100) THEN
+      SET cod = CONCAT('ERPODO01-', next_id);
+    END IF;
+  END IF;
+  SET new.id_empresa = cod;
+END
+|
+DELIMITER ;
+
 -- Trigger para la tabla erpo_cliente
 DELIMITER |
 DROP TRIGGER IF EXISTS erpo_in_cliente;
