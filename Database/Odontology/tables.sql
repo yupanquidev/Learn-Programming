@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_pais (
   cmp_codigo_iso VARCHAR(10) NOT NULL COMMENT 'ejm: Perú: PER; Bolivia: BOL',
   cmp_moneda VARCHAR(30) COMMENT 'Peru: Soles; Mexico: Pesos mexicanos',
   cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='PAÍS';
 
 -- Tabla provincia
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_provincia (
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_provincia (
   cmp_distrito VARCHAR(50) NOT NULL,
   cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
   FOREIGN KEY (id_pais) REFERENCES erpo_pais(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='PROVINCIA';
 
 -- Tabla documento de identidad
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_tipodocidentidad (
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_tipodocidentidad (
   cmp_detalle VARCHAR(100) NULL COMMENT 'detalle del documento de identidad',
   cmp_tipo_docidentidad VARCHAR(100) NOT NULL COMMENT 'dni, passport, cedula de identidad, ruc,',
   cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='TIPO DE DOCUMENTO DE IDENTIDAD';
 
 -- Tabla empresa
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_empresa (
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_empresa (
   cmp_logo LONGBLOB NOT NULL COMMENT 'Logo en formato img',
   cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
   FOREIGN KEY (id_tipodocidentidad) REFERENCES erpo_tipodocidentidad(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='EMPRESA';
 
 -- Tabla cliente
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_cliente (
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_cliente (
   FOREIGN KEY (id_tipodocidentidad) REFERENCES erpo_tipodocidentidad(id),
   FOREIGN KEY (id_pais) REFERENCES erpo_pais(id),
   FOREIGN KEY (id_provincia) REFERENCES erpo_provincia(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='CLIENTE';
 
 -- Tabla paciente
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_paciente (
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_paciente (
   FOREIGN KEY (id_provincia) REFERENCES erpo_provincia(id),
   FOREIGN KEY (id_pais) REFERENCES erpo_pais(id),
   FOREIGN KEY (id_tipodocidentidad) REFERENCES erpo_tipodocidentidad(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='PACIENTE';
 
 -- Tabla unidad de medida
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_umedida (
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_umedida (
   cmp_simbolo VARCHAR(5) NOT NULL,
   cmp_equivalencia VARCHAR(100) NOT NULL,
   cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='UNIDAD DE MEDIDA';
 
 -- Tabla proveedor
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_proveedor (
@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_proveedor (
   cmp_vendedor VARCHAR(100) NOT NULL,
   cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
   FOREIGN KEY (id_pais) REFERENCES erpo_pais(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='PROVEEDOR';
 
 -- Tabla producto
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_producto (
@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_producto (
   cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
   FOREIGN KEY (id_umedida) REFERENCES erpo_umedida(id),
   FOREIGN KEY (id_proveedor) REFERENCES erpo_proveedor(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='PRODUCTO';
 
 -- Tabla proveedor_producto m:m
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_proveedorproducto (
@@ -141,7 +141,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_proveedorproducto (
   cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
   FOREIGN KEY (id_proveedor) REFERENCES erpo_proveedor(id),
   FOREIGN KEY (id_producto) REFERENCES erpo_producto(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='PROVEEDOR::PRODUCTO';
 
 -- Tabla stock
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_stock (
@@ -153,7 +153,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_stock (
   cmp_fecha_caducidad DATE NOT NULL,
   cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
   FOREIGN KEY (id_producto) REFERENCES erpo_producto(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='STOCK';
 
 -- Tabla stock reserva
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_stockreserva (
@@ -169,7 +169,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_stockreserva (
   FOREIGN KEY (id_producto) REFERENCES erpo_producto(id),
   FOREIGN KEY (id_stock) REFERENCES erpo_stock(id),
   FOREIGN KEY (id_paciente) REFERENCES erpo_paciente(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='STOCK RESERVA';
 
 -- Tabla personal
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_personal (
@@ -190,7 +190,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_personal (
   cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
   FOREIGN KEY (id_provincia) REFERENCES erpo_provincia(id),
   FOREIGN KEY (id_tipodocidentidad) REFERENCES erpo_tipodocidentidad(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='PERSONAL';
 
 -- Tabla cita
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_cita (
@@ -209,7 +209,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_cita (
   FOREIGN KEY (id_paciente) REFERENCES erpo_paciente(id),
   FOREIGN KEY (id_stockreserva) REFERENCES erpo_stockreserva(id),
   FOREIGN KEY (id_personal) REFERENCES erpo_personal(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='CITA';
 
 -- Tabla uso de material
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_usomaterial (
@@ -222,7 +222,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_usomaterial (
   cmp_cantidad_uso INT,
   cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
   FOREIGN KEY (id_stock) REFERENCES erpo_stock(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='USO MATERIAL';
 
 -- Tabla pagos
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_pagos (
@@ -234,7 +234,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_pagos (
   cmp_metodo_pago VARCHAR(30) NOT NULL COMMENT 'Efectivo, tarjeta de credito, tarjeta de debito, transferencia bancaria, deposito bancario, cheque',
   cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
   FOREIGN KEY (id_usomaterial) REFERENCES erpo_usomaterial(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='PAGOS';
 
 -- Tabla comprobante pago
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_comprobante_pago (
@@ -254,7 +254,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_comprobante_pago (
   FOREIGN KEY (id_producto) REFERENCES erpo_producto(id),
   FOREIGN KEY (id_proveedor) REFERENCES erpo_proveedor(id),
   FOREIGN KEY (id_cliente) REFERENCES erpo_cliente(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='PAGO';
 
 -- Tabla factura
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_factura (
@@ -263,7 +263,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_factura (
   id_comprobante_pago INT,
   cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
   FOREIGN KEY (id_comprobante_pago) REFERENCES erpo_comprobante_pago(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='FACTURA';
 
 -- Tabla boleta
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_boleta (
@@ -272,7 +272,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_boleta (
   id_comprobante INT,
   cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
   FOREIGN KEY (id_comprobante) REFERENCES erpo_comprobante_pago(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='BOLETA';
 
 -- Tabla ticket
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_ticket (
@@ -281,7 +281,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_ticket (
   id_comprobante INT,
   cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
   FOREIGN KEY (id_comprobante) REFERENCES erpo_comprobante_pago(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='TICKET';
 
 -- Tabla rol
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_rol (
@@ -290,7 +290,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_rol (
   cmp_rol VARCHAR(50) NOT NULL,
   cmp_descripcion VARCHAR(150) NOT NULL,
   cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='ROL';
 
 -- Tabla imgenes dentales
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_imgdentales (
@@ -302,7 +302,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_imgdentales (
   cmp_imagen LONGBLOB NOT NULL COMMENT 'Imagenes',
   cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
   FOREIGN KEY (id_paciente) REFERENCES erpo_paciente(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='IMAGENES DENTALES';
 
 -- Tabla usuario de sistema
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_usersistema (
@@ -316,7 +316,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_usersistema (
   cmp_e binary(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
   FOREIGN KEY (id_personal) REFERENCES erpo_personal(id),
   FOREIGN KEY (id_rol) REFERENCES erpo_rol(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='USUARIO DE SISTEMA';
 
 -- Tabla area
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_area (
@@ -332,7 +332,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_area (
   cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
   FOREIGN KEY (id_personal) REFERENCES erpo_personal(id),
   FOREIGN KEY (id_cita) REFERENCES erpo_cita(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='AREA';
 
 -- Tabla servicio
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_servicio (
@@ -343,7 +343,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_servicio (
   cmp_costo DECIMAL(10, 2) NOT NULL,
   cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
   FOREIGN KEY (id_cita) REFERENCES erpo_cita(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='SERVICIO';
 
 -- Tabla procesos
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_procesos (
@@ -352,7 +352,7 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_procesos (
   cmp_proceso varchar(100) NOT NULL COMMENT 'proceso u accion realizada',
   cmp_detalle varchar(100) NOT NULL COMMENT 'detalle del proceso',
   cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down'
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='PROCESOS';
 
 -- Tabla auditoria
 CREATE TABLE IF NOT EXISTS erp_odonto.erpo_auditoria (
@@ -365,4 +365,4 @@ CREATE TABLE IF NOT EXISTS erp_odonto.erpo_auditoria (
   cmp_e BINARY(1) DEFAULT '1' COMMENT 'ESTADO 1:active 0:down',
   FOREIGN KEY (id_usersistema) REFERENCES erpo_usersistema(id),
   FOREIGN KEY (id_procesos) REFERENCES erpo_procesos(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='AUDITORIA';
